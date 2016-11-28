@@ -156,7 +156,7 @@ class GlyptodonView: UIView {
   }
   
   private func setupTapHandler(button: UIButton) {
-    button.addTarget(self, action: "didTapButton:", forControlEvents: .TouchUpInside)
+    button.addTarget(self, action: #selector(GlyptodonView.didTapButton(_:)), forControlEvents: .TouchUpInside)
   }
   
   func didTapButton(button: UIButton) {

@@ -30,8 +30,7 @@
 		61551A901BD9C0C50091D44A /* Hack_FSUUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61551A8F1BD9C0C50091D44A /* Hack_FSUUITests.swift */; };
 		61551A9E1BD9E5360091D44A /* HFFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61551A9D1BD9E5360091D44A /* HFFeedViewController.swift */; };
 		6164B0601C1F584B00FC04BA /* ScheduleHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6164B05F1C1F584B00FC04BA /* ScheduleHeaderCell.swift */; };
-		6164B0611C1F73C000FC04BA /* Pods_Hack_FSU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F3179E63106B529DE3B4C8D /* Pods_Hack_FSU.framework */; };
-		6164B0621C1F73C000FC04BA /* Pods_Hack_FSU.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2F3179E63106B529DE3B4C8D /* Pods_Hack_FSU.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6164B0621C1F73C000FC04BA /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6166252E1C21324100842E0E /* HFMapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6166252D1C21324100842E0E /* HFMapTableViewCell.swift */; };
 		61692B671C482F01007A6221 /* HFSponsorFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61692B661C482F01007A6221 /* HFSponsorFooterCell.swift */; };
 		61ACC34D1C44013F00714A5B /* HFCountdownManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ACC34C1C44013F00714A5B /* HFCountdownManager.swift */; };
@@ -39,7 +38,7 @@
 		61CC64C61C472D6200E08521 /* unisans.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 61CC64C51C472D6200E08521 /* unisans.OTF */; };
 		61D2D14E1BE7C53500145EBF /* HelpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D2D14D1BE7C53500145EBF /* HelpRequest.swift */; };
 		61F2087E1C51EF4C00B7CD27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61F2087D1C51EF4C00B7CD27 /* Assets.xcassets */; };
-		CED336EC00D9EC75BF013854 /* Pods_Hack_FSU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F3179E63106B529DE3B4C8D /* Pods_Hack_FSU.framework */; };
+		FED2F99B3C2A41A3A9FC2D47 /* Pods_Hack_FSU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372CFF18655F81B1F60ED852 /* Pods_Hack_FSU.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +65,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6164B0621C1F73C000FC04BA /* Pods_Hack_FSU.framework in Embed Frameworks */,
+				6164B0621C1F73C000FC04BA /* (null) in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,7 +73,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2F3179E63106B529DE3B4C8D /* Pods_Hack_FSU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hack_FSU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		372CFF18655F81B1F60ED852 /* Pods_Hack_FSU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hack_FSU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		610DD41B1BFE84B30061383D /* HFUpdateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HFUpdateTableViewCell.swift; sourceTree = "<group>"; };
 		610DD41D1BFEBD900061383D /* HFScheduleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HFScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		610DD41F1BFEBE5D0061383D /* HFScheduleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HFScheduleItem.swift; sourceTree = "<group>"; };
@@ -112,8 +111,9 @@
 		61D2D14D1BE7C53500145EBF /* HelpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpRequest.swift; sourceTree = "<group>"; };
 		61D2D14F1BE7C83E00145EBF /* Hack FSU-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hack FSU-Bridging-Header.h"; sourceTree = "<group>"; };
 		61F2087D1C51EF4C00B7CD27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		75938323F00D36E19490B513 /* Pods-Hack FSU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hack FSU.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hack FSU/Pods-Hack FSU.debug.xcconfig"; sourceTree = "<group>"; };
-		F55EC12BE118A0CA1F4CEFC3 /* Pods-Hack FSU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hack FSU.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hack FSU/Pods-Hack FSU.release.xcconfig"; sourceTree = "<group>"; };
+		B364FA72B1545F656248E5EE /* Pods-Hack FSU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hack FSU.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hack FSU/Pods-Hack FSU.debug.xcconfig"; sourceTree = "<group>"; };
+		E0C8C6E9D166446C8B6F2ABE /* Pods-Hack FSU.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hack FSU.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-Hack FSU/Pods-Hack FSU.adhoc.xcconfig"; sourceTree = "<group>"; };
+		E44455C18E0CFED949C518E0 /* Pods-Hack FSU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hack FSU.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hack FSU/Pods-Hack FSU.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,8 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6164B0611C1F73C000FC04BA /* Pods_Hack_FSU.framework in Frameworks */,
-				CED336EC00D9EC75BF013854 /* Pods_Hack_FSU.framework in Frameworks */,
+				FED2F99B3C2A41A3A9FC2D47 /* Pods_Hack_FSU.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +142,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		26FDD11962AD03EA2FB3222B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				372CFF18655F81B1F60ED852 /* Pods_Hack_FSU.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		610DD41A1BFE848A0061383D /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,15 +172,6 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
-		61499DB71E3E5D02AC0122A0 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				75938323F00D36E19490B513 /* Pods-Hack FSU.debug.xcconfig */,
-				F55EC12BE118A0CA1F4CEFC3 /* Pods-Hack FSU.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		61551A631BD9C0C50091D44A = {
 			isa = PBXGroup;
 			children = (
@@ -181,9 +179,9 @@
 				61551A831BD9C0C50091D44A /* Hack FSUTests */,
 				61551A8E1BD9C0C50091D44A /* Hack FSUUITests */,
 				61551A6D1BD9C0C50091D44A /* Products */,
-				61499DB71E3E5D02AC0122A0 /* Pods */,
-				ED45C38FB39F58E0F2DB6D87 /* Frameworks */,
 				61D2D14F1BE7C83E00145EBF /* Hack FSU-Bridging-Header.h */,
+				C107CA4FF56862CF66FEB7B0 /* Pods */,
+				26FDD11962AD03EA2FB3222B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -269,12 +267,14 @@
 			name = Style;
 			sourceTree = "<group>";
 		};
-		ED45C38FB39F58E0F2DB6D87 /* Frameworks */ = {
+		C107CA4FF56862CF66FEB7B0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2F3179E63106B529DE3B4C8D /* Pods_Hack_FSU.framework */,
+				B364FA72B1545F656248E5EE /* Pods-Hack FSU.debug.xcconfig */,
+				E44455C18E0CFED949C518E0 /* Pods-Hack FSU.release.xcconfig */,
+				E0C8C6E9D166446C8B6F2ABE /* Pods-Hack FSU.adhoc.xcconfig */,
 			);
-			name = Frameworks;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,13 +284,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 61551A941BD9C0C50091D44A /* Build configuration list for PBXNativeTarget "Hack FSU" */;
 			buildPhases = (
-				37EE1F4854BB9F03D49F544F /* Check Pods Manifest.lock */,
+				48EA93BE31EE172D20C3E272 /* [CP] Check Pods Manifest.lock */,
 				61551A681BD9C0C50091D44A /* Sources */,
 				61551A691BD9C0C50091D44A /* Frameworks */,
 				61551A6A1BD9C0C50091D44A /* Resources */,
-				A076E4D925DE974C3E03BDAC /* Embed Pods Frameworks */,
-				F3F73658FC105826EEAA3ABC /* Copy Pods Resources */,
 				6164B0631C1F73C000FC04BA /* Embed Frameworks */,
+				A04CA54A09B41382FB91702F /* [CP] Embed Pods Frameworks */,
+				6EC9459230F2167B9CE7AC2E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -344,12 +344,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Todd Littlejohn";
 				TargetAttributes = {
 					61551A6B1BD9C0C50091D44A = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = KW8RLKUW3C;
+						LastSwiftMigration = 0810;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -358,10 +359,12 @@
 					};
 					61551A7F1BD9C0C50091D44A = {
 						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0810;
 						TestTargetID = 61551A6B1BD9C0C50091D44A;
 					};
 					61551A8A1BD9C0C50091D44A = {
 						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0810;
 						TestTargetID = 61551A6B1BD9C0C50091D44A;
 					};
 				};
@@ -415,49 +418,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		37EE1F4854BB9F03D49F544F /* Check Pods Manifest.lock */ = {
+		48EA93BE31EE172D20C3E272 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		A076E4D925DE974C3E03BDAC /* Embed Pods Frameworks */ = {
+		6EC9459230F2167B9CE7AC2E /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hack FSU/Pods-Hack FSU-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F3F73658FC105826EEAA3ABC /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hack FSU/Pods-Hack FSU-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A04CA54A09B41382FB91702F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hack FSU/Pods-Hack FSU-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -558,8 +561,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Todd Joseph Littlejohn (4KYDF7BG9W)";
@@ -605,8 +610,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Todd Joseph Littlejohn (KW8RLKUW3C)";
@@ -627,6 +634,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "312d49a1-b34f-40b9-94f1-74249894be2d";
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -634,8 +642,9 @@
 		};
 		61551A951BD9C0C50091D44A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 75938323F00D36E19490B513 /* Pods-Hack FSU.debug.xcconfig */;
+			baseConfigurationReference = B364FA72B1545F656248E5EE /* Pods-Hack FSU.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Todd Joseph Littlejohn (4KYDF7BG9W)";
@@ -647,14 +656,16 @@
 				PROVISIONING_PROFILE = "333e0c91-e45f-458e-a7ed-829f77fcf8dd";
 				SWIFT_OBJC_BRIDGING_HEADER = "Hack FSU-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		61551A961BD9C0C50091D44A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F55EC12BE118A0CA1F4CEFC3 /* Pods-Hack FSU.release.xcconfig */;
+			baseConfigurationReference = E44455C18E0CFED949C518E0 /* Pods-Hack FSU.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Todd Joseph Littlejohn (KW8RLKUW3C)";
@@ -666,6 +677,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "312d49a1-b34f-40b9-94f1-74249894be2d";
 				SWIFT_OBJC_BRIDGING_HEADER = "Hack FSU-Bridging-Header.h";
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -680,6 +692,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "HackFSU.Hack-FSUTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "e55af00c-2342-4ff6-9e58-8da52b6be26a";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hack FSU.app/Hack FSU";
 			};
 			name = Debug;
@@ -694,6 +707,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "HackFSU.Hack-FSUTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "e55af00c-2342-4ff6-9e58-8da52b6be26a";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hack FSU.app/Hack FSU";
 			};
 			name = Release;
@@ -705,6 +719,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "HackFSU.Hack-FSUUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = "Hack FSU";
 				USES_XCTRUNNER = YES;
 			};
@@ -717,6 +732,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "HackFSU.Hack-FSUUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = "Hack FSU";
 				USES_XCTRUNNER = YES;
 			};
@@ -735,8 +751,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Todd Joseph Littlejohn (KW8RLKUW3C)";
@@ -764,8 +782,9 @@
 		};
 		61A16A321C494FD200373313 /* adHoc */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F55EC12BE118A0CA1F4CEFC3 /* Pods-Hack FSU.release.xcconfig */;
+			baseConfigurationReference = E0C8C6E9D166446C8B6F2ABE /* Pods-Hack FSU.adhoc.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Todd Joseph Littlejohn (KW8RLKUW3C)";
@@ -777,6 +796,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "312d49a1-b34f-40b9-94f1-74249894be2d";
 				SWIFT_OBJC_BRIDGING_HEADER = "Hack FSU-Bridging-Header.h";
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = adHoc;
@@ -791,6 +811,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "HackFSU.Hack-FSUTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "e55af00c-2342-4ff6-9e58-8da52b6be26a";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hack FSU.app/Hack FSU";
 			};
 			name = adHoc;
@@ -802,6 +823,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "HackFSU.Hack-FSUUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = "Hack FSU";
 				USES_XCTRUNNER = YES;
 			};

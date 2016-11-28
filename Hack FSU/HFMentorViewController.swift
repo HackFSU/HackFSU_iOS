@@ -325,10 +325,10 @@ class HFMentorViewController: UIViewController, UITextViewDelegate, UITextFieldD
         nameTextField.delegate = self // Replace TextField with the name of your textField
         locationTextField.delegate = self
         descriptionTextView.delegate = self
-        nameTextField.addTarget(self, action: "nameTextFieldDidEnd:", forControlEvents: UIControlEvents.EditingDidEnd)
-        nameTextField.addTarget(self, action: "nameTextFieldDidChange:", forControlEvents: UIControlEvents.EditingChanged)
-        locationTextField.addTarget(self, action: "locationTextFieldDidEnd:", forControlEvents: UIControlEvents.EditingDidEnd)
-        locationTextField.addTarget(self, action: "locationTextFieldDidChange:", forControlEvents: UIControlEvents.EditingChanged)
+        nameTextField.addTarget(self, action: #selector(HFMentorViewController.nameTextFieldDidEnd(_:)), forControlEvents: UIControlEvents.EditingDidEnd)
+        nameTextField.addTarget(self, action: #selector(HFMentorViewController.nameTextFieldDidChange(_:)), forControlEvents: UIControlEvents.EditingChanged)
+        locationTextField.addTarget(self, action: #selector(HFMentorViewController.locationTextFieldDidEnd(_:)), forControlEvents: UIControlEvents.EditingDidEnd)
+        locationTextField.addTarget(self, action: #selector(HFMentorViewController.locationTextFieldDidChange(_:)), forControlEvents: UIControlEvents.EditingChanged)
         
         // Set all checkBox's animation type to Bounce
         namecheckBox.onAnimationType = BEMAnimationType.Fill
@@ -340,7 +340,7 @@ class HFMentorViewController: UIViewController, UITextViewDelegate, UITextFieldD
         
         // Keyboard stuff.
         let center: NSNotificationCenter = NSNotificationCenter.defaultCenter()
-        center.addObserver(self, selector: "keyboardDidShow:", name: UIKeyboardDidShowNotification, object: nil)
+        center.addObserver(self, selector: #selector(HFMentorViewController.keyboardDidShow(_:)), name: UIKeyboardDidShowNotification, object: nil)
         
         // Nav bar 
         self.navigationController?.navigationBar.barTintColor = UIColor._hackRed()

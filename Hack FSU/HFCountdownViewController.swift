@@ -47,7 +47,7 @@ class HFCountdownViewController: UIViewController {
     func runClock() {
         timerCount = Int(NSDate.timeUntil(countdownManager.getCurrentCountdownTime()))
         counting()
-        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("counting"), userInfo: nil,repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(HFCountdownViewController.counting), userInfo: nil,repeats: true)
         timerIsRunning = true
     }
     
@@ -64,7 +64,7 @@ class HFCountdownViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         let random = Int(arc4random_uniform(4))
         let image = shapeArray[random]
-        self.shapeImage.image = UIImage(named: image as! String)
+        self.shapeImage.image = UIImage(named: image )
 
     }
     

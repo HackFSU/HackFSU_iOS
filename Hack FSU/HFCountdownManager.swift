@@ -146,7 +146,7 @@ class HFCountdownManager {
                 for item in objects! {
                     
                     let newCountdownItemName = item.objectForKey("label") as! String
-                    var newCountdownItemTime = item.objectForKey("time") as! NSDate
+                    let newCountdownItemTime = item.objectForKey("time") as! NSDate
                     print(newCountdownItemName)
                     let newCountdownItem = HFCountdownItem(time: newCountdownItemTime, name: newCountdownItemName)
                     
