@@ -10,4 +10,6 @@ target 'Hack FSU' do
 	pod 'FlatUIKit'
 	pod 'ParseUI'
 	pod 'Agrume', :git => 'https://github.com/JanGorman/Agrume.git' 
+	pod 'Alamofire', '~> 3.5.0'
+	pod 'SwiftyJSON', '~> 2.4.0'
 end

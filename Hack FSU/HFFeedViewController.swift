@@ -3,24 +3,26 @@
 //  Hack FSU
 //
 //  Created by Todd Littlejohn on 10/22/15.
-//  Copyright © 2015 Todd Littlejohn. All rights reserved.
+//  Copyright © 2017 Cam. All rights reserved.
 //
 
 import UIKit
 import Glyptodon
 import Parse
 import FlatUIKit
+import Alamofire
+import SwiftyJSON
 
 class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: UI Outlets
     
     @IBOutlet weak var feedTableView: UITableView!
-
     @IBOutlet weak var feedSegmentControl: UISegmentedControl!
-    
     @IBOutlet weak var tableViewContainerView: UIView!
     
+    let apiURL = NSURL(string: "https://cfarzaneh.github.io/sample.json")!
+    var titles = [String]()
     
     
     // MARK: Class Variables
@@ -39,9 +41,9 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         feedTableView.setContentOffset(CGPointZero, animated: false)
-        getUpdatesFromParse()
-        getScheduleItemsFromParse()
-        checkForContent()
+        //getUpdatesFromParse()
+        //getScheduleItemsFromParse()
+        //checkForContent()
         self.feedTableView.rowHeight = UITableViewAutomaticDimension
         self.feedTableView.estimatedRowHeight = 44.0
         feedTableView.separatorStyle = UITableViewCellSeparatorStyle.None
@@ -64,16 +66,37 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
 //        self.navigationItem.titleView = imageView
         
+        callAlamo(apiURL)
     }
     
     override func viewWillLayoutSubviews() {
-        checkForContent()
+        //checkForContent()
+        //callAlamo(apiURL)
     }
     
     override func viewDidAppear(animated: Bool) {
-        getUpdatesFromParse()
+        //getUpdatesFromParse()
+        //callAlamo(apiURL)
         UIApplication.sharedApplication().applicationIconBadgeNumber = 0
     }
+    
+    func callAlamo(url : NSURL) {
+        Alamofire.request(.GET, url, encoding: .JSON).validate().responseJSON(completionHandler: {
+        
+            response in
+            let json = JSON(response.result.value!)
+            for result in json["results"].arrayValue {
+                let title = result["title"].stringValue
+                self.titles.append(title)
+            }
+            for i in self.titles {
+                print(i)
+            }
+            self.feedTableView.reloadData()
+        })
+    }
+
+    
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         let update = 0
@@ -81,7 +104,7 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         switch (self.feedSegmentControl.selectedSegmentIndex) {
         case update:
-            return updateFeedArray.count
+            return titles.count
         case scheudle:
             return 3
         default: return 0
@@ -118,12 +141,14 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
         case update:
             
             let cell:HFUpdateTableViewCell = tableView.dequeueReusableCellWithIdentifier("HFUpdateTableViewCell") as! HFUpdateTableViewCell
-            let update = updateFeedArray[indexPath.section]
-            cell.title.text = update.getTitle()
-            cell.subTitle.text = update.getContent()
-            print(update.getTimestamp())
-            cell.timestamp.text = update.getTimestamp()
-            print(update.getTimestamp())
+            //let update = updateFeedArray[indexPath.section]
+            cell.title.text = titles[indexPath.section]
+            //cell.subTitle.text = update.getContent()
+            cell.subTitle.text = "temp"
+            //print(update.getTimestamp())
+            //cell.timestamp.text = update.getTimestamp()
+            cell.timestamp.text = "temp"
+            //print(update.getTimestamp())
             cell.configureFlatCellWithColor(tempCellColor, selectedColor: tempCellColor, roundingCorners: .AllCorners)
             cell.cornerRadius = 3.5
             cell.backgroundColor = UIColor.colorFromHex(0xEDECF3)
@@ -231,20 +256,23 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     @IBAction func feedSegControlValueChanged(sender: AnyObject) {
-        self.feedTableView.reloadData()
-        checkForContent()
-        getUpdatesFromParse()
-        getScheduleItemsFromParse()
+        self.titles.removeAll()
+        callAlamo(apiURL)
+        //self.feedTableView.reloadData()
+//        checkForContent()
+//        getUpdatesFromParse()
+//        getScheduleItemsFromParse()
     }
     
     /* checkForContent will check if there is data to be displayed in the view. If not, it will set the correct Glyptodon view. */
+    /*
     func checkForContent() {
         let update = 0
         let schedule = 1
         let twitter = 2
         
             switch(self.feedSegmentControl.selectedSegmentIndex) {
-            case update: if updateFeedArray.count == 0 {
+            case update: if titles.count == 0 {
                 feedTableView.alpha = 0.0
                 tableViewContainerView.glyptodon.show("Getting Updates. Please Wait.")
             }   else {
@@ -347,6 +375,7 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
     }
+    */
     
     func dateToString(date: NSDate) -> String {
         //format date
