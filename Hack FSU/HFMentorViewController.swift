@@ -305,6 +305,10 @@ class HFMentorViewController: UIViewController, UITextViewDelegate, UITextFieldD
     
     @IBOutlet weak var desButtonLocTFCon: NSLayoutConstraint!
     
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
     // MARK: Class Varibles
     var textViewColor = UIColor._lightGrayColor()
     var keyboardHeightSize:CGFloat!
@@ -349,6 +353,9 @@ class HFMentorViewController: UIViewController, UITextViewDelegate, UITextFieldD
         self.navigationController!.navigationBar.titleTextAttributes = attributesDictionary
         self.navigationController?.navigationBar.tintColor = .whiteColor()
         
+        self.nameLabel.textColor = UIColor._hackPurp()
+        self.descriptionLabel.textColor = UIColor._hackPurp()
+        self.locationLabel.textColor = UIColor._hackPurp()
         
     }
     

@@ -17,7 +17,7 @@ extension UIColor {
     }
     
     class func _hackRed() -> UIColor {
-        return colorFromHex(0xef626c)
+        return colorFromHex(0x2F2934)
     }
     
     class func _hackBlue() -> UIColor {
@@ -32,6 +32,9 @@ extension UIColor {
         return colorFromHex(0xeecdb5)
     }
     
+    class func _hackPurp() -> UIColor {
+        return colorFromHex(0x5E2F4F)
+    }
     
     
     class func colorFromHex(rgbValue:UInt32) -> UIColor {
