@@ -21,9 +21,13 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var feedSegmentControl: UISegmentedControl!
     @IBOutlet weak var tableViewContainerView: UIView!
     
-    let apiURL = NSURL(string: "https://cfarzaneh.github.io/sample.json")!
+    let apiURL = NSURL(string: "https://hackfsu.com/api/hackathon/get/updates")!
     var titles = [String]()
+    var contents = [String]()
     
+    var refreshControl: UIRefreshControl!
+    
+    var alamoCalled = false;
     
     // MARK: Class Variables
     var updateFeedArray:[HFUpdate] = [HFUpdate]()
@@ -69,7 +73,24 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         self.feedTableView.showsVerticalScrollIndicator = false
         
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        feedTableView.addSubview(refreshControl)
+        
         callAlamo(apiURL)
+        
+    }
+    
+    func refresh(sender:AnyObject) {
+        // Code to refresh table view
+        self.titles.removeAll()
+        callAlamo(apiURL)
+        self.feedTableView.reloadData()
+        if (alamoCalled == true) {
+            refreshControl.endRefreshing()
+            self.alamoCalled = false
+        }
     }
     
     override func viewWillLayoutSubviews() {
@@ -87,16 +108,23 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
         Alamofire.request(.GET, url, encoding: .JSON).validate().responseJSON(completionHandler: {
         
             response in
-            let json = JSON(response.result.value!)
-            for result in json["results"].arrayValue {
-                let title = result["title"].stringValue
-                self.titles.append(title)
-            }
-            for i in self.titles {
-                print(i)
-            }
-            self.feedTableView.reloadData()
+            self.parseResults(JSON(response.result.value!))
+            self.alamoCalled = true
+
         })
+    }
+    
+    func parseResults(theJSON : JSON) {
+        for result in theJSON["updates"].arrayValue {
+            let title = result["title"].stringValue
+            let content = result["content"].stringValue
+            self.contents.append(content)
+            self.titles.append(title)
+        }
+        for i in self.titles {
+            print(i)
+        }
+        self.feedTableView.reloadData()
     }
 
     
@@ -147,7 +175,7 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
             //let update = updateFeedArray[indexPath.section]
             cell.title.text = titles[indexPath.section]
             //cell.subTitle.text = update.getContent()
-            cell.subTitle.text = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. "
+            cell.subTitle.text = contents[indexPath.section]
             //print(update.getTimestamp())
             //cell.timestamp.text = update.getTimestamp()
             cell.timestamp.text = "temp"
@@ -259,9 +287,9 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     @IBAction func feedSegControlValueChanged(sender: AnyObject) {
-        self.titles.removeAll()
-        callAlamo(apiURL)
-        //self.feedTableView.reloadData()
+        //self.titles.removeAll()
+        //callAlamo(apiURL)
+        self.feedTableView.reloadData()
 //        checkForContent()
 //        getUpdatesFromParse()
 //        getScheduleItemsFromParse()
