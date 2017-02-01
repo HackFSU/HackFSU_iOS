@@ -22,12 +22,18 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var tableViewContainerView: UIView!
     
     let apiURL = NSURL(string: "https://hackfsu.com/api/hackathon/get/updates")!
+    let scheduleapiURL = NSURL(string: "https://hackfsu.com/api/hackathon/get/schedule_items")!
+   
     var titles = [String]()
     var contents = [String]()
+    var updatesDates = [String]()
+    
+    var scheduleNames = [String]()
     
     var refreshControl: UIRefreshControl!
-    
     var alamoCalled = false;
+    
+    /**********************************************************************************/
     
     // MARK: Class Variables
     var updateFeedArray:[HFUpdate] = [HFUpdate]()
@@ -41,6 +47,8 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var dayOfWeekArray:[String] = [String]()
    // var feedSegmentControl:UISegmentedControl!
+    
+    /**********************************************************************************/
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +87,10 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
         feedTableView.addSubview(refreshControl)
         
         callAlamo(apiURL)
+        callAlamo(scheduleapiURL);
+        
+        
+        
         
     }
     
@@ -108,24 +120,43 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
         Alamofire.request(.GET, url, encoding: .JSON).validate().responseJSON(completionHandler: {
         
             response in
-            self.parseResults(JSON(response.result.value!))
+            self.parseResults(JSON(response.result.value!), url: url)
             self.alamoCalled = true
 
         })
     }
     
-    func parseResults(theJSON : JSON) {
+    func parseResults(theJSON : JSON, url: NSURL) {
+        
+        if (url == apiURL) {
+        
         for result in theJSON["updates"].arrayValue {
             let title = result["title"].stringValue
             let content = result["content"].stringValue
+            let dates = result["submit_time"].stringValue
+            
             self.contents.append(content)
             self.titles.append(title)
+            self.updatesDates.append(dates)
+      
         }
-        for i in self.titles {
-            print(i)
+            
         }
+        else if (url == scheduleapiURL) {
+            for results in theJSON["schedule_items"].arrayValue {
+                let name = results["name"].stringValue
+                self.scheduleNames.append(name)
+            }
+            
+        }
+        
+//        for i in self.scheduleNames {
+//            print(i)
+//        }
         self.feedTableView.reloadData()
     }
+    
+   
 
     
     
@@ -176,10 +207,11 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.title.text = titles[indexPath.section]
             //cell.subTitle.text = update.getContent()
             cell.subTitle.text = contents[indexPath.section]
-            //print(update.getTimestamp())
-            //cell.timestamp.text = update.getTimestamp()
-            cell.timestamp.text = "temp"
-            //print(update.getTimestamp())
+            
+            let hi = updatesDates[indexPath.section]
+            
+            cell.timestamp.text = theTIMEBIH(hi);
+
             cell.configureFlatCellWithColor(tempCellColor, selectedColor: tempCellColor, roundingCorners: .AllCorners)
             cell.cornerRadius = 3.5
             cell.backgroundColor = UIColor.colorFromHex(0xEDECF3)
@@ -283,6 +315,20 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
+    func theTIMEBIH(date: String) -> String {
+        
+        let dateFormatterGet = NSDateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
+        
+        let dateFormatterPrint = NSDateFormatter()
+        dateFormatterPrint.dateFormat = "E h:mm a"
+        
+        let date: NSDate? = dateFormatterGet.dateFromString(date)
+        
+        
+        return dateFormatterPrint.stringFromDate(date!)
+    }
+    
     
     
     
@@ -294,6 +340,7 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
 //        getUpdatesFromParse()
 //        getScheduleItemsFromParse()
     }
+    
     
     /* checkForContent will check if there is data to be displayed in the view. If not, it will set the correct Glyptodon view. */
     /*
@@ -406,7 +453,7 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
     }
-    */
+ 
     
     func dateToString(date: NSDate) -> String {
         //format date
@@ -455,14 +502,17 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //format date
        
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "hh:mm a"
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
 //        let dateString = dateFormatter.stringFromDate(date.dateByAddingTimeInterval(18000))
         let dateString = dateFormatter.stringFromDate(date)
+        
         let timeComponents = dateString.componentsSeparatedByString(":")
         let hour = Int(timeComponents[0])
+        
+        print("\(hour!):\(timeComponents[1])")
         
         return "\(hour!):\(timeComponents[1])"
         
     }
-    
-}// End of View Controller Class
+     */
+}

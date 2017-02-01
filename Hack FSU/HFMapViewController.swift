@@ -11,6 +11,9 @@ import FlatUIKit
 import Parse
 import Agrume
 import ParseUI
+import Alamofire
+import AlamofireImage
+import SwiftyJSON
 
 class HFMapViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -18,9 +21,7 @@ class HFMapViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var floorTableView: UITableView!
     @IBOutlet var mapTableViewContainerView: UIView!
     
-    
-    
-    
+    let apiURL = NSURL(string: "https://hackfsu.com/api/hackathon/get/maps")!
     
     // MARK: Class Variables
     
@@ -46,7 +47,46 @@ class HFMapViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.navigationItem.title = "VENUE MAP"
         let attributesDictionary = [NSFontAttributeName: UIFont(name: "UniSansHeavyCAPS", size: 25)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController!.navigationBar.titleTextAttributes = attributesDictionary
+        callAlamo(apiURL)
     }
+    
+    func callAlamo(url : NSURL) {
+        Alamofire.request(.GET, url, encoding: .JSON).validate().responseJSON(completionHandler: {
+            
+            response in
+            self.parseResults(JSON(response.result.value!), url: url)
+        
+            
+        })
+    }
+    
+    func parseResults(theJSON : JSON, url: NSURL) {
+        
+            for result in theJSON["maps"].arrayValue {
+                let title = result["link"].stringValue
+                let urlOfImages = NSURL(string: title)!
+                print(title)
+                getImagesAlamo(urlOfImages)
+
+            }
+    }
+    
+    func getImagesAlamo(url : NSURL) {
+        Alamofire.request(.GET, url).responseImage {
+            response in
+            debugPrint(response)
+            
+            print(response.request)
+            print(response.response)
+            debugPrint(response.result)
+            
+            if let image = response.result.value {
+                print("image downloaded: \(image)")
+            }
+        }
+    }
+    
+    
     
     override func viewDidAppear(animated: Bool) {
         checkForContent()
@@ -70,6 +110,7 @@ class HFMapViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let cell:HFMapTableViewCell = tableView.dequeueReusableCellWithIdentifier("map") as! HFMapTableViewCell
         let map = mapArray[indexPath.section]
         cell.mapImage.file = map.getMapImage()
+        
         cell.mapImage.loadInBackground()
         cell.mapImage.contentMode = .ScaleAspectFit
         cell.selectionStyle = .None
@@ -106,6 +147,9 @@ class HFMapViewController: UIViewController, UITableViewDelegate, UITableViewDat
             let agrume = Agrume(image: newMap!)
             agrume.showFrom(self)
         }
+        for element in mapArray {
+            print(element)
+        }
 
     }
     
@@ -132,6 +176,7 @@ class HFMapViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 self.floorTableView.reloadData()
                 self.checkForContent()
             } else {
+                print("aw");
                 print(error)
             }
         }

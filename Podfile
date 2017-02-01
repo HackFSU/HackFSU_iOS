@@ -12,4 +12,5 @@ target 'Hack FSU' do
 	pod 'Agrume', :git => 'https://github.com/JanGorman/Agrume.git' 
 	pod 'Alamofire', '~> 3.5.0'
 	pod 'SwiftyJSON', '~> 2.4.0'
+	pod 'AlamofireImage', '~> 2.5.0'
 end

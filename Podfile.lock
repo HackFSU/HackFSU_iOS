@@ -1,6 +1,8 @@
 PODS:
   - Agrume (2.0.2)
   - Alamofire (3.5.1)
+  - AlamofireImage (2.5.0):
+    - Alamofire (~> 3.5)
   - BEMCheckBox (1.1.1)
   - Bolts/Tasks (1.4.0)
   - FlatUIKit (1.6.2)
@@ -16,6 +18,7 @@ PODS:
 DEPENDENCIES:
   - Agrume (from `https://github.com/JanGorman/Agrume.git`)
   - Alamofire (~> 3.5.0)
+  - AlamofireImage (~> 2.5.0)
   - BEMCheckBox
   - FlatUIKit
   - Glyptodon (~> 1.0)
@@ -36,6 +39,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Agrume: d8f0b55713f0cac8927d410bd87eec0487d74061
   Alamofire: 0dfba1184a543e2aa160f4e39cac4e8aba48d223
+  AlamofireImage: 2d34936e5201270bb17a316a786e90e83b4a249d
   BEMCheckBox: e1dd80417e0a9f1db4b55d8b8d2f3f477d120795
   Bolts: 0e9bce58b9b9f5e8a7a4d47b16d2fabec289072b
   FlatUIKit: 1b41f0d4952ce8d970d8479ce79df54a960242c4
@@ -45,6 +49,6 @@ SPEC CHECKSUMS:
   ParseUI: c2bcdfbb00330e464b5b773266ae221697a3bb7b
   SwiftyJSON: 96918c1bf505efa50c4f72957018dd3452090c9c
 
-PODFILE CHECKSUM: cffc66ca09e795dd86a8b8bef209dbb029614fb6
+PODFILE CHECKSUM: a5b8866841d697bc474240472a97bd98a48f62d2
 
 COCOAPODS: 1.2.0.beta.1
