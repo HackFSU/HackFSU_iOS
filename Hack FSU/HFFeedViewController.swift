@@ -147,8 +147,8 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 let name = results["name"].stringValue
                 let description = results["description"].stringValue
                 let startTime = results["start"].stringValue
-                
-                let finalStartTime = theTIMEBIH(startTime,format: "E h:mm a");
+            
+                let finalStartTime = theTIMEBIH(startTime, formatIn: "yyyy-MM-dd'T'HH:mm:ssZZZZZ", formatOut: "h:mm a");
                 
                 let newScheduleItem = HFScheduleItem(title: name,
                                                      subtitle: description,
@@ -156,9 +156,6 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 self.fridayFeedArray.append(newScheduleItem)
             }
             
-        }
-        for i in self.scheduleNames {
-            print(i)
         }
         self.feedTableView.reloadData()
     }
@@ -217,7 +214,7 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             let hi = updatesDates[indexPath.section]
             
-            cell.timestamp.text = theTIMEBIH(hi,format: "E h:mm a");
+            cell.timestamp.text = theTIMEBIH(hi, formatIn: "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ", formatOut: "E h:mm a");
 
             cell.configureFlatCellWithColor(tempCellColor, selectedColor: tempCellColor, roundingCorners: .AllCorners)
             cell.cornerRadius = 3.5
@@ -322,13 +319,13 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    func theTIMEBIH(date: String, format: String) -> String {
+    func theTIMEBIH(date: String, formatIn: String, formatOut: String) -> String {
         
         let dateFormatterGet = NSDateFormatter()
-        dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
+        dateFormatterGet.dateFormat = formatIn
         
         let dateFormatterPrint = NSDateFormatter()
-        dateFormatterPrint.dateFormat = format
+        dateFormatterPrint.dateFormat = formatOut
         
         let date: NSDate? = dateFormatterGet.dateFromString(date)
         
