@@ -8,6 +8,8 @@
 
 import UIKit
 import Parse
+import Alamofire
+import SwiftyJSON
 
 var globalEventTimeLeft:CGFloat = NSDate.timeUntil(NSDate())
 var countdownManager = HFCountdownManager()

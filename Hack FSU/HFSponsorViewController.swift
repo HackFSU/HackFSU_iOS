@@ -8,21 +8,31 @@
 
 import UIKit
 import FlatUIKit
-import Parse
 import Glyptodon
-import ParseUI
-
+import Alamofire
+import AlamofireImage
+import SwiftyJSON
 
 class HFSponsorViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var sponsorFeedArray:[HFSponsor] = [HFSponsor]()
+    
+    let apiURL = NSURL(string: "https://hackfsu.com/api/hackathon/get/sponsors")!
+    let downloader = ImageDownloader(
+        configuration: ImageDownloader.defaultURLSessionConfiguration(),
+        downloadPrioritization: .FIFO,
+        maximumActiveDownloads: 1,
+        imageCache: AutoPurgingImageCache()
+    )
+    var imagesArray = [UIImage]()
+    
     @IBOutlet weak var sponsorTableView: UITableView!
     @IBOutlet var sponsorContainerView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        callAlamo(apiURL)
         checkForContent()
-        getSponsorsFromParse()
         sponsorTableView.setContentOffset(CGPointZero, animated: false)
         sponsorTableView.separatorStyle = UITableViewCellSeparatorStyle.None
         sponsorTableView.backgroundColor = UIColor.colorFromHex(0xEDECF3)
@@ -41,27 +51,72 @@ class HFSponsorViewController: UIViewController, UITableViewDelegate, UITableVie
         self.sponsorTableView.estimatedRowHeight = 44.0
 
     }
+    
+    func callAlamo(url : NSURL) {
+        Alamofire.request(.GET, url, encoding: .JSON).validate().responseJSON(completionHandler: {
+            response in
+            self.parseResults(JSON(response.result.value!), url: url)
+            
+        })
+    }
+    
+    func parseResults(theJSON : JSON, url: NSURL) {
+        var sponsorArray:[HFSponsor] = [HFSponsor]()
+        for result in theJSON["sponsors"].arrayValue {
+            let title = result["logo_link"].stringValue
+            let name = result["name"].stringValue
+            let order = result["order"].intValue
+            let urlOfImages = NSURL(string: title)!
+        
+            let newSponsor = HFSponsor(name: name, level: order)
+            sponsorArray.append(newSponsor)
+            
+            getImagesAlamo(urlOfImages)
+        }
+        
+        self.sponsorFeedArray = sponsorArray
+        self.sponsorTableView.reloadData()
+    }
+    
+    func getImagesAlamo(url : NSURL) {
+        let URLRequest = NSURLRequest(URL: url)
+        downloader.downloadImage(URLRequest: URLRequest) { response in
 
+            if let theimage = response.result.value {
+                print("valid")
+                self.imagesArray.append(theimage)
+            }
+            else {
+                print("invalid")
+                let image = UIImage(named: "placeholder.png")
+                self.imagesArray.append(image!)
+            }
+            self.sponsorTableView.reloadData()
+            self.calculateImageRatios()
+            self.checkForContent()
+        }
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return sponsorFeedArray.count
+        return imagesArray.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:HFSponsorTableViewCell = tableView.dequeueReusableCellWithIdentifier("sponsor") as! HFSponsorTableViewCell
         let sponsor:HFSponsor = sponsorFeedArray[indexPath.section]
-        
-        
-        cell.sponsorImage.file = sponsor.getSponsorImage()
+        let thaImages = imagesArray[indexPath.section]
+        cell.sponsorImage.image = thaImages
+        //cell.sponsorImage.contentMode = .ScaleAspectFit
         cell.sponsorImage.loadInBackground()
         cell.sponLabel.text = sponsor.getSponsorName()
         cell.configureFlatCellWithColor(UIColor.whiteColor(), selectedColor: UIColor.whiteColor(), roundingCorners: .AllCorners)
         cell.cornerRadius = 3.5
         cell.backgroundColor = UIColor.colorFromHex(0xEDECF3)
-//        cell.separatorHeight = 10.0
+//      cell.separatorHeight = 10.0
         return cell
     }
     
@@ -76,7 +131,7 @@ class HFSponsorViewController: UIViewController, UITableViewDelegate, UITableVie
             print(sponsorImageHeight)
             return sponsorImageHeight
         } else {
-            return 44.0
+            return 100.0
         }
     }
     
@@ -92,7 +147,7 @@ class HFSponsorViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func checkForContent() {
-        if sponsorFeedArray.count == 0 {
+        if allSizesAreEvaluated() == false {
             sponsorTableView.alpha = 0.0
             sponsorContainerView.glyptodon.show("Getting Sponsors. Please Wait.")
         } else {
@@ -102,59 +157,23 @@ class HFSponsorViewController: UIViewController, UITableViewDelegate, UITableVie
     }
 
     
-    func getSponsorsFromParse() {
-        
-        
-        var sponsorArray:[HFSponsor] = [HFSponsor]()
-        
-        let query = PFQuery(className: "Sponsor").orderByAscending("level")
-        
-        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
-            if let _ = objects {
-                
-                self.sponsorFeedArray.removeAll()
-                
-                for sponsor in objects! {
-                    let newSponsorName = sponsor.objectForKey("name") as! String
-                    let newSponsorImage = sponsor.objectForKey("image") as? PFFile
-                    let newSponsorLevel = sponsor.objectForKey("level") as! Int
-                    
-                    
-                    let newSponsor = HFSponsor(name: newSponsorName, image: newSponsorImage!, level: newSponsorLevel)
-                    sponsorArray.append(newSponsor)
-                    
-                }
-                
-                self.sponsorFeedArray = sponsorArray
-                self.sponsorTableView.reloadData()
-                self.calculateImageRatios()
-            } else {
-                print(error)
-            }
-        }
-    }
-    
     func calculateImageRatios() {
-        for sponsor in self.sponsorFeedArray {
-            sponsor.getSponsorImage().getDataInBackgroundWithBlock({ (imageData, error) -> Void in
-                if imageData != nil {
-                    let imageSize:CGSize = (UIImage(data: imageData!)?.size)!
-                    let imageHeight:CGFloat = imageSize.height
-                    let imageWidth:CGFloat = imageSize.width
-                    let newValue = imageHeight / imageWidth
-                    sponsor.setSponsorAspectValue(newValue)
-                    sponsor.sizeWasEvaluated()
-                    print("taco")
-                    
-                    if self.allSizesAreEvaluated() {
-                        self.sponsorTableView.reloadData()
-                        self.checkForContent()
-                    }
+        for (sponsor,b) in zip(self.sponsorFeedArray, self.imagesArray) {
+                let imageSize:CGSize = (b.size)
+            
+                let imageHeight:CGFloat = imageSize.height
+                let imageWidth:CGFloat = imageSize.width
+                let newValue = imageHeight / imageWidth
+                sponsor.setSponsorAspectValue(newValue)
+                sponsor.sizeWasEvaluated()
+                print("taco")
+                
+                if self.allSizesAreEvaluated() {
+                    self.sponsorTableView.reloadData()
+                    self.checkForContent()
                 }
-            })
+            
         }
-        
-        
         
     }
     

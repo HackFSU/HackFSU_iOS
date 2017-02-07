@@ -38,6 +38,7 @@
 		61CC64C61C472D6200E08521 /* unisans.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 61CC64C51C472D6200E08521 /* unisans.OTF */; };
 		61D2D14E1BE7C53500145EBF /* HelpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D2D14D1BE7C53500145EBF /* HelpRequest.swift */; };
 		61F2087E1C51EF4C00B7CD27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61F2087D1C51EF4C00B7CD27 /* Assets.xcassets */; };
+		DFB7BFAD1E4949C1003BC8D0 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = DFB7BFAC1E4949C1003BC8D0 /* placeholder.png */; };
 		FED2F99B3C2A41A3A9FC2D47 /* Pods_Hack_FSU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372CFF18655F81B1F60ED852 /* Pods_Hack_FSU.framework */; };
 /* End PBXBuildFile section */
 
@@ -112,6 +113,7 @@
 		61D2D14F1BE7C83E00145EBF /* Hack FSU-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hack FSU-Bridging-Header.h"; sourceTree = "<group>"; };
 		61F2087D1C51EF4C00B7CD27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B364FA72B1545F656248E5EE /* Pods-Hack FSU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hack FSU.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hack FSU/Pods-Hack FSU.debug.xcconfig"; sourceTree = "<group>"; };
+		DFB7BFAC1E4949C1003BC8D0 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		E0C8C6E9D166446C8B6F2ABE /* Pods-Hack FSU.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hack FSU.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-Hack FSU/Pods-Hack FSU.adhoc.xcconfig"; sourceTree = "<group>"; };
 		E44455C18E0CFED949C518E0 /* Pods-Hack FSU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hack FSU.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hack FSU/Pods-Hack FSU.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -198,6 +200,7 @@
 		61551A6E1BD9C0C50091D44A /* Hack FSU */ = {
 			isa = PBXGroup;
 			children = (
+				DFB7BFAC1E4949C1003BC8D0 /* placeholder.png */,
 				61551A731BD9C0C50091D44A /* Main.storyboard */,
 				61551A6F1BD9C0C50091D44A /* AppDelegate.swift */,
 				61EE2DBB1BE3E49E00E80DDF /* Style */,
@@ -238,8 +241,8 @@
 				615085CF1BDAA55E0066E7BE /* HFMentorViewController.swift */,
 				615085CD1BDA16D40066E7BE /* HFMapViewController.swift */,
 				615085F71BDD901B0066E7BE /* HFSponsorViewController.swift */,
-				6138596E1C348297002F9FA2 /* CounterView.swift */,
 				613859721C34863E002F9FA2 /* HFCountdownViewController.swift */,
+				6138596E1C348297002F9FA2 /* CounterView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				61551A7A1BD9C0C50091D44A /* LaunchScreen.storyboard in Resources */,
 				61551A751BD9C0C50091D44A /* Main.storyboard in Resources */,
 				61F2087E1C51EF4C00B7CD27 /* Assets.xcassets in Resources */,
+				DFB7BFAD1E4949C1003BC8D0 /* placeholder.png in Resources */,
 				61CC64C61C472D6200E08521 /* unisans.OTF in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

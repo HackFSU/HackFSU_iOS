@@ -7,19 +7,18 @@
 //
 
 import Foundation
-import Parse
 
 class HFSponsor {
     private var sponsorName:String!
-    private var sponsorImageData:PFFile!
+    //private var sponsorImageData:UIImage!
     private var sponsorLevel:Int!
     private var sponsorAspectValue:CGFloat!
     private var sizeEvaluated:Bool!
     
     
-    init(name: String, image: PFFile, level:Int ) {
+    init(name: String, level:Int ) {
         sponsorName = name
-        sponsorImageData = image
+        //sponsorImageData = image
         sponsorLevel = level
         sizeEvaluated = false
     }
@@ -32,9 +31,9 @@ class HFSponsor {
         return self.sponsorName
     }
     
-    func getSponsorImage() -> PFFile {
-        return self.sponsorImageData!
-   }
+//    func getSponsorImage() -> UIImage {
+//        return self.sponsorImageData!
+//   }
     
     func getSponsorLevel() -> Int {
         return self.sponsorLevel

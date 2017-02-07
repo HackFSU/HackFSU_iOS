@@ -145,14 +145,21 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
         else if (url == scheduleapiURL) {
             for results in theJSON["schedule_items"].arrayValue {
                 let name = results["name"].stringValue
-                self.scheduleNames.append(name)
+                let description = results["description"].stringValue
+                let startTime = results["start"].stringValue
+                
+                let finalStartTime = theTIMEBIH(startTime,format: "E h:mm a");
+                
+                let newScheduleItem = HFScheduleItem(title: name,
+                                                     subtitle: description,
+                                                     start: finalStartTime)
+                self.fridayFeedArray.append(newScheduleItem)
             }
             
         }
-        
-//        for i in self.scheduleNames {
-//            print(i)
-//        }
+        for i in self.scheduleNames {
+            print(i)
+        }
         self.feedTableView.reloadData()
     }
     
@@ -210,7 +217,7 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             let hi = updatesDates[indexPath.section]
             
-            cell.timestamp.text = theTIMEBIH(hi);
+            cell.timestamp.text = theTIMEBIH(hi,format: "E h:mm a");
 
             cell.configureFlatCellWithColor(tempCellColor, selectedColor: tempCellColor, roundingCorners: .AllCorners)
             cell.cornerRadius = 3.5
@@ -315,17 +322,17 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    func theTIMEBIH(date: String) -> String {
+    func theTIMEBIH(date: String, format: String) -> String {
         
         let dateFormatterGet = NSDateFormatter()
         dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
         
         let dateFormatterPrint = NSDateFormatter()
-        dateFormatterPrint.dateFormat = "E h:mm a"
+        dateFormatterPrint.dateFormat = format
         
         let date: NSDate? = dateFormatterGet.dateFromString(date)
         
-        
+        print(date)
         return dateFormatterPrint.stringFromDate(date!)
     }
     

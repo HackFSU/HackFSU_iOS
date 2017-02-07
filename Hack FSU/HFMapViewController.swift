@@ -8,9 +8,7 @@
 
 import UIKit
 import FlatUIKit
-import Parse
 import Agrume
-import ParseUI
 import Alamofire
 import AlamofireImage
 import SwiftyJSON
@@ -22,16 +20,15 @@ class HFMapViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet var mapTableViewContainerView: UIView!
     
     let apiURL = NSURL(string: "https://hackfsu.com/api/hackathon/get/maps")!
-    
-    // MARK: Class Variables
-    
-    var mapArray:[HFMap] = [HFMap]()
-    // var feedSegmentControl:UISegmentedControl!
-    
+
+    var imagesArray = [UIImage]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        callAlamo(apiURL)
         checkForContent()
-        getSponsorsFromParse()
+        
         floorTableView.setContentOffset(CGPointZero, animated: false)
         self.floorTableView.rowHeight = UITableViewAutomaticDimension
         self.floorTableView.estimatedRowHeight = 44.0
@@ -47,24 +44,22 @@ class HFMapViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.navigationItem.title = "VENUE MAP"
         let attributesDictionary = [NSFontAttributeName: UIFont(name: "UniSansHeavyCAPS", size: 25)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController!.navigationBar.titleTextAttributes = attributesDictionary
-        callAlamo(apiURL)
+        
     }
     
     func callAlamo(url : NSURL) {
         Alamofire.request(.GET, url, encoding: .JSON).validate().responseJSON(completionHandler: {
-            
             response in
             self.parseResults(JSON(response.result.value!), url: url)
-        
             
         })
     }
     
     func parseResults(theJSON : JSON, url: NSURL) {
-        
             for result in theJSON["maps"].arrayValue {
                 let title = result["link"].stringValue
                 let urlOfImages = NSURL(string: title)!
+                
                 print(title)
                 getImagesAlamo(urlOfImages)
 
@@ -74,15 +69,12 @@ class HFMapViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func getImagesAlamo(url : NSURL) {
         Alamofire.request(.GET, url).responseImage {
             response in
-            debugPrint(response)
             
-            print(response.request)
-            print(response.response)
-            debugPrint(response.result)
+            let theimage = response.result.value!
+            self.imagesArray.append(theimage)
             
-            if let image = response.result.value {
-                print("image downloaded: \(image)")
-            }
+            self.floorTableView.reloadData()
+            self.checkForContent()
         }
     }
     
@@ -90,7 +82,6 @@ class HFMapViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidAppear(animated: Bool) {
         checkForContent()
-        getSponsorsFromParse()
     }
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -98,7 +89,7 @@ class HFMapViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return mapArray.count
+        return imagesArray.count
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -108,8 +99,9 @@ class HFMapViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         print(indexPath.section)
         let cell:HFMapTableViewCell = tableView.dequeueReusableCellWithIdentifier("map") as! HFMapTableViewCell
-        let map = mapArray[indexPath.section]
-        cell.mapImage.file = map.getMapImage()
+   
+        let thaImages = imagesArray[indexPath.section]
+        cell.mapImage.image = thaImages
         
         cell.mapImage.loadInBackground()
         cell.mapImage.contentMode = .ScaleAspectFit
@@ -122,12 +114,13 @@ class HFMapViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func checkForContent() {
-        if mapArray.count == 0 {
+        if imagesArray.count == 0 {
             floorTableView.alpha = 0.0
             mapTableViewContainerView.glyptodon.show("Getting Maps. Please Wait.")
         } else {
             mapTableViewContainerView.glyptodon.hide()
             floorTableView.alpha = 1.0
+            
         }
     }
     
@@ -140,48 +133,10 @@ class HFMapViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
-        let map = mapArray[indexPath.section]
-        map.getMapImage().getDataInBackgroundWithBlock { (imageData, error) -> Void in
-            let newMap = UIImage(data: imageData!)
-            print(newMap?.size.height)
-            let agrume = Agrume(image: newMap!)
-            agrume.showFrom(self)
-        }
-        for element in mapArray {
-            print(element)
-        }
-
+        let thaImages = imagesArray[indexPath.section]
+        let agrume = Agrume(image: thaImages)
+        agrume.showFrom(self)
     }
-    
-    func getSponsorsFromParse() {
-        
-        var tempMapArray:[HFMap] = [HFMap]()
-        
-        let query = PFQuery(className: "MapItem").orderByAscending("floor")
-        
-        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
-            if let _ = objects {
-                
-                self.mapArray.removeAll()
-                
-                for map in objects! {
-                    
-                    let newMapImage = map.objectForKey("image") as? PFFile
-                    let newMapFloor = map.objectForKey("floor") as! Int
-                    let newMap = HFMap(image: newMapImage!, floor: newMapFloor)
-                    tempMapArray.append(newMap)
-                }
-                
-                self.mapArray = tempMapArray
-                self.floorTableView.reloadData()
-                self.checkForContent()
-            } else {
-                print("aw");
-                print(error)
-            }
-        }
-    }
-        
 }
     
 
