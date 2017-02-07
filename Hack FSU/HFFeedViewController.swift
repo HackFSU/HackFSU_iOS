@@ -147,13 +147,33 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 let name = results["name"].stringValue
                 let description = results["description"].stringValue
                 let startTime = results["start"].stringValue
+                
+                
+                if startTime.rangeOfString("2017-02-17") != nil{
+                    let finalStartTime = theTIMEBIH(startTime, formatIn: "yyyy-MM-dd'T'HH:mm:ssZZZZZ", formatOut: "h:mm a");
+       
+                    let newScheduleItem = HFScheduleItem(title: name,
+                                                         subtitle: description,
+                                                         start: finalStartTime)
+                    self.fridayFeedArray.append(newScheduleItem)
+                }
+                else if startTime.rangeOfString("2017-02-18") != nil{
             
                 let finalStartTime = theTIMEBIH(startTime, formatIn: "yyyy-MM-dd'T'HH:mm:ssZZZZZ", formatOut: "h:mm a");
                 
                 let newScheduleItem = HFScheduleItem(title: name,
                                                      subtitle: description,
                                                      start: finalStartTime)
-                self.fridayFeedArray.append(newScheduleItem)
+                self.saturdayFeedArray.append(newScheduleItem)
+                }
+                else if startTime.rangeOfString("2017-02-19") != nil{
+                    let finalStartTime = theTIMEBIH(startTime, formatIn: "yyyy-MM-dd'T'HH:mm:ssZZZZZ", formatOut: "h:mm a");
+                    
+                    let newScheduleItem = HFScheduleItem(title: name,
+                                                         subtitle: description,
+                                                         start: finalStartTime)
+                    self.sundayFeedArray.append(newScheduleItem)
+                }
             }
             
         }

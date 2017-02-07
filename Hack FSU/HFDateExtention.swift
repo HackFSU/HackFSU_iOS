@@ -40,7 +40,7 @@ extension NSDate {
         let dateFormatter = NSDateFormatter()
         dateFormatter.timeZone = calendar.timeZone
         dateFormatter.dateFormat = "yyyy-MM-dd H:mm"
-        let startingTime = dateFormatter.dateFromString("2016-2-6 0:00")
+        let startingTime = dateFormatter.dateFromString("2017-2-18 0:00")
         return startingTime!
     }
     
@@ -50,7 +50,7 @@ extension NSDate {
         let dateFormatter = NSDateFormatter()
         dateFormatter.timeZone = calendar.timeZone
         dateFormatter.dateFormat = "yyyy-MM-dd H:mm"
-        let endingTime = dateFormatter.dateFromString("2016-2-7 12:00")
+        let endingTime = dateFormatter.dateFromString("2017-2-19 6:00")
         return endingTime!
     }
 
@@ -72,6 +72,7 @@ extension NSDate {
         }
     }
 }
+
 
 
 
