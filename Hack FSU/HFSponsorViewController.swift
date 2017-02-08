@@ -111,7 +111,6 @@ class HFSponsorViewController: UIViewController, UITableViewDelegate, UITableVie
         let thaImages = imagesArray[indexPath.section]
         cell.sponsorImage.image = thaImages
         cell.sponsorImage.contentMode = .ScaleAspectFit
-        cell.sponsorImage.loadInBackground()
         cell.sponLabel.text = sponsor.getSponsorName()
         cell.configureFlatCellWithColor(UIColor.whiteColor(), selectedColor: UIColor.whiteColor(), roundingCorners: .AllCorners)
         cell.cornerRadius = 3.5

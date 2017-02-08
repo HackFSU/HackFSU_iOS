@@ -7,12 +7,10 @@
 //
 
 import UIKit
-import ParseUI
 
 class HFMapTableViewCell: UITableViewCell {
 
-    
-    @IBOutlet weak var mapImage: PFImageView!
+    @IBOutlet weak var mapImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

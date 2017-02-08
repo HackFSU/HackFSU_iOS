@@ -19,16 +19,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>BEMCheckBox.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Bolts.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>FlatUIKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -40,16 +30,6 @@
 			<false/>
 		</dict>
 		<key>KMPlaceholderTextView.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Parse.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>ParseUI.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -67,12 +47,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>180AC0C3219E6EA614CAB8632984C6D5</key>
+		<key>01C4E5E02A97DB8E971434558813E09B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1E25715EF72AC79BFE9F4313B4A00190</key>
+		<key>180AC0C3219E6EA614CAB8632984C6D5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,17 +67,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3B3675863E4603A240AC3266F8CF2983</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>4E124C40B5E6AF92F87BDBDF915E2603</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>4EF4075D1C73F8061EB5F25C9CF2659A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -107,22 +77,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7FF092FEE39BB0AF048C6E9E71C54387</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>9FA3C0C881D4A412BB8E806265B16494</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A2716AFB58A8766551876C1AA9DB73C7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F789DFCEBF981E36811590AD0CEA0FCC</key>
+		<key>C0AB0552D80709E7C13C3CAB9C8BA106</key>
 		<dict>
 			<key>primary</key>
 			<true/>

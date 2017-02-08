@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class HFSponsor {
     private var sponsorName:String!

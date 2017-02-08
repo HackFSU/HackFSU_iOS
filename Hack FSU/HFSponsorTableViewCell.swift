@@ -7,13 +7,10 @@
 //
 
 import UIKit
-import ParseUI
 
 class HFSponsorTableViewCell: UITableViewCell {
     
-    
-    
-    @IBOutlet weak var sponsorImage: PFImageView!
+    @IBOutlet weak var sponsorImage: UIImageView!
     @IBOutlet weak var sponLabel: UILabel!
     
     override func awakeFromNib() {

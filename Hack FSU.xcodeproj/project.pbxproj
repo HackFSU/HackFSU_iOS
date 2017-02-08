@@ -101,7 +101,6 @@
 		61692B661C482F01007A6221 /* HFSponsorFooterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HFSponsorFooterCell.swift; sourceTree = "<group>"; };
 		61ACC34C1C44013F00714A5B /* HFCountdownManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HFCountdownManager.swift; sourceTree = "<group>"; };
 		61CC64C51C472D6200E08521 /* unisans.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = unisans.OTF; sourceTree = "<group>"; };
-		61D2D14F1BE7C83E00145EBF /* Hack FSU-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hack FSU-Bridging-Header.h"; sourceTree = "<group>"; };
 		61F2087D1C51EF4C00B7CD27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B364FA72B1545F656248E5EE /* Pods-Hack FSU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hack FSU.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hack FSU/Pods-Hack FSU.debug.xcconfig"; sourceTree = "<group>"; };
 		DF41D2C01E4AA41700225152 /* HFCountdownItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HFCountdownItem.swift; sourceTree = "<group>"; };
@@ -172,7 +171,6 @@
 				61551A831BD9C0C50091D44A /* Hack FSUTests */,
 				61551A8E1BD9C0C50091D44A /* Hack FSUUITests */,
 				61551A6D1BD9C0C50091D44A /* Products */,
-				61D2D14F1BE7C83E00145EBF /* Hack FSU-Bridging-Header.h */,
 				C107CA4FF56862CF66FEB7B0 /* Pods */,
 				26FDD11962AD03EA2FB3222B /* Frameworks */,
 			);
@@ -645,7 +643,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hackfsu.mobile.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Hack FSU-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -668,7 +665,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hackfsu.mobile.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Hack FSU-Bridging-Header.h";
 				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -788,7 +784,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hackfsu.mobile.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Hack FSU-Bridging-Header.h";
 				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

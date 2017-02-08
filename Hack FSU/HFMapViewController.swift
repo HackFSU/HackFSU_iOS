@@ -103,7 +103,6 @@ class HFMapViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let thaImages = imagesArray[indexPath.section]
         cell.mapImage.image = thaImages
         
-        cell.mapImage.loadInBackground()
         cell.mapImage.contentMode = .ScaleAspectFit
         cell.selectionStyle = .None
         cell.configureFlatCellWithColor(UIColor.whiteColor(), selectedColor: UIColor.whiteColor(), roundingCorners: .AllCorners)
