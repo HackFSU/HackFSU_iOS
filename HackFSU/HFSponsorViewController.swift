@@ -83,11 +83,9 @@ class HFSponsorViewController: UIViewController, UITableViewDelegate, UITableVie
         downloader.downloadImage(URLRequest: URLRequest) { response in
 
             if let theimage = response.result.value {
-                print("valid")
                 self.imagesArray.append(theimage)
             }
             else {
-                print("invalid")
                 let image = UIImage(named: "placeholder.png")
                 self.imagesArray.append(image!)
             }
@@ -125,9 +123,7 @@ class HFSponsorViewController: UIViewController, UITableViewDelegate, UITableVie
             let sponsor = sponsorFeedArray[indexPath.section]
             let screenWidth = UIScreen.mainScreen().bounds.width
             let screenWidthWithBorders = screenWidth - 16.0
-            print(screenWidthWithBorders)
-            let sponsorImageHeight = screenWidthWithBorders * sponsor.getSponsorAspectValue() + 30.0 
-            print(sponsorImageHeight)
+            let sponsorImageHeight = screenWidthWithBorders * sponsor.getSponsorAspectValue() + 30.0
             return sponsorImageHeight
         } else {
             return 100.0
@@ -165,7 +161,6 @@ class HFSponsorViewController: UIViewController, UITableViewDelegate, UITableVie
                 let newValue = imageHeight / imageWidth
                 sponsor.setSponsorAspectValue(newValue)
                 sponsor.sizeWasEvaluated()
-                print("taco")
                 
                 if self.allSizesAreEvaluated() {
                     self.sponsorTableView.reloadData()

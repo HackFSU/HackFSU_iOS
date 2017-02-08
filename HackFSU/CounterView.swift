@@ -45,7 +45,6 @@ class CounterView: UIView {
         
         if countdownManager.hackingHasntStarted() {
             percentLeft = 1.0
-            print("U PLAYED YO SELF")
         } else {
             percentLeft = timeLeft / fullTime
         }
@@ -56,7 +55,6 @@ class CounterView: UIView {
             percentLeft = 0.0
         }
         
-        print(percentLeft)
         
         // 5
         let startAngle: CGFloat = 3.0 * π / 2.0

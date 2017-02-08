@@ -60,7 +60,6 @@ class HFMapViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 let title = result["link"].stringValue
                 let urlOfImages = NSURL(string: title)!
                 
-                print(title)
                 getImagesAlamo(urlOfImages)
 
             }
@@ -97,7 +96,7 @@ class HFMapViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        print(indexPath.section)
+
         let cell:HFMapTableViewCell = tableView.dequeueReusableCellWithIdentifier("map") as! HFMapTableViewCell
    
         let thaImages = imagesArray[indexPath.section]

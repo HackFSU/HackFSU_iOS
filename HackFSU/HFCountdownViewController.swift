@@ -116,7 +116,6 @@ class HFCountdownViewController: UIViewController {
                 hoursTimeLabel.text = "00"
                 timer.invalidate()
             } else if countdownManager.hackingIsCurrent() == true {
-                print("BRING ME DA MONEY")
                 countdownManager.incrementHackingState()
                 self.navigationItem.title = "HACKING OVER"
                 secondsTimerLabel.text = "00"

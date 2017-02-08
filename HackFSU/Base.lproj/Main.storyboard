@@ -18,7 +18,7 @@
         <!--Feed View Controller-->
         <scene sceneID="NKJ-sv-wR0">
             <objects>
-                <viewController storyboardIdentifier="HFFeedViewController" id="zsb-bW-EBc" customClass="HFFeedViewController" customModule="Hack_FSU" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HFFeedViewController" id="zsb-bW-EBc" customClass="HFFeedViewController" customModule="HackFSU" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FTi-d7-BBa"/>
                         <viewControllerLayoutGuide type="bottom" id="y03-oB-Wzt"/>
@@ -44,11 +44,11 @@
                                         <rect key="frame" x="8" y="0.0" width="584" height="443"/>
                                         <color key="backgroundColor" red="0.92941176470588238" green="0.92549019607843142" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="HFUpdateTableViewCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="HFUpdateTableViewCell" rowHeight="60" id="fRY-kM-L8L" customClass="HFUpdateTableViewCell" customModule="Hack_FSU" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="HFUpdateTableViewCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="HFUpdateTableViewCell" rowHeight="60" id="fRY-kM-L8L" customClass="HFUpdateTableViewCell" customModule="HackFSU" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="584" height="60"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fRY-kM-L8L" id="lS9-ZN-e8h">
-                                                    <rect key="frame" x="0.0" y="0.0" width="584" height="59"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="584" height="59.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zVP-T0-Wla">
@@ -91,11 +91,11 @@
                                                     <outlet property="title" destination="hr5-gp-gku" id="WOo-uU-jnb"/>
                                                 </connections>
                                             </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ScheduleHeaderCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="scheduleHeader" rowHeight="34" id="BmI-ze-Qys" customClass="ScheduleHeaderCell" customModule="Hack_FSU" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ScheduleHeaderCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="scheduleHeader" rowHeight="34" id="BmI-ze-Qys" customClass="ScheduleHeaderCell" customModule="HackFSU" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="88" width="584" height="34"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BmI-ze-Qys" id="4Ij-bw-ha9">
-                                                    <rect key="frame" x="0.0" y="0.0" width="584" height="33"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="584" height="33.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gqr-ZC-MLS">
@@ -116,11 +116,11 @@
                                                     <outlet property="headerLabel" destination="gqr-ZC-MLS" id="tnM-j9-XoQ"/>
                                                 </connections>
                                             </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" restorationIdentifier="HFScheduleTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="HFScheduleTableViewCell" rowHeight="60" id="tgg-kW-y6b" customClass="HFScheduleTableViewCell" customModule="Hack_FSU" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" restorationIdentifier="HFScheduleTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="HFScheduleTableViewCell" rowHeight="60" id="tgg-kW-y6b" customClass="HFScheduleTableViewCell" customModule="HackFSU" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="122" width="584" height="60"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tgg-kW-y6b" id="dNM-QB-d2C">
-                                                    <rect key="frame" x="0.0" y="0.0" width="584" height="59"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="584" height="59.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4oM-NY-xhM">
@@ -262,7 +262,7 @@
         <!--Mentor View Controller-->
         <scene sceneID="01r-ZT-Ufh">
             <objects>
-                <viewController id="HLR-yU-5h5" customClass="HFMentorViewController" customModule="Hack_FSU" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="HLR-yU-5h5" customClass="HFMentorViewController" customModule="HackFSU" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XAP-qg-1cV"/>
                         <viewControllerLayoutGuide type="bottom" id="PjQ-tX-UhZ"/>
@@ -303,7 +303,7 @@
         <!--Countdown-->
         <scene sceneID="Bty-kZ-zUF">
             <objects>
-                <viewController storyboardIdentifier="HFCountdownViewController" title="Countdown" id="lPg-iZ-ZIP" customClass="HFCountdownViewController" customModule="Hack_FSU" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HFCountdownViewController" title="Countdown" id="lPg-iZ-ZIP" customClass="HFCountdownViewController" customModule="HackFSU" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XQH-9O-tBv"/>
                         <viewControllerLayoutGuide type="bottom" id="mpP-Pm-2Ic"/>
@@ -378,7 +378,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NMp-5W-n5D">
                                 <rect key="frame" x="0.0" y="141" width="400" height="410"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WRo-6l-mJx" customClass="CounterView" customModule="Hack_FSU" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WRo-6l-mJx" customClass="CounterView" customModule="HackFSU" customModuleProvider="target">
                                         <rect key="frame" x="17" y="22" width="366" height="366"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lightning" translatesAutoresizingMaskIntoConstraints="NO" id="eV3-zQ-8Wg">
@@ -468,7 +468,7 @@
         <!--Sponsor View Controller-->
         <scene sceneID="3L8-bT-95w">
             <objects>
-                <viewController id="idf-E2-w92" customClass="HFSponsorViewController" customModule="Hack_FSU" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="idf-E2-w92" customClass="HFSponsorViewController" customModule="HackFSU" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vkP-WZ-Y4K"/>
                         <viewControllerLayoutGuide type="bottom" id="XIU-OP-UKH"/>
@@ -483,11 +483,11 @@
                                 <color key="sectionIndexBackgroundColor" red="0.92941176469999998" green="0.92549019610000005" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexTrackingBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" restorationIdentifier="HFSponsorTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="sponsor" rowHeight="415" id="2sa-ss-bgz" customClass="HFSponsorTableViewCell" customModule="Hack_FSU" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" restorationIdentifier="HFSponsorTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="sponsor" rowHeight="415" id="2sa-ss-bgz" customClass="HFSponsorTableViewCell" customModule="HackFSU" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="580" height="415"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2sa-ss-bgz" id="rDG-rL-34f">
-                                            <rect key="frame" x="0.0" y="0.0" width="580" height="414"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="580" height="414.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZH-QW-T85">
@@ -520,11 +520,11 @@
                                             <outlet property="sponsorImage" destination="1fp-EJ-h1o" id="EW7-SE-ERP"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="HFSponsorFooterCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="sponsorFooter" rowHeight="30" id="xjT-Ew-s9b" customClass="HFSponsorFooterCell" customModule="Hack_FSU" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="HFSponsorFooterCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="sponsorFooter" rowHeight="30" id="xjT-Ew-s9b" customClass="HFSponsorFooterCell" customModule="HackFSU" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="443" width="580" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xjT-Ew-s9b" id="EJy-Dh-8VU">
-                                            <rect key="frame" x="0.0" y="0.0" width="580" height="29"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="580" height="29.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0G-st-f8K">
@@ -571,7 +571,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Px5-qz-shi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1366.4000000000001" y="921.13943028485767"/>
+            <point key="canvasLocation" x="-1200" y="1517"/>
         </scene>
         <!--Mentors-->
         <scene sceneID="Dmj-1Z-7kl">
@@ -633,7 +633,7 @@
         <!--Map View Controller-->
         <scene sceneID="SCY-O7-U7W">
             <objects>
-                <viewController id="ZLr-TS-Fcr" customClass="HFMapViewController" customModule="Hack_FSU" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ZLr-TS-Fcr" customClass="HFMapViewController" customModule="HackFSU" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IyY-K9-SrW"/>
                         <viewControllerLayoutGuide type="bottom" id="jDp-Ck-sxx"/>
@@ -648,11 +648,11 @@
                                 <color key="sectionIndexBackgroundColor" red="0.92941176469999998" green="0.92549019610000005" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexTrackingBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="HFMapTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="map" rowHeight="423" id="67n-5F-cNp" customClass="HFMapTableViewCell" customModule="Hack_FSU" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="HFMapTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="map" rowHeight="423" id="67n-5F-cNp" customClass="HFMapTableViewCell" customModule="HackFSU" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="580" height="423"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="67n-5F-cNp" id="WXD-yc-evG">
-                                            <rect key="frame" x="0.0" y="0.0" width="580" height="422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="580" height="422.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="PFImageView" translatesAutoresizingMaskIntoConstraints="NO" id="PeT-4c-TMe" customClass="PFImageView">

@@ -207,7 +207,6 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
         let update = 0
         let scheudle = 1
-        let twitter = 2
         
         let tempCellColor = UIColor.colorFromHex(0xFBFBFB)
         
@@ -274,24 +273,9 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             return cell
             
-        case twitter: let cell = UITableViewCell(); return cell
-            
-            
-            
-            
-            
         default: let cell = UITableViewCell(); return cell
         }
         
-        
-//
-//        
-//        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("HFUpdateTableViewCell")!
-//        
-//        
-//        
-//
-//        return cell
     }
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -336,195 +320,14 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
         dateFormatterPrint.dateFormat = formatOut
         
         let date: NSDate? = dateFormatterGet.dateFromString(date)
-        
-        print(date)
         return dateFormatterPrint.stringFromDate(date!)
     }
-    
-    
-    
+
     
     @IBAction func feedSegControlValueChanged(sender: AnyObject) {
-        //self.titles.removeAll()
-        //callAlamo(apiURL)
+
         self.feedTableView.reloadData()
-//        checkForContent()
-//        getUpdatesFromParse()
-//        getScheduleItemsFromParse()
+
     }
-    
-    
-    /* checkForContent will check if there is data to be displayed in the view. If not, it will set the correct Glyptodon view. */
-    /*
-    func checkForContent() {
-        let update = 0
-        let schedule = 1
-        let twitter = 2
-        
-            switch(self.feedSegmentControl.selectedSegmentIndex) {
-            case update: if titles.count == 0 {
-                feedTableView.alpha = 0.0
-                tableViewContainerView.glyptodon.show("Getting Updates. Please Wait.")
-            }   else {
-                tableViewContainerView.glyptodon.hide()
-                feedTableView.alpha = 1.0
-                }
-            case twitter: if twitterFeedArray.count == 0 {
-                feedTableView.alpha = 0.0
-                tableViewContainerView.glyptodon.show("Getting Tweets. Please Wait.")
-            }   else {
-                feedTableView.alpha = 1.0
-                tableViewContainerView.glyptodon.hide()
-                }
-            case schedule: if scheduleFeedArray.count == 0 {
-                feedTableView.alpha = 0.0
-                tableViewContainerView.glyptodon.show("Getting Scheudle. Please Wait.")
-            }   else {
-                feedTableView.alpha = 1.0
-                tableViewContainerView.glyptodon.hide()
-                }
-            default: break
-        } // End of Switch
-    }
-    
-    func getUpdatesFromParse() {
-        
-        
-        var updatesArray:[HFUpdate] = [HFUpdate]()
-        let query = PFQuery(className: "Update").orderByDescending("createdAt")
-        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
-            if let _ = objects {
-                
-                self.updateFeedArray.removeAll()
-                
-                for update in objects! {
-                    let newUpdateTitle = update.objectForKey("title") as! String
-                    let newUpdateContent = update.objectForKey("subtitle") as! String
-                    let tempTimestamp = update.createdAt!
-                    let newUpdateTimestamp = self.dateToString(tempTimestamp)
-                    
-                    let newUpdate = HFUpdate(title: newUpdateTitle, content: newUpdateContent, timestamp: newUpdateTimestamp)
-                    updatesArray.append(newUpdate)
-                    
-                }
-                self.updateFeedArray = updatesArray
-                self.feedTableView.reloadData()
-                self.checkForContent()
-            } else {
-                print(error)
-            }
-        }
-    }
-    
-    
-    
-    func getScheduleItemsFromParse() {
-        
-        print("merp ")
-        
-        var scheduleItemsArray:[HFScheduleItem] = [HFScheduleItem]()
-        let query = PFQuery(className: "ScheduleItem").orderByAscending("startTime")
-        var stateForArrayFill = -1
-        query.findObjectsInBackgroundWithBlock { (obejcts, error) -> Void in
-            if let _ = obejcts {
-                
-                self.fridayFeedArray.removeAll()
-                self.saturdayFeedArray.removeAll()
-                self.sundayFeedArray.removeAll()
-                
-                for update in obejcts! {
-                    let newScheduleItemTitle = update.objectForKey("title") as! String
-                    let newScheduleItemSubtitle = update.objectForKey("subtitle") as! String
-                    let newScheduleItemStartTime = update.objectForKey("startTime") as! NSDate
-                    // let newScheduleItemEndTime = update.objectForKey("endTime") as! NSDate
-                    
-                    let newScheduleItemStartTimeString = self.timeAsIWantIt(newScheduleItemStartTime)
-                    // let newScheduleItemEndTimeString = self.timeAsIWantIt(newScheduleItemEndTime)
-                    
-                    let newScheduleItem = HFScheduleItem(title: newScheduleItemTitle,
-                        subtitle: newScheduleItemSubtitle,
-                        start: newScheduleItemStartTimeString)
-                    
-                    stateForArrayFill = self.getDayOfWeek(newScheduleItemStartTime.dateByAddingTimeInterval(18000))
-                    
-                    if stateForArrayFill == 0 {
-                        self.fridayFeedArray.append(newScheduleItem)
-                    } else if stateForArrayFill == 1 {
-                        self.saturdayFeedArray.append(newScheduleItem)
-                    } else if stateForArrayFill == 2 {
-                        self.sundayFeedArray.append(newScheduleItem)
-                    }
-                    
-                    scheduleItemsArray.append(newScheduleItem)
-                }
-                self.scheduleFeedArray = scheduleItemsArray
-                self.feedTableView.reloadData()
-                self.checkForContent()
-            } else {
-                print(error)
-            }
-        }
-    }
- 
-    
-    func dateToString(date: NSDate) -> String {
-        //format date
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = .FullStyle
-        let dateString = dateFormatter.stringFromDate(date)
-        let brokenStringArray = dateString.componentsSeparatedByString(",")
-        let dayOfWeek = brokenStringArray[0]
-        
-        let shortDay = longDayToShortDay(dayOfWeek)
-        let time = timeAsIWantIt(date)
-        return "\(shortDay) \(time)"
-    }
-    
-    func getDayOfWeek(date: NSDate) -> Int {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = .FullStyle
-        let dateString = dateFormatter.stringFromDate(date)
-        let brokenStringArray = dateString.componentsSeparatedByString(",")
-        let dayOfWeek = brokenStringArray[0]
-        
-        switch(dayOfWeek) {
-        case "Sunday": return 2
-        case "Friday": return 0
-        case "Saturday": return 1
-        default: return 1
-        }
-    }
-    
-    func longDayToShortDay(day: String) -> String {
-        
-        switch(day) {
-        case "Sunday": return "Sun"
-        case "Monday": return "Mon"
-        case "Tuesday": return "Tues"
-        case "Wedneday": return "Wed"
-        case "Thursday": return "Thur"
-        case "Friday": return "Fri"
-        case "Saturday": return "Sat"
-        default: return "Sat"
-        }
-        
-    }
-    
-    func timeAsIWantIt(date: NSDate) -> String {
-        //format date
-       
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
-//        let dateString = dateFormatter.stringFromDate(date.dateByAddingTimeInterval(18000))
-        let dateString = dateFormatter.stringFromDate(date)
-        
-        let timeComponents = dateString.componentsSeparatedByString(":")
-        let hour = Int(timeComponents[0])
-        
-        print("\(hour!):\(timeComponents[1])")
-        
-        return "\(hour!):\(timeComponents[1])"
-        
-    }
-     */
+
 }

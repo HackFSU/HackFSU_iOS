@@ -1,6 +1,7 @@
 <h1>HackFSU</h1>
 
 HackFSU iOS App
+Version: 2.0
 
 The offical iOS application for HackFSU at Florida State University. The HackFSU application will sends updates straight to you phone to keeps you in the know, provide an up-to-date schedule, give you access to maps of the event, allow you to request help from a mentor, and check out our awesome sponsors.
 
@@ -16,11 +17,11 @@ Maps: The maps page gives users access to the maps of the hackathon venue.
 
 Sponsor: The sponsor page is a list of all of our sponsors for the event. 
 
-The app uses the libraries Glyptodon, KMPlaceholderTextView, Parse/ParseUI, BEMCheckBox, FlatUIKit, and Agrume. 
+The app uses the libraries Glyptodon, Alamofire/AlamofireImage, SwiftyJSON, FlatUIKit, and Agrume. 
 
+Alamofire - https://github.com/Alamofire/Alamofire <br />
+AlamofireImage - https://github.com/Alamofire/AlamofireImage <br />
+SwiftyJSON - https://github.com/SwiftyJSON/SwiftyJSON <br />
 Glyptodon - https://github.com/marketplacer/Glyptodon <br />
-KMPlaceholderTextView - https://github.com/MoZhouqi/KMPlaceholderTextView  <br />
-Parse - https://github.com/ParsePlatform/Parse-SDK-iOS-OSX  <br />
-BEMCheckBox - https://github.com/Boris-Em/BEMCheckBox  <br />
 FlatUIKit - https://github.com/Grouper/FlatUIKit  <br />
-Agrume - https://github.com/JanGorman/Agrume  
+Agrume - https://github.com/JanGorman/Agrume
