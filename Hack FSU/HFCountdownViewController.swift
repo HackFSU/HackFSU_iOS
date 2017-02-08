@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Parse
 
 var globalEventTimeLeft:CGFloat = NSDate.timeUntil(NSDate())
 var countdownManager = HFCountdownManager()

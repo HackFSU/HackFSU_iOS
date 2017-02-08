@@ -8,7 +8,6 @@
 
 import UIKit
 import Glyptodon
-import Parse
 import FlatUIKit
 import Alamofire
 import SwiftyJSON
@@ -33,22 +32,11 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var refreshControl: UIRefreshControl!
     var alamoCalled = false;
     
-    /**********************************************************************************/
-    
-    // MARK: Class Variables
-    var updateFeedArray:[HFUpdate] = [HFUpdate]()
-    var twitterFeedArray:[HFScheduleItem] = [HFScheduleItem]()
-    var scheduleFeedArray:[HFScheduleItem] = [HFScheduleItem]()
     
     var fridayFeedArray:[HFScheduleItem] = [HFScheduleItem]()
     var saturdayFeedArray:[HFScheduleItem] = [HFScheduleItem]()
     var sundayFeedArray:[HFScheduleItem] = [HFScheduleItem]()
-    var dayArray: [[HFScheduleItem]] = []
-    
-    var dayOfWeekArray:[String] = [String]()
-   // var feedSegmentControl:UISegmentedControl!
-    
-    /**********************************************************************************/
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

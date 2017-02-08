@@ -10,9 +10,6 @@
 		610DD41C1BFE84B30061383D /* HFUpdateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610DD41B1BFE84B30061383D /* HFUpdateTableViewCell.swift */; };
 		610DD41E1BFEBD900061383D /* HFScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610DD41D1BFEBD900061383D /* HFScheduleTableViewCell.swift */; };
 		610DD4201BFEBE5D0061383D /* HFScheduleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610DD41F1BFEBE5D0061383D /* HFScheduleItem.swift */; };
-		611E91591C45B6CC005F9CC1 /* HFMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611E91581C45B6CC005F9CC1 /* HFMap.swift */; };
-		61350D411BFE6A260087A30D /* HFUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61350D401BFE6A260087A30D /* HFUpdate.swift */; };
-		61350D441BFE6CFC0087A30D /* HFParseFeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61350D431BFE6CFC0087A30D /* HFParseFeedController.swift */; };
 		613859311C2E5850002F9FA2 /* MapHeaderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613859301C2E5850002F9FA2 /* MapHeaderViewCell.swift */; };
 		6138596F1C348297002F9FA2 /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6138596E1C348297002F9FA2 /* CounterView.swift */; };
 		613859731C34863E002F9FA2 /* HFCountdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613859721C34863E002F9FA2 /* HFCountdownViewController.swift */; };
@@ -34,10 +31,9 @@
 		6166252E1C21324100842E0E /* HFMapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6166252D1C21324100842E0E /* HFMapTableViewCell.swift */; };
 		61692B671C482F01007A6221 /* HFSponsorFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61692B661C482F01007A6221 /* HFSponsorFooterCell.swift */; };
 		61ACC34D1C44013F00714A5B /* HFCountdownManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ACC34C1C44013F00714A5B /* HFCountdownManager.swift */; };
-		61ACC34F1C44027A00714A5B /* HFCountdownItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ACC34E1C44027A00714A5B /* HFCountdownItem.swift */; };
 		61CC64C61C472D6200E08521 /* unisans.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 61CC64C51C472D6200E08521 /* unisans.OTF */; };
-		61D2D14E1BE7C53500145EBF /* HelpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D2D14D1BE7C53500145EBF /* HelpRequest.swift */; };
 		61F2087E1C51EF4C00B7CD27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61F2087D1C51EF4C00B7CD27 /* Assets.xcassets */; };
+		DF41D2C11E4AA41700225152 /* HFCountdownItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF41D2C01E4AA41700225152 /* HFCountdownItem.swift */; };
 		DFB7BFAD1E4949C1003BC8D0 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = DFB7BFAC1E4949C1003BC8D0 /* placeholder.png */; };
 		FED2F99B3C2A41A3A9FC2D47 /* Pods_Hack_FSU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372CFF18655F81B1F60ED852 /* Pods_Hack_FSU.framework */; };
 /* End PBXBuildFile section */
@@ -78,9 +74,6 @@
 		610DD41B1BFE84B30061383D /* HFUpdateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HFUpdateTableViewCell.swift; sourceTree = "<group>"; };
 		610DD41D1BFEBD900061383D /* HFScheduleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HFScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		610DD41F1BFEBE5D0061383D /* HFScheduleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HFScheduleItem.swift; sourceTree = "<group>"; };
-		611E91581C45B6CC005F9CC1 /* HFMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HFMap.swift; sourceTree = "<group>"; };
-		61350D401BFE6A260087A30D /* HFUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HFUpdate.swift; sourceTree = "<group>"; };
-		61350D431BFE6CFC0087A30D /* HFParseFeedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HFParseFeedController.swift; sourceTree = "<group>"; };
 		613859301C2E5850002F9FA2 /* MapHeaderViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapHeaderViewCell.swift; sourceTree = "<group>"; };
 		6138596E1C348297002F9FA2 /* CounterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
 		613859721C34863E002F9FA2 /* HFCountdownViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HFCountdownViewController.swift; sourceTree = "<group>"; };
@@ -107,12 +100,11 @@
 		6166252D1C21324100842E0E /* HFMapTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HFMapTableViewCell.swift; sourceTree = "<group>"; };
 		61692B661C482F01007A6221 /* HFSponsorFooterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HFSponsorFooterCell.swift; sourceTree = "<group>"; };
 		61ACC34C1C44013F00714A5B /* HFCountdownManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HFCountdownManager.swift; sourceTree = "<group>"; };
-		61ACC34E1C44027A00714A5B /* HFCountdownItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HFCountdownItem.swift; sourceTree = "<group>"; };
 		61CC64C51C472D6200E08521 /* unisans.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = unisans.OTF; sourceTree = "<group>"; };
-		61D2D14D1BE7C53500145EBF /* HelpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpRequest.swift; sourceTree = "<group>"; };
 		61D2D14F1BE7C83E00145EBF /* Hack FSU-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hack FSU-Bridging-Header.h"; sourceTree = "<group>"; };
 		61F2087D1C51EF4C00B7CD27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B364FA72B1545F656248E5EE /* Pods-Hack FSU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hack FSU.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hack FSU/Pods-Hack FSU.debug.xcconfig"; sourceTree = "<group>"; };
+		DF41D2C01E4AA41700225152 /* HFCountdownItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HFCountdownItem.swift; sourceTree = "<group>"; };
 		DFB7BFAC1E4949C1003BC8D0 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		E0C8C6E9D166446C8B6F2ABE /* Pods-Hack FSU.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hack FSU.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-Hack FSU/Pods-Hack FSU.adhoc.xcconfig"; sourceTree = "<group>"; };
 		E44455C18E0CFED949C518E0 /* Pods-Hack FSU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hack FSU.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hack FSU/Pods-Hack FSU.release.xcconfig"; sourceTree = "<group>"; };
@@ -169,7 +161,6 @@
 		61350D421BFE6CD70087A30D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				61350D431BFE6CFC0087A30D /* HFParseFeedController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -250,13 +241,10 @@
 		61D2D14C1BE7C50400145EBF /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				61D2D14D1BE7C53500145EBF /* HelpRequest.swift */,
-				611E91581C45B6CC005F9CC1 /* HFMap.swift */,
-				61350D401BFE6A260087A30D /* HFUpdate.swift */,
 				610DD41F1BFEBE5D0061383D /* HFScheduleItem.swift */,
 				6139709A1C3B19B400BFEC2E /* HFSponsor.swift */,
 				61ACC34C1C44013F00714A5B /* HFCountdownManager.swift */,
-				61ACC34E1C44027A00714A5B /* HFCountdownItem.swift */,
+				DF41D2C01E4AA41700225152 /* HFCountdownItem.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -475,14 +463,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61ACC34F1C44027A00714A5B /* HFCountdownItem.swift in Sources */,
-				61350D441BFE6CFC0087A30D /* HFParseFeedController.swift in Sources */,
 				61551A9E1BD9E5360091D44A /* HFFeedViewController.swift in Sources */,
 				610DD41C1BFE84B30061383D /* HFUpdateTableViewCell.swift in Sources */,
 				61551A701BD9C0C50091D44A /* AppDelegate.swift in Sources */,
-				61350D411BFE6A260087A30D /* HFUpdate.swift in Sources */,
 				613859731C34863E002F9FA2 /* HFCountdownViewController.swift in Sources */,
 				61ACC34D1C44013F00714A5B /* HFCountdownManager.swift in Sources */,
+				DF41D2C11E4AA41700225152 /* HFCountdownItem.swift in Sources */,
 				613859311C2E5850002F9FA2 /* MapHeaderViewCell.swift in Sources */,
 				613970991C3B11F200BFEC2E /* HFSponsorTableViewCell.swift in Sources */,
 				6166252E1C21324100842E0E /* HFMapTableViewCell.swift in Sources */,
@@ -491,13 +477,11 @@
 				615085CE1BDA16D40066E7BE /* HFMapViewController.swift in Sources */,
 				610DD41E1BFEBD900061383D /* HFScheduleTableViewCell.swift in Sources */,
 				615085D01BDAA55E0066E7BE /* HFMentorViewController.swift in Sources */,
-				611E91591C45B6CC005F9CC1 /* HFMap.swift in Sources */,
 				6164B0601C1F584B00FC04BA /* ScheduleHeaderCell.swift in Sources */,
 				615085FE1BDEE2400066E7BE /* HFColors.swift in Sources */,
 				6139709B1C3B19B400BFEC2E /* HFSponsor.swift in Sources */,
 				610DD4201BFEBE5D0061383D /* HFScheduleItem.swift in Sources */,
 				61692B671C482F01007A6221 /* HFSponsorFooterCell.swift in Sources */,
-				61D2D14E1BE7C53500145EBF /* HelpRequest.swift in Sources */,
 				615085F81BDD901B0066E7BE /* HFSponsorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

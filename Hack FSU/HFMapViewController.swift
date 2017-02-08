@@ -85,7 +85,7 @@ class HFMapViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 6.0 
+        return 6.0
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

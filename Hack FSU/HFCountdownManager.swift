@@ -7,13 +7,8 @@
 //
 
 import Foundation
-import Parse
-import Alamofire
-import SwiftyJSON
 
 class HFCountdownManager {
-    
-    let apiURL = NSURL(string: "https://hackfsu.com/api/hackathon/get/countdowns")!
     
     private var arrayOfCountdownTimes = [HFCountdownItem]()
     private var countdownTime:NSDate!
@@ -144,34 +139,5 @@ class HFCountdownManager {
     
     func loadCountdownEventsFromParse() {
         
-        
-        
-        //callAlamo(apiURL)
-//        
-//        let query = PFQuery(className: "CountdownItem").orderByAscending("time")
-//        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
-//            if let _ = objects {
-//                self.arrayOfCountdownTimes.removeAll()
-//                for item in objects! {
-//                    
-//                    let newCountdownItemName = item.objectForKey("label") as! String
-//                    let newCountdownItemTime = item.objectForKey("time") as! NSDate
-//                    print(newCountdownItemName)
-//                    let newCountdownItem = HFCountdownItem(time: newCountdownItemTime, name: newCountdownItemName)
-//                    
-//                    self.arrayOfCountdownTimes.append(newCountdownItem)
-//                    
-//                }
-//                print("beep")
-//                self.updateCurentInformationWithCurrentArray()
-//                self.newItemsAvailble = true
-//            } else {
-//                print("Did not load items from parse")
-//        
-//            }
-//        }
-//        
-//
-//    
     }
 }
