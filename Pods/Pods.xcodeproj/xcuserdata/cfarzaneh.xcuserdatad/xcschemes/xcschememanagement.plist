@@ -29,12 +29,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>KMPlaceholderTextView.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-Hack FSU.xcscheme</key>
+		<key>Pods-HackFSU.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -47,11 +42,6 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>01C4E5E02A97DB8E971434558813E09B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>180AC0C3219E6EA614CAB8632984C6D5</key>
 		<dict>
 			<key>primary</key>
@@ -62,12 +52,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>30DC9A50A3BCA7191DB235416E37A180</key>
+		<key>2810771224C0EEA0A63E5F083390B3F4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4E124C40B5E6AF92F87BDBDF915E2603</key>
+		<key>30DC9A50A3BCA7191DB235416E37A180</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,7 +72,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C0AB0552D80709E7C13C3CAB9C8BA106</key>
+		<key>B56FFBD329DEF6EB150333FE37E88A4C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

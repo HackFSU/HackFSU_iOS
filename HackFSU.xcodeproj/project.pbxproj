@@ -33,9 +33,9 @@
 		61ACC34D1C44013F00714A5B /* HFCountdownManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ACC34C1C44013F00714A5B /* HFCountdownManager.swift */; };
 		61CC64C61C472D6200E08521 /* unisans.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 61CC64C51C472D6200E08521 /* unisans.OTF */; };
 		61F2087E1C51EF4C00B7CD27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61F2087D1C51EF4C00B7CD27 /* Assets.xcassets */; };
+		C705512F7725F4D56522EFBF /* Pods_HackFSU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D03DC5F9440654A6BAE82681 /* Pods_HackFSU.framework */; };
 		DF41D2C11E4AA41700225152 /* HFCountdownItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF41D2C01E4AA41700225152 /* HFCountdownItem.swift */; };
 		DFB7BFAD1E4949C1003BC8D0 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = DFB7BFAC1E4949C1003BC8D0 /* placeholder.png */; };
-		FED2F99B3C2A41A3A9FC2D47 /* Pods_Hack_FSU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372CFF18655F81B1F60ED852 /* Pods_Hack_FSU.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,15 +84,15 @@
 		615085CF1BDAA55E0066E7BE /* HFMentorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HFMentorViewController.swift; sourceTree = "<group>"; };
 		615085F71BDD901B0066E7BE /* HFSponsorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HFSponsorViewController.swift; sourceTree = "<group>"; };
 		615085FD1BDEE2400066E7BE /* HFColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HFColors.swift; sourceTree = "<group>"; };
-		61551A6C1BD9C0C50091D44A /* Hack FSU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hack FSU.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		61551A6C1BD9C0C50091D44A /* HackFSU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackFSU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61551A6F1BD9C0C50091D44A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61551A741BD9C0C50091D44A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		61551A791BD9C0C50091D44A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		61551A7B1BD9C0C50091D44A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		61551A801BD9C0C50091D44A /* Hack FSUTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Hack FSUTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		61551A801BD9C0C50091D44A /* HackFSUTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackFSUTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		61551A841BD9C0C50091D44A /* Hack_FSUTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hack_FSUTests.swift; sourceTree = "<group>"; };
 		61551A861BD9C0C50091D44A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		61551A8B1BD9C0C50091D44A /* Hack FSUUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Hack FSUUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		61551A8B1BD9C0C50091D44A /* HackFSUUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackFSUUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		61551A8F1BD9C0C50091D44A /* Hack_FSUUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hack_FSUUITests.swift; sourceTree = "<group>"; };
 		61551A911BD9C0C50091D44A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61551A9D1BD9E5360091D44A /* HFFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HFFeedViewController.swift; sourceTree = "<group>"; };
@@ -102,7 +102,11 @@
 		61ACC34C1C44013F00714A5B /* HFCountdownManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HFCountdownManager.swift; sourceTree = "<group>"; };
 		61CC64C51C472D6200E08521 /* unisans.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = unisans.OTF; sourceTree = "<group>"; };
 		61F2087D1C51EF4C00B7CD27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8FCDAC0B06ADE75AA78528EE /* Pods-HackFSU.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackFSU.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-HackFSU/Pods-HackFSU.adhoc.xcconfig"; sourceTree = "<group>"; };
+		992003FD91042B038A23BA91 /* Pods-HackFSU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackFSU.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackFSU/Pods-HackFSU.release.xcconfig"; sourceTree = "<group>"; };
 		B364FA72B1545F656248E5EE /* Pods-Hack FSU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hack FSU.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hack FSU/Pods-Hack FSU.debug.xcconfig"; sourceTree = "<group>"; };
+		C0523E8B4D485DCDC7EEA0B7 /* Pods-HackFSU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackFSU.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackFSU/Pods-HackFSU.debug.xcconfig"; sourceTree = "<group>"; };
+		D03DC5F9440654A6BAE82681 /* Pods_HackFSU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackFSU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF41D2C01E4AA41700225152 /* HFCountdownItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HFCountdownItem.swift; sourceTree = "<group>"; };
 		DFB7BFAC1E4949C1003BC8D0 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		E0C8C6E9D166446C8B6F2ABE /* Pods-Hack FSU.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hack FSU.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-Hack FSU/Pods-Hack FSU.adhoc.xcconfig"; sourceTree = "<group>"; };
@@ -114,7 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FED2F99B3C2A41A3A9FC2D47 /* Pods_Hack_FSU.framework in Frameworks */,
+				C705512F7725F4D56522EFBF /* Pods_HackFSU.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				372CFF18655F81B1F60ED852 /* Pods_Hack_FSU.framework */,
+				D03DC5F9440654A6BAE82681 /* Pods_HackFSU.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -167,9 +172,9 @@
 		61551A631BD9C0C50091D44A = {
 			isa = PBXGroup;
 			children = (
-				61551A6E1BD9C0C50091D44A /* Hack FSU */,
-				61551A831BD9C0C50091D44A /* Hack FSUTests */,
-				61551A8E1BD9C0C50091D44A /* Hack FSUUITests */,
+				61551A6E1BD9C0C50091D44A /* HackFSU */,
+				61551A831BD9C0C50091D44A /* HackFSUTests */,
+				61551A8E1BD9C0C50091D44A /* HackFSUUITests */,
 				61551A6D1BD9C0C50091D44A /* Products */,
 				C107CA4FF56862CF66FEB7B0 /* Pods */,
 				26FDD11962AD03EA2FB3222B /* Frameworks */,
@@ -179,14 +184,14 @@
 		61551A6D1BD9C0C50091D44A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				61551A6C1BD9C0C50091D44A /* Hack FSU.app */,
-				61551A801BD9C0C50091D44A /* Hack FSUTests.xctest */,
-				61551A8B1BD9C0C50091D44A /* Hack FSUUITests.xctest */,
+				61551A6C1BD9C0C50091D44A /* HackFSU.app */,
+				61551A801BD9C0C50091D44A /* HackFSUTests.xctest */,
+				61551A8B1BD9C0C50091D44A /* HackFSUUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		61551A6E1BD9C0C50091D44A /* Hack FSU */ = {
+		61551A6E1BD9C0C50091D44A /* HackFSU */ = {
 			isa = PBXGroup;
 			children = (
 				DFB7BFAC1E4949C1003BC8D0 /* placeholder.png */,
@@ -202,25 +207,25 @@
 				61F2087D1C51EF4C00B7CD27 /* Assets.xcassets */,
 				61551A7B1BD9C0C50091D44A /* Info.plist */,
 			);
-			path = "Hack FSU";
+			path = HackFSU;
 			sourceTree = "<group>";
 		};
-		61551A831BD9C0C50091D44A /* Hack FSUTests */ = {
+		61551A831BD9C0C50091D44A /* HackFSUTests */ = {
 			isa = PBXGroup;
 			children = (
 				61551A841BD9C0C50091D44A /* Hack_FSUTests.swift */,
 				61551A861BD9C0C50091D44A /* Info.plist */,
 			);
-			path = "Hack FSUTests";
+			path = HackFSUTests;
 			sourceTree = "<group>";
 		};
-		61551A8E1BD9C0C50091D44A /* Hack FSUUITests */ = {
+		61551A8E1BD9C0C50091D44A /* HackFSUUITests */ = {
 			isa = PBXGroup;
 			children = (
 				61551A8F1BD9C0C50091D44A /* Hack_FSUUITests.swift */,
 				61551A911BD9C0C50091D44A /* Info.plist */,
 			);
-			path = "Hack FSUUITests";
+			path = HackFSUUITests;
 			sourceTree = "<group>";
 		};
 		61551A9F1BD9E6F80091D44A /* Views */ = {
@@ -262,6 +267,9 @@
 				B364FA72B1545F656248E5EE /* Pods-Hack FSU.debug.xcconfig */,
 				E44455C18E0CFED949C518E0 /* Pods-Hack FSU.release.xcconfig */,
 				E0C8C6E9D166446C8B6F2ABE /* Pods-Hack FSU.adhoc.xcconfig */,
+				C0523E8B4D485DCDC7EEA0B7 /* Pods-HackFSU.debug.xcconfig */,
+				992003FD91042B038A23BA91 /* Pods-HackFSU.release.xcconfig */,
+				8FCDAC0B06ADE75AA78528EE /* Pods-HackFSU.adhoc.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -269,9 +277,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		61551A6B1BD9C0C50091D44A /* Hack FSU */ = {
+		61551A6B1BD9C0C50091D44A /* HackFSU */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 61551A941BD9C0C50091D44A /* Build configuration list for PBXNativeTarget "Hack FSU" */;
+			buildConfigurationList = 61551A941BD9C0C50091D44A /* Build configuration list for PBXNativeTarget "HackFSU" */;
 			buildPhases = (
 				48EA93BE31EE172D20C3E272 /* [CP] Check Pods Manifest.lock */,
 				61551A681BD9C0C50091D44A /* Sources */,
@@ -285,14 +293,14 @@
 			);
 			dependencies = (
 			);
-			name = "Hack FSU";
+			name = HackFSU;
 			productName = "Hack FSU";
-			productReference = 61551A6C1BD9C0C50091D44A /* Hack FSU.app */;
+			productReference = 61551A6C1BD9C0C50091D44A /* HackFSU.app */;
 			productType = "com.apple.product-type.application";
 		};
-		61551A7F1BD9C0C50091D44A /* Hack FSUTests */ = {
+		61551A7F1BD9C0C50091D44A /* HackFSUTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 61551A971BD9C0C50091D44A /* Build configuration list for PBXNativeTarget "Hack FSUTests" */;
+			buildConfigurationList = 61551A971BD9C0C50091D44A /* Build configuration list for PBXNativeTarget "HackFSUTests" */;
 			buildPhases = (
 				61551A7C1BD9C0C50091D44A /* Sources */,
 				61551A7D1BD9C0C50091D44A /* Frameworks */,
@@ -303,14 +311,14 @@
 			dependencies = (
 				61551A821BD9C0C50091D44A /* PBXTargetDependency */,
 			);
-			name = "Hack FSUTests";
+			name = HackFSUTests;
 			productName = "Hack FSUTests";
-			productReference = 61551A801BD9C0C50091D44A /* Hack FSUTests.xctest */;
+			productReference = 61551A801BD9C0C50091D44A /* HackFSUTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		61551A8A1BD9C0C50091D44A /* Hack FSUUITests */ = {
+		61551A8A1BD9C0C50091D44A /* HackFSUUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 61551A9A1BD9C0C50091D44A /* Build configuration list for PBXNativeTarget "Hack FSUUITests" */;
+			buildConfigurationList = 61551A9A1BD9C0C50091D44A /* Build configuration list for PBXNativeTarget "HackFSUUITests" */;
 			buildPhases = (
 				61551A871BD9C0C50091D44A /* Sources */,
 				61551A881BD9C0C50091D44A /* Frameworks */,
@@ -321,9 +329,9 @@
 			dependencies = (
 				61551A8D1BD9C0C50091D44A /* PBXTargetDependency */,
 			);
-			name = "Hack FSUUITests";
+			name = HackFSUUITests;
 			productName = "Hack FSUUITests";
-			productReference = 61551A8B1BD9C0C50091D44A /* Hack FSUUITests.xctest */;
+			productReference = 61551A8B1BD9C0C50091D44A /* HackFSUUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -359,7 +367,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 61551A671BD9C0C50091D44A /* Build configuration list for PBXProject "Hack FSU" */;
+			buildConfigurationList = 61551A671BD9C0C50091D44A /* Build configuration list for PBXProject "HackFSU" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -372,9 +380,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				61551A6B1BD9C0C50091D44A /* Hack FSU */,
-				61551A7F1BD9C0C50091D44A /* Hack FSUTests */,
-				61551A8A1BD9C0C50091D44A /* Hack FSUUITests */,
+				61551A6B1BD9C0C50091D44A /* HackFSU */,
+				61551A7F1BD9C0C50091D44A /* HackFSUTests */,
+				61551A8A1BD9C0C50091D44A /* HackFSUUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -436,7 +444,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hack FSU/Pods-Hack FSU-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackFSU/Pods-HackFSU-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A04CA54A09B41382FB91702F /* [CP] Embed Pods Frameworks */ = {
@@ -451,7 +459,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hack FSU/Pods-Hack FSU-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackFSU/Pods-HackFSU-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -505,12 +513,12 @@
 /* Begin PBXTargetDependency section */
 		61551A821BD9C0C50091D44A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 61551A6B1BD9C0C50091D44A /* Hack FSU */;
+			target = 61551A6B1BD9C0C50091D44A /* HackFSU */;
 			targetProxy = 61551A811BD9C0C50091D44A /* PBXContainerItemProxy */;
 		};
 		61551A8D1BD9C0C50091D44A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 61551A6B1BD9C0C50091D44A /* Hack FSU */;
+			target = 61551A6B1BD9C0C50091D44A /* HackFSU */;
 			targetProxy = 61551A8C1BD9C0C50091D44A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -629,7 +637,7 @@
 		};
 		61551A951BD9C0C50091D44A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B364FA72B1545F656248E5EE /* Pods-Hack FSU.debug.xcconfig */;
+			baseConfigurationReference = C0523E8B4D485DCDC7EEA0B7 /* Pods-HackFSU.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -637,7 +645,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Todd Joseph Littlejohn (4KYDF7BG9W)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 79838R6XL2;
-				INFOPLIST_FILE = "Hack FSU/Info.plist";
+				INFOPLIST_FILE = HackFSU/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hackfsu.mobile.ios;
@@ -651,7 +659,7 @@
 		};
 		61551A961BD9C0C50091D44A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E44455C18E0CFED949C518E0 /* Pods-Hack FSU.release.xcconfig */;
+			baseConfigurationReference = 992003FD91042B038A23BA91 /* Pods-HackFSU.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -659,7 +667,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Todd Joseph Littlejohn (KW8RLKUW3C)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 79838R6XL2;
-				INFOPLIST_FILE = "Hack FSU/Info.plist";
+				INFOPLIST_FILE = HackFSU/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hackfsu.mobile.ios;
@@ -681,7 +689,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "e55af00c-2342-4ff6-9e58-8da52b6be26a";
 				SWIFT_VERSION = 2.3;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hack FSU.app/Hack FSU";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HackFSU.temp_caseinsensitive_rename.app/HackFSU.temp_caseinsensitive_rename";
 			};
 			name = Debug;
 		};
@@ -696,7 +704,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "e55af00c-2342-4ff6-9e58-8da52b6be26a";
 				SWIFT_VERSION = 2.3;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hack FSU.app/Hack FSU";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HackFSU.temp_caseinsensitive_rename.app/HackFSU.temp_caseinsensitive_rename";
 			};
 			name = Release;
 		};
@@ -770,7 +778,7 @@
 		};
 		61A16A321C494FD200373313 /* adHoc */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E0C8C6E9D166446C8B6F2ABE /* Pods-Hack FSU.adhoc.xcconfig */;
+			baseConfigurationReference = 8FCDAC0B06ADE75AA78528EE /* Pods-HackFSU.adhoc.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -778,7 +786,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Todd Joseph Littlejohn (KW8RLKUW3C)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 79838R6XL2;
-				INFOPLIST_FILE = "Hack FSU/Info.plist";
+				INFOPLIST_FILE = HackFSU/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hackfsu.mobile.ios;
@@ -800,7 +808,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "e55af00c-2342-4ff6-9e58-8da52b6be26a";
 				SWIFT_VERSION = 2.3;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hack FSU.app/Hack FSU";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HackFSU.temp_caseinsensitive_rename.app/HackFSU.temp_caseinsensitive_rename";
 			};
 			name = adHoc;
 		};
@@ -820,7 +828,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		61551A671BD9C0C50091D44A /* Build configuration list for PBXProject "Hack FSU" */ = {
+		61551A671BD9C0C50091D44A /* Build configuration list for PBXProject "HackFSU" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				61551A921BD9C0C50091D44A /* Debug */,
@@ -830,7 +838,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		61551A941BD9C0C50091D44A /* Build configuration list for PBXNativeTarget "Hack FSU" */ = {
+		61551A941BD9C0C50091D44A /* Build configuration list for PBXNativeTarget "HackFSU" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				61551A951BD9C0C50091D44A /* Debug */,
@@ -840,7 +848,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		61551A971BD9C0C50091D44A /* Build configuration list for PBXNativeTarget "Hack FSUTests" */ = {
+		61551A971BD9C0C50091D44A /* Build configuration list for PBXNativeTarget "HackFSUTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				61551A981BD9C0C50091D44A /* Debug */,
@@ -850,7 +858,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		61551A9A1BD9C0C50091D44A /* Build configuration list for PBXNativeTarget "Hack FSUUITests" */ = {
+		61551A9A1BD9C0C50091D44A /* Build configuration list for PBXNativeTarget "HackFSUUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				61551A9B1BD9C0C50091D44A /* Debug */,

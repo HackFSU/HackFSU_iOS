@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "61551A6B1BD9C0C50091D44A"
-               BuildableName = "Hack FSU.app"
-               BlueprintName = "Hack FSU"
-               ReferencedContainer = "container:Hack FSU.xcodeproj">
+               BuildableName = "HackFSU.app"
+               BlueprintName = "HackFSU"
+               ReferencedContainer = "container:HackFSU.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "61551A7F1BD9C0C50091D44A"
-               BuildableName = "Hack FSUTests.xctest"
-               BlueprintName = "Hack FSUTests"
-               ReferencedContainer = "container:Hack FSU.xcodeproj">
+               BuildableName = "HackFSUTests.xctest"
+               BlueprintName = "HackFSUTests"
+               ReferencedContainer = "container:HackFSU.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "61551A8A1BD9C0C50091D44A"
-               BuildableName = "Hack FSUUITests.xctest"
-               BlueprintName = "Hack FSUUITests"
-               ReferencedContainer = "container:Hack FSU.xcodeproj">
+               BuildableName = "HackFSUUITests.xctest"
+               BlueprintName = "HackFSUUITests"
+               ReferencedContainer = "container:HackFSU.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "61551A6B1BD9C0C50091D44A"
-            BuildableName = "Hack FSU.app"
-            BlueprintName = "Hack FSU"
-            ReferencedContainer = "container:Hack FSU.xcodeproj">
+            BuildableName = "HackFSU.app"
+            BlueprintName = "HackFSU"
+            ReferencedContainer = "container:HackFSU.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "61551A6B1BD9C0C50091D44A"
-            BuildableName = "Hack FSU.app"
-            BlueprintName = "Hack FSU"
-            ReferencedContainer = "container:Hack FSU.xcodeproj">
+            BuildableName = "HackFSU.app"
+            BlueprintName = "HackFSU"
+            ReferencedContainer = "container:HackFSU.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -95,9 +95,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "61551A6B1BD9C0C50091D44A"
-            BuildableName = "Hack FSU.app"
-            BlueprintName = "Hack FSU"
-            ReferencedContainer = "container:Hack FSU.xcodeproj">
+            BuildableName = "HackFSU.app"
+            BlueprintName = "HackFSU"
+            ReferencedContainer = "container:HackFSU.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

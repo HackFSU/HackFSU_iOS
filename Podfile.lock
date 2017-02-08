@@ -5,7 +5,6 @@ PODS:
     - Alamofire (~> 3.5)
   - FlatUIKit (1.6.2)
   - Glyptodon (1.0.9)
-  - KMPlaceholderTextView (1.0.0)
   - SwiftyJSON (2.4.0)
 
 DEPENDENCIES:
@@ -14,7 +13,6 @@ DEPENDENCIES:
   - AlamofireImage (~> 2.5.0)
   - FlatUIKit
   - Glyptodon (~> 1.0)
-  - KMPlaceholderTextView (~> 1.0.0)
   - SwiftyJSON (~> 2.4.0)
 
 EXTERNAL SOURCES:
@@ -32,9 +30,8 @@ SPEC CHECKSUMS:
   AlamofireImage: 2d34936e5201270bb17a316a786e90e83b4a249d
   FlatUIKit: 1b41f0d4952ce8d970d8479ce79df54a960242c4
   Glyptodon: 0a73952fe2b413f5784a640b665b39719515b3a1
-  KMPlaceholderTextView: 08514547996d3bc7ce1b57e296af2ce8e832c0f6
   SwiftyJSON: 96918c1bf505efa50c4f72957018dd3452090c9c
 
-PODFILE CHECKSUM: b20fb2ab5019995618e6497103abf6563aa1420a
+PODFILE CHECKSUM: ccc844bb6dc91dea5936a00a3c84ded9bb8bc107
 
 COCOAPODS: 1.2.0.beta.1
