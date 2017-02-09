@@ -31,6 +31,7 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var refreshControl: UIRefreshControl!
     var alamoCalled = false;
+    var didFinishFetching = false;
     
     
     var fridayFeedArray:[HFScheduleItem] = [HFScheduleItem]()
@@ -44,6 +45,7 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //getUpdatesFromParse()
         //getScheduleItemsFromParse()
         //checkForContent()
+        checkForContent()
         self.feedTableView.rowHeight = UITableViewAutomaticDimension
         self.feedTableView.estimatedRowHeight = 44.0
         feedTableView.separatorStyle = UITableViewCellSeparatorStyle.None
@@ -82,13 +84,34 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
     }
     
+    
+    func checkForContent() {
+        if didFinishFetching == false {
+            feedTableView.alpha = 0.0
+            tableViewContainerView.glyptodon.show("Loading Feed.\nPlease Wait.")
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        } else {
+            tableViewContainerView.glyptodon.hide()
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            feedTableView.alpha = 1.0
+        }
+    }
+    
     func refresh(sender:AnyObject) {
         // Code to refresh table view
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         self.titles.removeAll()
+        self.contents.removeAll()
+        self.updatesDates.removeAll()
         callAlamo(apiURL)
-        self.feedTableView.reloadData()
         if (alamoCalled == true) {
-            refreshControl.endRefreshing()
+            let delay = 0.75 * Double(NSEC_PER_SEC)
+            let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+            dispatch_after(time, dispatch_get_main_queue()) {
+                self.refreshControl.endRefreshing()
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                self.feedTableView.reloadData()
+            }
             self.alamoCalled = false
         }
     }
@@ -136,26 +159,29 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 let description = results["description"].stringValue
                 let startTime = results["start"].stringValue
                 
+                let formatInput = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
                 
-                if startTime.rangeOfString("2017-02-17") != nil{
-                    let finalStartTime = theTIMEBIH(startTime, formatIn: "yyyy-MM-dd'T'HH:mm:ssZZZZZ", formatOut: "h:mm a");
+                let thaTime = theTIMEBIH(startTime, formatIn: formatInput, formatOut: "yyyy-MM-dd");
+                
+                if thaTime.rangeOfString("2017-02-17") != nil{
+                    let finalStartTime = theTIMEBIH(startTime, formatIn: formatInput, formatOut: "h:mm a");
        
                     let newScheduleItem = HFScheduleItem(title: name,
                                                          subtitle: description,
                                                          start: finalStartTime)
                     self.fridayFeedArray.append(newScheduleItem)
                 }
-                else if startTime.rangeOfString("2017-02-18") != nil{
+                else if thaTime.rangeOfString("2017-02-18") != nil{
             
-                let finalStartTime = theTIMEBIH(startTime, formatIn: "yyyy-MM-dd'T'HH:mm:ssZZZZZ", formatOut: "h:mm a");
+                let finalStartTime = theTIMEBIH(startTime, formatIn: formatInput, formatOut: "h:mm a");
                 
                 let newScheduleItem = HFScheduleItem(title: name,
                                                      subtitle: description,
                                                      start: finalStartTime)
                 self.saturdayFeedArray.append(newScheduleItem)
                 }
-                else if startTime.rangeOfString("2017-02-19") != nil{
-                    let finalStartTime = theTIMEBIH(startTime, formatIn: "yyyy-MM-dd'T'HH:mm:ssZZZZZ", formatOut: "h:mm a");
+                else if thaTime.rangeOfString("2017-02-19") != nil{
+                    let finalStartTime = theTIMEBIH(startTime, formatIn: formatInput, formatOut: "h:mm a");
                     
                     let newScheduleItem = HFScheduleItem(title: name,
                                                          subtitle: description,
@@ -165,12 +191,12 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
             
         }
+        self.didFinishFetching = true
+        checkForContent()
         self.feedTableView.reloadData()
     }
     
-   
 
-    
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         let update = 0

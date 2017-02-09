@@ -36,6 +36,11 @@ extension UIColor {
         return colorFromHex(0x5E2F4F)
     }
     
+    class func _hackYo() -> UIColor {
+        return colorFromHex(0x86D2DD)
+    }
+    
+    
     
     class func colorFromHex(rgbValue:UInt32) -> UIColor {
         

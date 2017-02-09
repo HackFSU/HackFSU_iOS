@@ -35,7 +35,7 @@
 		61F2087E1C51EF4C00B7CD27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61F2087D1C51EF4C00B7CD27 /* Assets.xcassets */; };
 		C705512F7725F4D56522EFBF /* Pods_HackFSU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D03DC5F9440654A6BAE82681 /* Pods_HackFSU.framework */; };
 		DF41D2C11E4AA41700225152 /* HFCountdownItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF41D2C01E4AA41700225152 /* HFCountdownItem.swift */; };
-		DFB7BFAD1E4949C1003BC8D0 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = DFB7BFAC1E4949C1003BC8D0 /* placeholder.png */; };
+		DFC688C41E4AC162009A99AE /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = DFC688C31E4AC162009A99AE /* placeholder.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,7 +108,7 @@
 		C0523E8B4D485DCDC7EEA0B7 /* Pods-HackFSU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackFSU.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackFSU/Pods-HackFSU.debug.xcconfig"; sourceTree = "<group>"; };
 		D03DC5F9440654A6BAE82681 /* Pods_HackFSU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackFSU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF41D2C01E4AA41700225152 /* HFCountdownItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HFCountdownItem.swift; sourceTree = "<group>"; };
-		DFB7BFAC1E4949C1003BC8D0 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
+		DFC688C31E4AC162009A99AE /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		E0C8C6E9D166446C8B6F2ABE /* Pods-Hack FSU.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hack FSU.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-Hack FSU/Pods-Hack FSU.adhoc.xcconfig"; sourceTree = "<group>"; };
 		E44455C18E0CFED949C518E0 /* Pods-Hack FSU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hack FSU.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hack FSU/Pods-Hack FSU.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -194,7 +194,7 @@
 		61551A6E1BD9C0C50091D44A /* HackFSU */ = {
 			isa = PBXGroup;
 			children = (
-				DFB7BFAC1E4949C1003BC8D0 /* placeholder.png */,
+				DFC688C31E4AC162009A99AE /* placeholder.png */,
 				61551A731BD9C0C50091D44A /* Main.storyboard */,
 				61551A6F1BD9C0C50091D44A /* AppDelegate.swift */,
 				61EE2DBB1BE3E49E00E80DDF /* Style */,
@@ -342,11 +342,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0810;
-				ORGANIZATIONNAME = "Todd Littlejohn";
+				ORGANIZATIONNAME = HackFSU;
 				TargetAttributes = {
 					61551A6B1BD9C0C50091D44A = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = 79838R6XL2;
+						DevelopmentTeam = NE788D48N6;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -395,7 +395,7 @@
 				61551A7A1BD9C0C50091D44A /* LaunchScreen.storyboard in Resources */,
 				61551A751BD9C0C50091D44A /* Main.storyboard in Resources */,
 				61F2087E1C51EF4C00B7CD27 /* Assets.xcassets in Resources */,
-				DFB7BFAD1E4949C1003BC8D0 /* placeholder.png in Resources */,
+				DFC688C41E4AC162009A99AE /* placeholder.png in Resources */,
 				61CC64C61C472D6200E08521 /* unisans.OTF in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -644,11 +644,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Todd Joseph Littlejohn (4KYDF7BG9W)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 79838R6XL2;
+				DEVELOPMENT_TEAM = NE788D48N6;
 				INFOPLIST_FILE = HackFSU/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hackfsu.mobile.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hackfsu.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -666,11 +666,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Todd Joseph Littlejohn (KW8RLKUW3C)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 79838R6XL2;
+				DEVELOPMENT_TEAM = NE788D48N6;
 				INFOPLIST_FILE = HackFSU/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hackfsu.mobile.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hackfsu.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 2.3;
@@ -785,11 +785,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Todd Joseph Littlejohn (KW8RLKUW3C)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 79838R6XL2;
+				DEVELOPMENT_TEAM = NE788D48N6;
 				INFOPLIST_FILE = HackFSU/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hackfsu.mobile.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hackfsu.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 2.3;

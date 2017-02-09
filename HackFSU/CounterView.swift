@@ -23,7 +23,7 @@ class CounterView: UIView {
     var timesImHere = 3
     
     @IBInspectable var outlineColor: UIColor = UIColor.blueColor()
-    @IBInspectable var counterColor: UIColor = UIColor._hackRed()
+    @IBInspectable var counterColor: UIColor = UIColor._hackYo()
     
     override func drawRect(rect: CGRect) {
         

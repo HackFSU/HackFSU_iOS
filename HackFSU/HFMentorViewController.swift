@@ -7,27 +7,32 @@
 //
 
 import UIKit
+import Glyptodon
 
-class HFMentorViewController: UIViewController {
+class HFMentorViewController: UIViewController, UIWebViewDelegate {
     
 
     @IBAction func refreshView(sender: AnyObject) {
         loadwebview()
     }
     
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var mentorView: UIView!
     @IBOutlet weak var webView: UIWebView!
+    
+    var didFinishLoading = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        checkForContent()
         // Nav bar 
         self.navigationController?.navigationBar.barTintColor = UIColor._hackRed()
         self.navigationItem.title = "HELP REQUEST"
         let attributesDictionary = [NSFontAttributeName: UIFont(name: "UniSansHeavyCAPS", size: 25)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController!.navigationBar.titleTextAttributes = attributesDictionary
         self.navigationController?.navigationBar.tintColor = .whiteColor()
-
+        webView.delegate = self
         loadwebview()
         webView.scrollView.bounces = false;
         
@@ -37,6 +42,22 @@ class HFMentorViewController: UIViewController {
         let url = NSURL (string: "https://hackfsu.com/help")
         let requestObj = NSURLRequest(URL: url!);
         webView.loadRequest(requestObj)
+    }
+    
+    func checkForContent() {
+        if didFinishLoading == false {
+            webView.alpha = 0.0
+            containerView.glyptodon.show("Loading Mentors.\nPlease Wait.")
+        } else {
+            containerView.glyptodon.hide()
+            webView.alpha = 1.0
+        }
+    }
+    
+    func webViewDidFinishLoad(webView: UIWebView) {
+        didFinishLoading = true
+        checkForContent()
+        
     }
     
 }

@@ -144,7 +144,7 @@ class HFSponsorViewController: UIViewController, UITableViewDelegate, UITableVie
     func checkForContent() {
         if allSizesAreEvaluated() == false {
             sponsorTableView.alpha = 0.0
-            sponsorContainerView.glyptodon.show("Getting Sponsors. Please Wait.")
+            sponsorContainerView.glyptodon.show("Loading Sponsors.\nPlease Wait.")
         } else {
             sponsorContainerView.glyptodon.hide()
             sponsorTableView.alpha = 1.0

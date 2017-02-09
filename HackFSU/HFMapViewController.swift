@@ -114,7 +114,7 @@ class HFMapViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func checkForContent() {
         if imagesArray.count == 0 {
             floorTableView.alpha = 0.0
-            mapTableViewContainerView.glyptodon.show("Getting Maps. Please Wait.")
+            mapTableViewContainerView.glyptodon.show("Loading Maps.\nPlease Wait.")
         } else {
             mapTableViewContainerView.glyptodon.hide()
             floorTableView.alpha = 1.0

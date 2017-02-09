@@ -14,23 +14,21 @@ var countdownManager = HFCountdownManager()
 class HFCountdownViewController: UIViewController {
 
     @IBOutlet weak var countDownCircle: CounterView!
-    
     @IBOutlet weak var shapeImage: UIImageView!
-    
     @IBOutlet weak var secondsTimerLabel: UILabel!
-    
     @IBOutlet weak var minutesTimerLabel: UILabel!
-    
     @IBOutlet weak var hoursTimeLabel: UILabel!
     
     var timer = NSTimer()
     var timerCount:Int!
     var timerIsRunning = false
-    let shapeArray:[String] = ["lightning", "triangle", "line", "cross"]
+    let shapeArray:[String] = ["popArt"]
+    
+    var alreadyLoaded:Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        alreadyLoaded = false
         // Setting Navigation Bar Color
         self.navigationController?.navigationBar.barTintColor = UIColor._hackRed()
         self.navigationController?.navigationBar.tintColor = .whiteColor()
@@ -39,6 +37,10 @@ class HFCountdownViewController: UIViewController {
         self.navigationItem.title = countdownManager.getCurrentCountdownName()
         let attributesDictionary = [NSFontAttributeName: UIFont(name: "UniSansHeavyCAPS", size: 25)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController!.navigationBar.titleTextAttributes = attributesDictionary
+        
+        self.hoursTimeLabel.font = UIFont(name: "UniSansHeavyCAPS", size: 60)
+        self.minutesTimerLabel.font = UIFont(name: "UniSansHeavyCAPS", size: 60)
+        self.secondsTimerLabel.font = UIFont(name: "UniSansHeavyCAPS", size: 60)
         
         runClock()
     }
@@ -61,8 +63,8 @@ class HFCountdownViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        let random = Int(arc4random_uniform(4))
-        let image = shapeArray[random]
+        //let random = Int(arc4random_uniform(4))
+        let image = shapeArray[0]
         self.shapeImage.image = UIImage(named: image )
 
     }
@@ -70,8 +72,10 @@ class HFCountdownViewController: UIViewController {
     func checkForNewTimes() {
         if countdownManager.newCountdownItemsAvaible() == true {
             timerCount = Int(NSDate.timeUntil(countdownManager.getCurrentCountdownTime()))
+            print(countdownManager.getCurrentCountdownName())
             self.navigationItem.title = countdownManager.getCurrentCountdownName()
             countdownManager.userGotNewCountdownItems()
+            counting()
         }
     }
 
@@ -92,7 +96,10 @@ class HFCountdownViewController: UIViewController {
         timerCount = timerCount - 1
         globalEventTimeLeft = CGFloat(timerCount)
         
-        self.countDownCircle.setNeedsDisplay()
+        if (alreadyLoaded == false) {
+            self.countDownCircle.setNeedsDisplay()
+            alreadyLoaded = true
+        }
         
         if timerCount < 0 {
             

@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import Alamofire
+import SwiftyJSON
+import UIKit
 
 class HFCountdownManager {
     
@@ -30,8 +33,48 @@ class HFCountdownManager {
         arrayOfCountdownTimes.append(endingCountdownItem)
         
         self.updateCurentInformationWithCurrentArray()
+        
+        //callAlamo(NSURL(string: "https://hackfsu.com/api/hackathon/get/countdowns")!)
     }
     
+    func callAlamo(url : NSURL) {
+        Alamofire.request(.GET, url, encoding: .JSON).validate().responseJSON(completionHandler: {
+            response in
+            self.parseResults(JSON(response.result.value!), url: url)
+            
+        })
+    }
+//
+    func parseResults(theJSON : JSON, url: NSURL) {
+        for result in theJSON["countdowns"].arrayValue {
+            let startTime = result["start"].stringValue
+            let endTime = result["end"].stringValue
+
+            arrayOfCountdownTimes.removeAll()
+            
+            let dateFormatterPrint = NSDateFormatter()
+            dateFormatterPrint.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+            
+            let date: NSDate? = dateFormatterPrint.dateFromString(startTime)
+            let dateTwo: NSDate? = dateFormatterPrint.dateFromString(endTime)
+            
+//            print(dateFormatterPrint.stringFromDate(date!))
+//            print(dateFormatterPrint.stringFromDate(dateTwo!))
+            
+            let startingCountdownItem = HFCountdownItem(time: date!, name: "Until Hacking Starts")
+            let endingCountdownItem = HFCountdownItem(time: dateTwo!, name: "Until Hacking Ends")
+            
+            arrayOfCountdownTimes.append(startingCountdownItem)
+            arrayOfCountdownTimes.append(endingCountdownItem)
+            
+            self.updateCurentInformationWithCurrentArray()
+            newItemsAvailble = true
+            let login = HFCountdownViewController()
+            login.checkForNewTimes()
+            
+        }
+    }
+
     func getHackingStartTime() -> NSDate {
         return self.arrayOfCountdownTimes[0].getCountdownTime()
     }

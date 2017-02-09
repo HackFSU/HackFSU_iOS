@@ -11,9 +11,7 @@ import UIKit
 class HFUpdateTableViewCell: UITableViewCell {
 
     @IBOutlet weak var title: UILabel!
-    
     @IBOutlet weak var subTitle: UILabel!
-    
     @IBOutlet weak var timestamp: UILabel!
     
     override func awakeFromNib() {
