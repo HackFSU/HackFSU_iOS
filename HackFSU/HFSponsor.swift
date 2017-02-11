@@ -50,8 +50,14 @@ class HFSponsor {
     
     func setSponsorAspectValue(value: CGFloat) {
         if value <= 0.0 {
-            self.sponsorAspectValue = 0.75
-        } else {
+            print("yo")
+            self.sponsorAspectValue = 0.60
+        }
+        else if value > 0.60 {
+            self.sponsorAspectValue = 0.60
+        }
+        
+        else {
             self.sponsorAspectValue = value
         }
     }
