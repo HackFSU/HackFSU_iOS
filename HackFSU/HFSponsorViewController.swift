@@ -12,6 +12,7 @@ import Glyptodon
 import Alamofire
 import AlamofireImage
 import SwiftyJSON
+import ReachabilitySwift
 
 class HFSponsorViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -29,10 +30,14 @@ class HFSponsorViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var sponsorTableView: UITableView!
     @IBOutlet var sponsorContainerView: UIView!
     
+    var reachability: Reachability?
+    var wasntAbleToConnectFirst = false
+    var didFinishLoading = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        callAlamo(apiURL)
         checkForContent()
+        callAlamo(apiURL)
         sponsorTableView.setContentOffset(CGPointZero, animated: false)
         sponsorTableView.separatorStyle = UITableViewCellSeparatorStyle.None
         sponsorTableView.backgroundColor = UIColor.colorFromHex(0xEDECF3)
@@ -52,13 +57,62 @@ class HFSponsorViewController: UIViewController, UITableViewDelegate, UITableVie
 
     }
     
+    override func viewDidAppear(animated: Bool) {
+        //getUpdatesFromParse()
+        //callAlamo(apiURL)
+        do {
+            reachability = try Reachability.reachabilityForInternetConnection()
+        } catch {
+            print("Unable to create Reachability")
+            return
+        }
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityChanged:",name: ReachabilityChangedNotification,object: reachability)
+        do{
+            try reachability?.startNotifier()
+        }catch{
+            print("could not start reachability notifier")
+        }
+        
+    }
+    
+    func reachabilityChanged(note: NSNotification) {
+        
+        let reachability = note.object as! Reachability
+        
+        if reachability.isReachable() && wasntAbleToConnectFirst == true {
+            checkForContent()
+            self.sponsorFeedArray.removeAll()
+            self.imagesArray.removeAll()
+            callAlamo(apiURL)
+            wasntAbleToConnectFirst = false
+        } else {
+            print("Network not reachable")
+        }
+    }
+    
     func callAlamo(url : NSURL) {
         Alamofire.request(.GET, url, encoding: .JSON).validate().responseJSON(completionHandler: {
             response in
-            self.parseResults(JSON(response.result.value!), url: url)
+            switch response.result {
+            case .Success(let json):
+                self.parseResults(JSON(response.result.value!), url: url)
+            case .Failure(let error):
+                if let err = error as? NSURLError where err == .NotConnectedToInternet {
+                    // no internet connection
+                    self.sponsorTableView.alpha = 0.0
+                    self.sponsorContainerView.glyptodon.show("No Internet Connection")
+                } else {
+                    // other failures
+                    print("fuck")
+                }
+                self.wasntAbleToConnectFirst = true
+            }
             
         })
     }
+    
+    
     
     func parseResults(theJSON : JSON, url: NSURL) {
         var sponsorArray:[HFSponsor] = [HFSponsor]()
@@ -142,7 +196,7 @@ class HFSponsorViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func checkForContent() {
-        if allSizesAreEvaluated() == false {
+        if didFinishLoading == false {
             sponsorTableView.alpha = 0.0
             sponsorContainerView.glyptodon.show("Loading Sponsors.\nPlease Wait.")
         } else {
@@ -177,6 +231,7 @@ class HFSponsorViewController: UIViewController, UITableViewDelegate, UITableVie
                 return false
             }
         }
+        didFinishLoading = true
         return true
     }
 

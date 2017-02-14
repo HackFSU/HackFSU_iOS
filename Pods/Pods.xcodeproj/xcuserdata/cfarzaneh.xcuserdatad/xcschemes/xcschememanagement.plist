@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>AlamofireNetworkActivityIndicator.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>FlatUIKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -34,6 +39,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ReachabilitySwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,17 +52,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>087D09C9280518CA4414F49A5401F47A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>180AC0C3219E6EA614CAB8632984C6D5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>21095175BFB1C1EEC1ECD7B1A0C80B82</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2810771224C0EEA0A63E5F083390B3F4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,7 +82,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B56FFBD329DEF6EB150333FE37E88A4C</key>
+		<key>BF63BE4C6FDB24A6D11D5D1A4B8545FB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CD48A7ACF3A5F2D131A475B9E5187CFB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DB999C5928ED42392E150A44DDDFFC62</key>
 		<dict>
 			<key>primary</key>
 			<true/>

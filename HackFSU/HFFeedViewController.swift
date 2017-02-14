@@ -11,6 +11,7 @@ import Glyptodon
 import FlatUIKit
 import Alamofire
 import SwiftyJSON
+import ReachabilitySwift
 
 class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -32,8 +33,11 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var refreshControl: UIRefreshControl!
     var alamoCalled = false;
     var didFinishFetching = false;
+    var wasntAbleToConnectFirst = false
     
+    var reachability: Reachability?
     
+    var thursdayFeedArray:[HFScheduleItem] = [HFScheduleItem]()
     var fridayFeedArray:[HFScheduleItem] = [HFScheduleItem]()
     var saturdayFeedArray:[HFScheduleItem] = [HFScheduleItem]()
     var sundayFeedArray:[HFScheduleItem] = [HFScheduleItem]()
@@ -78,38 +82,40 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         callAlamo(apiURL)
         callAlamo(scheduleapiURL);
-        
-        
-        
-        
     }
-    
     
     func checkForContent() {
         if didFinishFetching == false {
             feedTableView.alpha = 0.0
             tableViewContainerView.glyptodon.show("Loading Feed.\nPlease Wait.")
-            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         } else {
             tableViewContainerView.glyptodon.hide()
-            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
             feedTableView.alpha = 1.0
         }
     }
     
     func refresh(sender:AnyObject) {
         // Code to refresh table view
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         self.titles.removeAll()
         self.contents.removeAll()
         self.updatesDates.removeAll()
+        
+        self.thursdayFeedArray.removeAll()
+        self.fridayFeedArray.removeAll()
+        self.saturdayFeedArray.removeAll()
+        self.sundayFeedArray.removeAll()
+        self.scheduleNames.removeAll()
+       
+        self.feedTableView.reloadData()
+        
         callAlamo(apiURL)
+        callAlamo(scheduleapiURL)
+        
         if (alamoCalled == true) {
             let delay = 0.75 * Double(NSEC_PER_SEC)
             let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
             dispatch_after(time, dispatch_get_main_queue()) {
                 self.refreshControl.endRefreshing()
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                 self.feedTableView.reloadData()
             }
             self.alamoCalled = false
@@ -124,16 +130,53 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidAppear(animated: Bool) {
         //getUpdatesFromParse()
         //callAlamo(apiURL)
-        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+        do {
+            reachability = try Reachability.reachabilityForInternetConnection()
+        } catch {
+            print("Unable to create Reachability")
+            return
+        }
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityChanged:",name: ReachabilityChangedNotification,object: reachability)
+        do{
+            try reachability?.startNotifier()
+        }catch{
+            print("could not start reachability notifier")
+        }
+        
+    }
+    
+    func reachabilityChanged(note: NSNotification) {
+        
+        let reachability = note.object as! Reachability
+        
+        if reachability.isReachable() && wasntAbleToConnectFirst == true {
+            checkForContent()
+            refresh(self)
+        } else {
+            print("Network not reachable")
+        }
     }
     
     func callAlamo(url : NSURL) {
         Alamofire.request(.GET, url, encoding: .JSON).validate().responseJSON(completionHandler: {
-        
             response in
-            self.parseResults(JSON(response.result.value!), url: url)
-            self.alamoCalled = true
-
+            
+            switch response.result {
+                case .Success(let json):
+                    self.parseResults(JSON(response.result.value!), url: url)
+                    self.alamoCalled = true
+                case .Failure(let error):
+                    if let err = error as? NSURLError where err == .NotConnectedToInternet {
+                        // no internet connection
+                        self.feedTableView.alpha = 0.0
+                        self.tableViewContainerView.glyptodon.show("No Internet Connection")
+                    } else {
+                        // other failures
+                        print("fuck")
+                    }
+                    self.wasntAbleToConnectFirst = true
+            }
         })
     }
     
@@ -163,7 +206,16 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 
                 let thaTime = theTIMEBIH(startTime, formatIn: formatInput, formatOut: "yyyy-MM-dd");
                 
-                if thaTime.rangeOfString("2017-02-17") != nil{
+                if thaTime.rangeOfString("2017-02-16") != nil {
+                    let finalStartTime = theTIMEBIH(startTime, formatIn: formatInput, formatOut: "h:mm a");
+                    
+                    let newScheduleItem = HFScheduleItem(title: name,
+                                                         subtitle: description,
+                                                         start: finalStartTime)
+                    self.thursdayFeedArray.append(newScheduleItem)
+                }
+                
+                else if thaTime.rangeOfString("2017-02-17") != nil{
                     let finalStartTime = theTIMEBIH(startTime, formatIn: formatInput, formatOut: "h:mm a");
        
                     let newScheduleItem = HFScheduleItem(title: name,
@@ -186,12 +238,12 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     let newScheduleItem = HFScheduleItem(title: name,
                                                          subtitle: description,
                                                          start: finalStartTime)
+                    self.didFinishFetching = true
                     self.sundayFeedArray.append(newScheduleItem)
                 }
             }
             
         }
-        self.didFinishFetching = true
         checkForContent()
         self.feedTableView.reloadData()
     }
@@ -206,7 +258,7 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
         case update:
             return titles.count
         case scheudle:
-            return 3
+            return 4
         default: return 0
         }
     }
@@ -217,12 +269,14 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return 1
         } else {
             if section == 0 {
-                return fridayFeedArray.count
+                return thursdayFeedArray.count
             } else if section == 1 {
-                return saturdayFeedArray.count
+                return fridayFeedArray.count
             } else if section == 2 {
+                return saturdayFeedArray.count
+            } else if section == 3 {
                 return sundayFeedArray.count
-            } else {
+            }else {
                 return 0
             }
         }
@@ -260,13 +314,16 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let scheduleItem:HFScheduleItem!
             
             if indexPath.section == 0 {
-                scheduleItem = fridayFeedArray[indexPath.row]
+                scheduleItem = thursdayFeedArray[indexPath.row]
             } else if indexPath.section == 1 {
-                scheduleItem = saturdayFeedArray[indexPath.row]
-            } else if indexPath.section == 2 {
-                scheduleItem = sundayFeedArray[indexPath.row]
-            } else {
                 scheduleItem = fridayFeedArray[indexPath.row]
+            } else if indexPath.section == 2 {
+                scheduleItem = saturdayFeedArray[indexPath.row]
+            } else if indexPath.section == 3 {
+                scheduleItem = sundayFeedArray[indexPath.row]
+            }
+            else {
+                scheduleItem = thursdayFeedArray[indexPath.row]
                 // SWITCH TO A DEFAULT ITEM
             }
             
@@ -277,19 +334,25 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
             if indexPath.row == 0 {
                 cell.configureFlatCellWithColor(tempCellColor, selectedColor: tempCellColor, roundingCorners: [.TopLeft, .TopRight])
                 cell.cornerRadius = 3.5
-            } else if indexPath.section == 0 && indexPath.row == fridayFeedArray.count - 1  {
+            } else if indexPath.section == 0 && indexPath.row == thursdayFeedArray.count - 1  {
                 cell.configureFlatCellWithColor(tempCellColor, selectedColor: tempCellColor, roundingCorners: [.BottomLeft,
                     .BottomRight])
                 cell.cornerRadius = 3.5
-            } else if indexPath.section == 1 && indexPath.row == saturdayFeedArray.count - 1  {
+            } else if indexPath.section == 1 && indexPath.row == fridayFeedArray.count - 1  {
                 cell.configureFlatCellWithColor(tempCellColor, selectedColor: tempCellColor, roundingCorners: [.BottomLeft,
                     .BottomRight])
                 cell.cornerRadius = 3.5
-            } else if indexPath.section == 2 && indexPath.row == sundayFeedArray.count - 1  {
+            } else if indexPath.section == 2 && indexPath.row == saturdayFeedArray.count - 1  {
                 cell.configureFlatCellWithColor(tempCellColor, selectedColor: tempCellColor, roundingCorners: [.BottomLeft,
                     .BottomRight])
                 cell.cornerRadius = 3.5
-            } else {
+            } else if indexPath.section == 3 && indexPath.row == sundayFeedArray.count - 1  {
+                cell.configureFlatCellWithColor(tempCellColor, selectedColor: tempCellColor, roundingCorners: [.BottomLeft,
+                    .BottomRight])
+                cell.cornerRadius = 3.5
+            }
+            
+            else {
                 cell.configureFlatCellWithColor(tempCellColor, selectedColor: tempCellColor, roundingCorners: .AllCorners)
                 cell.cornerRadius = 0
             }
@@ -320,10 +383,12 @@ class HFFeedViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.backgroundColor = UIColor.colorFromHex(0xEDECF3) // CLEAR
         
         if section == 0 {
-            cell.headerLabel.text = "Friday"
+            cell.headerLabel.text = "Thursday"
         } else if section == 1 {
-            cell.headerLabel.text = "Saturday"
+            cell.headerLabel.text = "Friday"
         } else if section == 2 {
+            cell.headerLabel.text = "Saturday"
+        } else if section == 3 {
             cell.headerLabel.text = "Sunday"
         }
         return cell

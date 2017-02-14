@@ -12,6 +12,7 @@ import Agrume
 import Alamofire
 import AlamofireImage
 import SwiftyJSON
+import ReachabilitySwift
 
 class HFMapViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -22,6 +23,9 @@ class HFMapViewController: UIViewController, UITableViewDelegate, UITableViewDat
     let apiURL = NSURL(string: "https://hackfsu.com/api/hackathon/get/maps")!
 
     var imagesArray = [UIImage]()
+    
+    var reachability: Reachability?
+    var wasntAbleToConnectFirst = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +54,22 @@ class HFMapViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func callAlamo(url : NSURL) {
         Alamofire.request(.GET, url, encoding: .JSON).validate().responseJSON(completionHandler: {
             response in
-            self.parseResults(JSON(response.result.value!), url: url)
+            
+            switch response.result {
+            case .Success(let json):
+                self.parseResults(JSON(response.result.value!), url: url)
+            case .Failure(let error):
+                if let err = error as? NSURLError where err == .NotConnectedToInternet {
+                    // no internet connection
+                    self.floorTableView.alpha = 0.0
+                    self.mapTableViewContainerView.glyptodon.show("No Internet Connection")
+                } else {
+                    // other failures
+                    print("fuck")
+                }
+                self.wasntAbleToConnectFirst = true
+            }
+
             
         })
     }
@@ -58,6 +77,8 @@ class HFMapViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func parseResults(theJSON : JSON, url: NSURL) {
             for result in theJSON["maps"].arrayValue {
                 let title = result["link"].stringValue
+                let order = result["order"].intValue
+                
                 let urlOfImages = NSURL(string: title)!
                 
                 getImagesAlamo(urlOfImages)
@@ -80,8 +101,38 @@ class HFMapViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     
     override func viewDidAppear(animated: Bool) {
-        checkForContent()
+        //checkForContent()
+        do {
+            reachability = try Reachability.reachabilityForInternetConnection()
+        } catch {
+            print("Unable to create Reachability")
+            return
+        }
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityChanged:",name: ReachabilityChangedNotification,object: reachability)
+        do{
+            try reachability?.startNotifier()
+        }catch{
+            print("could not start reachability notifier")
+        }
+        
     }
+    
+    func reachabilityChanged(note: NSNotification) {
+        
+        let reachability = note.object as! Reachability
+        
+        if reachability.isReachable() && wasntAbleToConnectFirst == true {
+            checkForContent()
+            self.imagesArray.removeAll()
+            callAlamo(apiURL)
+            wasntAbleToConnectFirst = false
+        } else {
+            print("Network not reachable")
+        }
+    }
+    
+    
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 6.0

@@ -9,4 +9,6 @@ target 'HackFSU' do
 	pod 'Alamofire', '~> 3.5.0'
 	pod 'SwiftyJSON', '~> 2.4.0'
 	pod 'AlamofireImage', '~> 2.5.0'
+	pod 'AlamofireNetworkActivityIndicator', '~> 1.1.0'
+	pod 'ReachabilitySwift', '~> 2.4'
 end
