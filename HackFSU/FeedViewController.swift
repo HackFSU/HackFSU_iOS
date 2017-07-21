@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  FeedViewController.swift
 //  HackFSU
 //
 //  Created by Cameron Farzaneh on 7/21/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class FeedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,4 +22,3 @@ class SecondViewController: UIViewController {
 
 
 }
-
