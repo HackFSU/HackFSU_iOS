@@ -18,7 +18,7 @@ class LiveFeedViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "LoginViewController")
-        //self.present(vc!, animated: true, completion: nil)
+        self.present(vc!, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
