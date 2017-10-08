@@ -2,7 +2,7 @@
 //  ScheduleViewController.swift
 //  HackFSU
 //
-//  Created by Cameron Farzaneh on 7/21/17.
+//  Created by Cameron Farzaneh on 10/8/17.
 //  Copyright © 2017 HackFSU. All rights reserved.
 //
 
@@ -13,7 +13,6 @@ class ScheduleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        print("yo")
     }
 
     override func didReceiveMemoryWarning() {
