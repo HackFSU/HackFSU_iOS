@@ -19,6 +19,7 @@
 		DF5A18591F8A998600803F50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF5A18571F8A998600803F50 /* LaunchScreen.storyboard */; };
 		DF5A18641F8A998700803F50 /* HackFSUTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5A18631F8A998700803F50 /* HackFSUTests.swift */; };
 		DF5A186F1F8A998700803F50 /* HackFSUUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5A186E1F8A998700803F50 /* HackFSUUITests.swift */; };
+		DF70128D1FA2B9730061C2B9 /* HackFSU.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DF70128B1FA2B9730061C2B9 /* HackFSU.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		DF5A186A1F8A998700803F50 /* HackFSUUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackFSUUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF5A186E1F8A998700803F50 /* HackFSUUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackFSUUITests.swift; sourceTree = "<group>"; };
 		DF5A18701F8A998700803F50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF70128C1FA2B9730061C2B9 /* HackFSU.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HackFSU.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		DF5A18401F8A998600803F50 = {
 			isa = PBXGroup;
 			children = (
+				DF70128B1FA2B9730061C2B9 /* HackFSU.xcdatamodeld */,
 				DF5A184B1F8A998600803F50 /* HackFSU */,
 				DF5A18621F8A998700803F50 /* HackFSUTests */,
 				DF5A186D1F8A998700803F50 /* HackFSUUITests */,
@@ -347,6 +350,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF2AD2C61F8AA3E300AB4BF6 /* ProfileViewController.swift in Sources */,
+				DF70128D1FA2B9730061C2B9 /* HackFSU.xcdatamodeld in Sources */,
 				DF2AD2C21F8A9DC700AB4BF6 /* LoginViewController.swift in Sources */,
 				DF5A18511F8A998600803F50 /* ScheduleViewController.swift in Sources */,
 				DF5A184D1F8A998600803F50 /* AppDelegate.swift in Sources */,
@@ -653,6 +657,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DF70128B1FA2B9730061C2B9 /* HackFSU.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DF70128C1FA2B9730061C2B9 /* HackFSU.xcdatamodel */,
+			);
+			currentVersion = DF70128C1FA2B9730061C2B9 /* HackFSU.xcdatamodel */;
+			path = HackFSU.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DF5A18411F8A998600803F50 /* Project object */;
 }
