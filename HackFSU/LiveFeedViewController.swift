@@ -14,12 +14,9 @@ class LiveFeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.getUserInfo()
     }
 
     override func viewDidAppear(_ animated: Bool) {
-
-        
         //Trying to delete cookies
         let url = URL(string: "https://2017.hackfsu.com")
         let cstorage = HTTPCookieStorage.shared
@@ -28,17 +25,7 @@ class LiveFeedViewController: UIViewController {
                 let vc = storyboard?.instantiateViewController(withIdentifier: "LoginViewController")
                 self.present(vc!, animated: true, completion: nil)
             }
-            //for cookie in cookies {
-                //cstorage.deleteCookie(cookie)
-            //}
         }
-    }
-    
-    func getUserInfo() {
-        Alamofire.request("https://2017.hackfsu.com/api/user/get/profile", method: .get, parameters: nil, encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {
-            response in
-            print(response)
-        })
     }
     
     override func didReceiveMemoryWarning() {

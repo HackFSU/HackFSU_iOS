@@ -20,19 +20,16 @@ class LoginVewController: UIViewController {
     }
     
     @IBAction func loginFam(_ sender: Any) {
-        print("yo")
         let parameters: Parameters = [
             "email": emailField.text!,
             "password": passField.text!
         ]
         
-        // Both calls are equivalent
-        Alamofire.request("https://2017.hackfsu.com/api/user/login", method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {
-            response in
-            print(response)
-            let statusCode = response.response?.statusCode
+        API.postRequest(url: URL(string: "https://2017.hackfsu.com/api/user/login")!, params: parameters) {
+            (statuscode) in
             
-            if (statusCode == 200) {
+            if (statuscode == 200) {
+                
                 let alertController = UIAlertController(title: "HackFSU", message: "Login successful!", preferredStyle: UIAlertControllerStyle.alert)
                 let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
                 {
@@ -44,7 +41,7 @@ class LoginVewController: UIViewController {
                 self.present(alertController, animated: true, completion: nil)
             }
             else {
-                let alertController = UIAlertController(title: "HackFSU", message: "Login unsuccessful! Fuck", preferredStyle: UIAlertControllerStyle.alert)
+                let alertController = UIAlertController(title: "HackFSU", message: "Login unsuccessful!", preferredStyle: UIAlertControllerStyle.alert)
                 
                 let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
                 {
@@ -54,15 +51,9 @@ class LoginVewController: UIViewController {
                 alertController.addAction(okAction)
                 self.present(alertController, animated: true, completion: nil)
             }
-        })
+        }
+        
     }
-    
-//    func success() {
-//        Alamofire.request("https://2017.hackfsu.com/api/user/get/profile", method: .get, parameters: nil, encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {
-//            response in
-//            print(response)
-//        })
-//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
