@@ -17,14 +17,6 @@ class LoginVewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        //Trying to delete cookies
-//        let cstorage = HTTPCookieStorage.shared
-//        if let cookies = cstorage.cookies(for: url) {
-//            for cookie in cookies {
-//                cstorage.deleteCookie(cookie)
-//            }
-//        }
     }
     
     @IBAction func loginFam(_ sender: Any) {
@@ -42,7 +34,6 @@ class LoginVewController: UIViewController {
             
             if (statusCode == 200) {
                 let alertController = UIAlertController(title: "HackFSU", message: "Login successful!", preferredStyle: UIAlertControllerStyle.alert)
-                self.success()
                 let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
                 {
                     (result : UIAlertAction) -> Void in
@@ -66,12 +57,12 @@ class LoginVewController: UIViewController {
         })
     }
     
-    func success() {
-        Alamofire.request("https://2017.hackfsu.com/api/user/get/profile", method: .get, parameters: nil, encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {
-            response in
-            print(response)
-        })
-    }
+//    func success() {
+//        Alamofire.request("https://2017.hackfsu.com/api/user/get/profile", method: .get, parameters: nil, encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {
+//            response in
+//            print(response)
+//        })
+//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
