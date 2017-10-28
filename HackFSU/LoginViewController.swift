@@ -36,6 +36,7 @@ class LoginVewController: UIViewController {
                     (result : UIAlertAction) -> Void in
                     print("You pressed OK")
                     self.dismiss(animated: true, completion: nil)
+                    API.retriveUserInfo()
                 }
                 alertController.addAction(okAction)
                 self.present(alertController, animated: true, completion: nil)

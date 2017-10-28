@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Alamofire
 
 class LiveFeedViewController: UIViewController {
 
@@ -26,6 +25,7 @@ class LiveFeedViewController: UIViewController {
                 self.present(vc!, animated: true, completion: nil)
             }
         }
+        API.retriveUserInfo()
     }
     
     override func didReceiveMemoryWarning() {
