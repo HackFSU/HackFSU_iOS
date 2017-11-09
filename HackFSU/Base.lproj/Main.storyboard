@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Live Feed View Controller-->
+        <!--Live Feed-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="LiveFeedViewController" customModule="HackFSU" customModuleProvider="target" sceneMemberID="viewController">
@@ -41,7 +41,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <navigationItem key="navigationItem" id="L8r-zC-9de"/>
+                    <navigationItem key="navigationItem" title="Live Feed" id="L8r-zC-9de"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -105,7 +105,7 @@
             </objects>
             <point key="canvasLocation" x="3016.8000000000002" y="-822.63868065967017"/>
         </scene>
-        <!--Schedule View Controller-->
+        <!--Schedule-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="ScheduleViewController" customModule="HackFSU" customModuleProvider="target" sceneMemberID="viewController">
@@ -136,29 +136,48 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Hag-oO-kAP"/>
+                    <navigationItem key="navigationItem" title="Schedule" id="Hag-oO-kAP"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1526" y="337"/>
         </scene>
-        <!--Info View Controller-->
+        <!--Info-->
         <scene sceneID="svn-c3-5K0">
             <objects>
                 <viewController id="INT-lU-VUl" customClass="InfoViewController" customModule="HackFSU" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eiM-5O-bIu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" text="Third View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="ods-Aq-NsU">
+                                <rect key="frame" x="87" y="299" width="201.5" height="43"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Loaded by ThirdViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B9T-fh-Tl9">
+                                <rect key="frame" x="88" y="350" width="200" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="B9T-fh-Tl9" firstAttribute="top" secondItem="ods-Aq-NsU" secondAttribute="bottom" constant="8" symbolic="YES" id="12b-0g-w68"/>
+                            <constraint firstItem="B9T-fh-Tl9" firstAttribute="centerX" secondItem="ods-Aq-NsU" secondAttribute="centerX" id="m3J-tY-XYR"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="4ei-JX-RLs"/>
                     </view>
-                    <navigationItem key="navigationItem" id="pES-Xx-fhu"/>
+                    <navigationItem key="navigationItem" title="Info" id="pES-Xx-fhu"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e6u-8c-3sY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1526" y="1013"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--Profile-->
         <scene sceneID="aFs-HC-frp">
             <objects>
                 <viewController id="R9X-7f-lw2" customClass="ProfileViewController" customModule="HackFSU" customModuleProvider="target" sceneMemberID="viewController">
@@ -166,24 +185,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XMD-fi-J8r">
-                                <rect key="frame" x="161" y="169" width="52" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Log out"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xvU-uF-KCT">
-                                <rect key="frame" x="161" y="169" width="52" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XMD-fi-J8r">
+                                <rect key="frame" x="161" y="173" width="52" height="30"/>
                                 <state key="normal" title="Log out"/>
                                 <connections>
-                                    <action selector="logOut:" destination="R9X-7f-lw2" eventType="touchUpInside" id="ze8-LV-StH"/>
+                                    <action selector="logOut:" destination="R9X-7f-lw2" eventType="touchDown" id="cNJ-gm-QtR"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZMY-Nr-khX" firstAttribute="trailing" secondItem="XMD-fi-J8r" secondAttribute="trailing" constant="162" id="I22-qJ-sZE"/>
+                            <constraint firstItem="XMD-fi-J8r" firstAttribute="top" secondItem="ZMY-Nr-khX" secondAttribute="top" constant="109" id="XYm-qS-YA6"/>
+                            <constraint firstItem="XMD-fi-J8r" firstAttribute="leading" secondItem="ZMY-Nr-khX" secondAttribute="leading" constant="161" id="zcx-h7-l5V"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ZMY-Nr-khX"/>
                     </view>
-                    <navigationItem key="navigationItem" id="uY4-2S-kJP"/>
+                    <navigationItem key="navigationItem" title="Profile" id="uY4-2S-kJP"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17R-uu-X0y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

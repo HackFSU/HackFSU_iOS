@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class LiveFeedViewController: UIViewController {
 
@@ -16,18 +17,31 @@ class LiveFeedViewController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        //Trying to delete cookies
-        let url = URL(string: "https://2017.hackfsu.com")
-        let cstorage = HTTPCookieStorage.shared
-        if let cookies = cstorage.cookies(for: url!) {
-            if cookies.isEmpty {
-                let vc = storyboard?.instantiateViewController(withIdentifier: "LoginViewController")
-                self.present(vc!, animated: true, completion: nil)
+        if (userNotLoggedIn == true) {
+            let vc = storyboard?.instantiateViewController(withIdentifier: "LoginViewController")
+            self.present(vc!, animated: true, completion: nil)
+        }
+        else {
+            let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
+            do {
+                let user = try PersistenceService.context.fetch(fetchRequest)
+                print(user[0].email!)
+            } catch {
+                
             }
         }
         API.retriveUserInfo()
     }
     
+    var userNotLoggedIn: Bool {
+        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
+        do {
+            let count = try PersistenceService.context.count(for: fetchRequest)
+            return count == 0 ? true : false
+        } catch {
+            return true
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
