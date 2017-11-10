@@ -26,7 +26,6 @@ class LiveFeedViewController: UIViewController {
             let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
             do {
                 let user = try PersistenceService.context.fetch(fetchRequest)
-                print(user[0].email!)
             } catch {
                 
             }

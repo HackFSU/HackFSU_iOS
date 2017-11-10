@@ -22,9 +22,11 @@ class ProfileViewController: UIViewController {
         
         do {
             yourArray = try context.fetch(fetchRequest)
+            
             print(yourArray[0].email!)
-            //print(yourArray[0].firstname!)
-            //print(yourArray[0].lastname!)
+            print(yourArray[0].firstname!)
+            print(yourArray[0].lastname!)
+            print(yourArray[0].groups![0])
             
         } catch {
             
@@ -36,7 +38,7 @@ class ProfileViewController: UIViewController {
         let cstorage = HTTPCookieStorage.shared
         if let cookies = cstorage.cookies(for: url!) {
             for cookie in cookies {
-            cstorage.deleteCookie(cookie)
+                cstorage.deleteCookie(cookie)
             }
         }
         
@@ -44,6 +46,12 @@ class ProfileViewController: UIViewController {
             for object in result {
                 context.delete(object)
             }
+        }
+        
+        do {
+            try context.save() // <- remember to put this :)
+        } catch {
+            // Do something... fatalerror
         }
         
         let alertController = UIAlertController(title: "HackFSU", message: "Logout successful!", preferredStyle: UIAlertControllerStyle.alert)
