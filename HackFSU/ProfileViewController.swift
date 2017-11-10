@@ -23,13 +23,16 @@ class ProfileViewController: UIViewController {
         do {
             yourArray = try context.fetch(fetchRequest)
             print(yourArray[0].email!)
+            //print(yourArray[0].firstname!)
+            //print(yourArray[0].lastname!)
+            
         } catch {
             
         }
     }
     
     @IBAction func logOut(_ sender: Any) {
-        let url = URL(string: "https://2017.hackfsu.com")
+        let url = URL(string: "https://api.hackfsu.com")
         let cstorage = HTTPCookieStorage.shared
         if let cookies = cstorage.cookies(for: url!) {
             for cookie in cookies {

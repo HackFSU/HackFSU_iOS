@@ -12,7 +12,7 @@
 		DF2AD2C21F8A9DC700AB4BF6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2AD2C11F8A9DC700AB4BF6 /* LoginViewController.swift */; };
 		DF2AD2C41F8AA3CA00AB4BF6 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2AD2C31F8AA3CA00AB4BF6 /* InfoViewController.swift */; };
 		DF2AD2C61F8AA3E300AB4BF6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2AD2C51F8AA3E300AB4BF6 /* ProfileViewController.swift */; };
-		DF566EB31FB4C40A004FBBBD /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF566EB11FB4C40A004FBBBD /* User+CoreDataProperties.swift */; };
+		DF512E0A1FB556BD0066D42B /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF512E091FB556BD0066D42B /* User+CoreDataProperties.swift */; };
 		DF566EB41FB4C40A004FBBBD /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF566EB21FB4C40A004FBBBD /* User+CoreDataClass.swift */; };
 		DF5A184D1F8A998600803F50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5A184C1F8A998600803F50 /* AppDelegate.swift */; };
 		DF5A184F1F8A998600803F50 /* LiveFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5A184E1F8A998600803F50 /* LiveFeedViewController.swift */; };
@@ -51,7 +51,7 @@
 		DF2AD2C11F8A9DC700AB4BF6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DF2AD2C31F8AA3CA00AB4BF6 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		DF2AD2C51F8AA3E300AB4BF6 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		DF566EB11FB4C40A004FBBBD /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "User+CoreDataProperties.swift"; path = "HackFSU/User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DF512E091FB556BD0066D42B /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "User+CoreDataProperties.swift"; path = "HackFSU/User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DF566EB21FB4C40A004FBBBD /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "User+CoreDataClass.swift"; path = "HackFSU/User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		DF5A18491F8A998600803F50 /* HackFSU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackFSU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF5A184C1F8A998600803F50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -111,7 +111,7 @@
 			children = (
 				DF70128B1FA2B9730061C2B9 /* HackFSU.xcdatamodeld */,
 				DF566EB21FB4C40A004FBBBD /* User+CoreDataClass.swift */,
-				DF566EB11FB4C40A004FBBBD /* User+CoreDataProperties.swift */,
+				DF512E091FB556BD0066D42B /* User+CoreDataProperties.swift */,
 				DF5A184B1F8A998600803F50 /* HackFSU */,
 				DF5A18621F8A998700803F50 /* HackFSUTests */,
 				DF5A186D1F8A998700803F50 /* HackFSUUITests */,
@@ -363,6 +363,7 @@
 			files = (
 				DF2AD2C61F8AA3E300AB4BF6 /* ProfileViewController.swift in Sources */,
 				DF70128D1FA2B9730061C2B9 /* HackFSU.xcdatamodeld in Sources */,
+				DF512E0A1FB556BD0066D42B /* User+CoreDataProperties.swift in Sources */,
 				DF2AD2C21F8A9DC700AB4BF6 /* LoginViewController.swift in Sources */,
 				DF5A18511F8A998600803F50 /* ScheduleViewController.swift in Sources */,
 				DF5A184D1F8A998600803F50 /* AppDelegate.swift in Sources */,
@@ -370,7 +371,6 @@
 				DFA85E9B1FA2E669003C4E20 /* API.swift in Sources */,
 				DF21FEF81FA5132B00116A29 /* PersistenceService.swift in Sources */,
 				DF566EB41FB4C40A004FBBBD /* User+CoreDataClass.swift in Sources */,
-				DF566EB31FB4C40A004FBBBD /* User+CoreDataProperties.swift in Sources */,
 				DF2AD2C41F8AA3CA00AB4BF6 /* InfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

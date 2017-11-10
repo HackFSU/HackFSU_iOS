@@ -17,5 +17,7 @@ extension User {
     }
 
     @NSManaged public var email: String?
+    @NSManaged public var firstname: String?
+    @NSManaged public var lastname: String?
 
 }

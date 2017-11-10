@@ -25,7 +25,7 @@ class LoginVewController: UIViewController {
             "password": passField.text!
         ]
         
-        API.postRequest(url: URL(string: "https://2017.hackfsu.com/api/user/login")!, params: parameters) {
+        API.postRequest(url: URL(string: "https://api.hackfsu.com/api/user/login")!, params: parameters) {
             (statuscode) in
             
             if (statuscode == 200) {
