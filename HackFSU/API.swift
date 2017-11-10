@@ -20,9 +20,8 @@ class API {
                 case .success(_):
                     self.parseResults(theJSON: JSON(response.result.value!))
                 case .failure(_):
-                    print("yo")
+                    print("Failed to retrive User Info")
             }
-            
         })
     }
     

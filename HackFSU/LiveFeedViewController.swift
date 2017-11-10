@@ -22,6 +22,7 @@ class LiveFeedViewController: UIViewController {
             self.present(vc!, animated: true, completion: nil)
         }
         else {
+            API.retriveUserInfo()
             let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
             do {
                 let user = try PersistenceService.context.fetch(fetchRequest)
@@ -30,7 +31,6 @@ class LiveFeedViewController: UIViewController {
                 
             }
         }
-        API.retriveUserInfo()
     }
     
     var userNotLoggedIn: Bool {

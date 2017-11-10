@@ -7,12 +7,25 @@
 //
 
 import UIKit
+import CoreData
 
 class ProfileViewController: UIViewController {
+    
+    let context: NSManagedObjectContext = PersistenceService.context
+    let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
+    var yourArray = [User]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        do {
+            yourArray = try context.fetch(fetchRequest)
+            print(yourArray[0].email!)
+        } catch {
+            
+        }
     }
     
     @IBAction func logOut(_ sender: Any) {
@@ -23,15 +36,25 @@ class ProfileViewController: UIViewController {
             cstorage.deleteCookie(cookie)
             }
         }
+        
+        if let result = try? context.fetch(fetchRequest) {
+            for object in result {
+                context.delete(object)
+            }
+        }
+        
         let alertController = UIAlertController(title: "HackFSU", message: "Logout successful!", preferredStyle: UIAlertControllerStyle.alert)
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
         {
             (result : UIAlertAction) -> Void in
             print("You pressed OK")
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController")
+            self.present(vc!, animated: true, completion: nil)
         }
         alertController.addAction(okAction)
         self.present(alertController, animated: true, completion: nil)
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
