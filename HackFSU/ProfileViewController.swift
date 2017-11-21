@@ -15,6 +15,12 @@ class ProfileViewController: UIViewController {
     let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
     var yourArray = [User]()
     
+    @IBOutlet weak var position: UILabel!
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var actionButton: UIButton!
+    
+    @IBOutlet weak var leftButton: UIButton!
+    @IBOutlet weak var rightButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,14 +29,34 @@ class ProfileViewController: UIViewController {
         do {
             yourArray = try context.fetch(fetchRequest)
             
-            print(yourArray[0].email!)
-            print(yourArray[0].firstname!)
-            print(yourArray[0].lastname!)
-            print(yourArray[0].groups![0])
-            
         } catch {
             
         }
+        
+        name.text = yourArray[0].firstname! + " " + yourArray[0].lastname!
+        
+        if yourArray[0].groups!.count == 2 {
+            self.actionButton.isHidden = true
+            position.text = "You are a " + yourArray[0].groups![0] + " and " + yourArray[0].groups![1]
+            if yourArray[0].groups!.contains("judge") {
+                leftButton.setTitle("Let's Vote!", for: .normal)
+            }
+            if yourArray[0].groups!.contains("organizer") {
+                rightButton.setTitle("Admin Panel", for: .normal)
+            }
+        }
+        else {
+            self.leftButton.isHidden = true
+            self.rightButton.isHidden = true
+            position.text = "You are a " + yourArray[0].groups![0]
+            if yourArray[0].groups!.contains("judge") {
+                actionButton.setTitle("Let's vote!", for: .normal)
+            }
+        }
+    }
+    
+    @IBAction func actionFam(_ sender: Any) {
+            print("Aye!")
     }
     
     @IBAction func logOut(_ sender: Any) {
