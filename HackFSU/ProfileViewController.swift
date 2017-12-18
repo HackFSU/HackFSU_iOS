@@ -59,6 +59,14 @@ class ProfileViewController: UIViewController {
             print("Aye!")
     }
     
+    @IBAction func leftAction(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "LetsVoteViewController")
+        self.present(vc!, animated: true, completion: nil)
+    }
+    
+    @IBAction func rightAction(_ sender: Any) {
+    }
+    
     @IBAction func logOut(_ sender: Any) {
         let url = URL(string: "https://api.hackfsu.com")
         let cstorage = HTTPCookieStorage.shared

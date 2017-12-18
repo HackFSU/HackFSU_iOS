@@ -35,9 +35,6 @@ class API {
             g.append(result.stringValue)
         }
         
-        //print(firstName)
-        //print(lastName)
-        
         let user = User(context: PersistenceService.context)
         user.email = email
         user.firstname = firstName
