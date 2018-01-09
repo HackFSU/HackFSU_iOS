@@ -14,7 +14,7 @@ class LiveFeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-    }
+        schedule = API.getSchedule(url: URL(string:"https://2017.hackfsu.com/api/hackathon/get/schedule_items")!)    }
 
     override func viewDidAppear(_ animated: Bool) {
         if (userNotLoggedIn == true) {

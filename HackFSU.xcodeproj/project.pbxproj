@@ -23,6 +23,7 @@
 		DF5A18641F8A998700803F50 /* HackFSUTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5A18631F8A998700803F50 /* HackFSUTests.swift */; };
 		DF5A186F1F8A998700803F50 /* HackFSUUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5A186E1F8A998700803F50 /* HackFSUUITests.swift */; };
 		DF70128D1FA2B9730061C2B9 /* HackFSU.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DF70128B1FA2B9730061C2B9 /* HackFSU.xcdatamodeld */; };
+		DF70F1552004FB5300EE255F /* ScheduleCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF70F1542004FB5300EE255F /* ScheduleCustomCell.swift */; };
 		DF97420A1FC4B42800EFEB50 /* LetsVoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9742091FC4B42800EFEB50 /* LetsVoteViewController.swift */; };
 		DF97420C1FC4BA5B00EFEB50 /* Hack1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF97420B1FC4BA5B00EFEB50 /* Hack1ViewController.swift */; };
 		DFA85E9B1FA2E669003C4E20 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA85E9A1FA2E669003C4E20 /* API.swift */; };
@@ -70,6 +71,7 @@
 		DF5A186E1F8A998700803F50 /* HackFSUUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackFSUUITests.swift; sourceTree = "<group>"; };
 		DF5A18701F8A998700803F50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF70128C1FA2B9730061C2B9 /* HackFSU.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HackFSU.xcdatamodel; sourceTree = "<group>"; };
+		DF70F1542004FB5300EE255F /* ScheduleCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCustomCell.swift; sourceTree = "<group>"; };
 		DF9742091FC4B42800EFEB50 /* LetsVoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetsVoteViewController.swift; sourceTree = "<group>"; };
 		DF97420B1FC4BA5B00EFEB50 /* Hack1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hack1ViewController.swift; sourceTree = "<group>"; };
 		DFA85E9A1FA2E669003C4E20 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				DF21FEF71FA5132B00116A29 /* PersistenceService.swift */,
 				DF2AD2C11F8A9DC700AB4BF6 /* LoginViewController.swift */,
 				DF5A18521F8A998600803F50 /* Main.storyboard */,
+				DF70F1542004FB5300EE255F /* ScheduleCustomCell.swift */,
 				DF5A18551F8A998600803F50 /* Assets.xcassets */,
 				DF5A18571F8A998600803F50 /* LaunchScreen.storyboard */,
 				DF5A185A1F8A998600803F50 /* Info.plist */,
@@ -378,6 +381,7 @@
 				DF2AD2C61F8AA3E300AB4BF6 /* ProfileViewController.swift in Sources */,
 				DF70128D1FA2B9730061C2B9 /* HackFSU.xcdatamodeld in Sources */,
 				DF512E0A1FB556BD0066D42B /* User+CoreDataProperties.swift in Sources */,
+				DF70F1552004FB5300EE255F /* ScheduleCustomCell.swift in Sources */,
 				DF2AD2C21F8A9DC700AB4BF6 /* LoginViewController.swift in Sources */,
 				DF97420A1FC4B42800EFEB50 /* LetsVoteViewController.swift in Sources */,
 				DF5A18511F8A998600803F50 /* ScheduleViewController.swift in Sources */,
