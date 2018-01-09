@@ -13,11 +13,17 @@ class LoginVewController: UIViewController {
     
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passField: UITextField!
+    @IBOutlet weak var logginButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        emailField.layer.cornerRadius = 26.0
+        passField.layer.cornerRadius = 26.0
+        logginButton.layer.cornerRadius = 26.0
+        
     }
+    
     
     @IBAction func loginFam(_ sender: Any) {
         let parameters: Parameters = [
