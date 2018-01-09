@@ -56,9 +56,6 @@ extension ScheduleViewController:  UITableViewDelegate, UITableViewDataSource, U
         cell.eventDescriptionLabel.text = schedule[indexPath.row]["description"]
         
         
-        //IBM Design Thinking Workshop
-        
-        
         if schedule[indexPath.row]["day"] == "Thursday"{
             cell.dayIdentifierCircle.image = #imageLiteral(resourceName: "ThursdayCirclePink")
             

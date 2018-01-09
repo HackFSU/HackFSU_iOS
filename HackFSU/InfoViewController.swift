@@ -10,9 +10,24 @@ import UIKit
 
 class InfoViewController: UIViewController {
     
+    @IBOutlet var notificationButton: UIButton!
+    @IBOutlet var aboutButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        self.navigationController?.navigationBar.isHidden = true
+        
+        notificationButton.layer.borderWidth = 3
+        notificationButton.layer.cornerRadius = 15
+        notificationButton.layer.masksToBounds = true
+        notificationButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        
+        aboutButton.layer.borderWidth = 3
+        aboutButton.layer.cornerRadius = 15
+        aboutButton.layer.masksToBounds = true
+        aboutButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        
     }
     
     override func didReceiveMemoryWarning() {

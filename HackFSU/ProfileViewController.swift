@@ -25,6 +25,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        actionButton.layer.isHidden = true
         
         do {
             yourArray = try context.fetch(fetchRequest)
