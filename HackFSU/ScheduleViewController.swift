@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 
 var schedule: [[String:String]] = [[:]]
-
+var height = 110.0
 
 
 class ScheduleViewController: UIViewController {
@@ -54,8 +54,35 @@ extension ScheduleViewController:  UITableViewDelegate, UITableViewDataSource, U
         cell.eventNameLabel.text = schedule[indexPath.row]["name"]
         cell.eventDurationLabel.text = " "
         cell.eventDescriptionLabel.text = schedule[indexPath.row]["description"]
+        if cell.eventDescriptionLabel.text!.count > 400 {
+            //resize cell
+            height = height + (Double(cell.eventDescriptionLabel.text!.count)/2)
+            
+            
+            cell.eventDescriptionLabel.numberOfLines =  cell.eventDescriptionLabel.numberOfLines + 10
+            
+        }else if cell.eventDescriptionLabel.text!.count > 71 {
+            //resize cell
+            height = height + (Double(cell.eventDescriptionLabel.text!.count)/4)
+            
+            
+            cell.eventDescriptionLabel.numberOfLines =  cell.eventDescriptionLabel.numberOfLines + 6
+            
+        }else if cell.eventDescriptionLabel.text!.count < 40 && cell.eventDescriptionLabel.text!.count > 2  {
+            height = 90
+            cell.eventDescriptionLabel.numberOfLines = 1
+            
+            
+        }else if cell.eventDescriptionLabel.text!.count < 2 {
+            height = 70
+            cell.eventDescriptionLabel.numberOfLines = 1
         
         
+        }else{
+            height = 110
+        cell.eventDescriptionLabel.numberOfLines = 3
+        }
+ 
         if schedule[indexPath.row]["day"] == "Thursday"{
             cell.dayIdentifierCircle.image = #imageLiteral(resourceName: "ThursdayCirclePink")
             
@@ -159,7 +186,7 @@ extension ScheduleViewController:  UITableViewDelegate, UITableViewDataSource, U
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 110
+        return CGFloat(height)
     }
     
     
