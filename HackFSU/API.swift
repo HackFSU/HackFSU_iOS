@@ -142,7 +142,7 @@ class API {
          
         let myCalendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)!
         let myComponents = myCalendar.components(.weekday, from: givendate!)
-        let weekDay = myComponents.weekday as! Int 
+        let weekDay = myComponents.weekday!
 
         switch weekDay {
         case 1:
