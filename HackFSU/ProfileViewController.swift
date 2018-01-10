@@ -101,9 +101,8 @@ class ProfileViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func returnToMainView(unwindSegue: UIStoryboardSegue) {
+        
     }
     
     

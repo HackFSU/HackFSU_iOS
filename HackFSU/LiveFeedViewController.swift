@@ -13,8 +13,11 @@ class LiveFeedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        schedule = API.getSchedule(url: URL(string:"https://2017.hackfsu.com/api/hackathon/get/schedule_items")!)    }
+        //Andres
+        self.navigationController?.navigationBar.isHidden = true
+        schedule = API.getSchedule(url: URL(string:"https://2017.hackfsu.com/api/hackathon/get/schedule_items")!)
+        //
+    }
 
     override func viewDidAppear(_ animated: Bool) {
         if (userNotLoggedIn == true) {
@@ -25,7 +28,7 @@ class LiveFeedViewController: UIViewController {
             API.retriveUserInfo()
             let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
             do {
-                let user = try PersistenceService.context.fetch(fetchRequest)
+                _ = try PersistenceService.context.fetch(fetchRequest)
             } catch {
                 
             }
@@ -41,10 +44,11 @@ class LiveFeedViewController: UIViewController {
             return true
         }
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func returnToMainViewFromLogin(unwindSegue: UIStoryboardSegue) {
+        
     }
+  
 
 
 }

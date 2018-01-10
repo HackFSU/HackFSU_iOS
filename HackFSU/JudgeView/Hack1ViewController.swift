@@ -12,10 +12,18 @@ import SwiftyJSON
 
 class Hack1ViewController: UIViewController {
 
+    @IBOutlet var returnButton: UIButton!
     @IBOutlet weak var hacksLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+       
+       //ANDRES
+        returnButton.layer.borderWidth = 3
+        returnButton.layer.cornerRadius = 15
+        returnButton.layer.masksToBounds = true
+        returnButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        
         
         
         Alamofire.request("https://api.hackfsu.com/api/judge/hacks", method: .get, parameters: nil, encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {
@@ -56,8 +64,6 @@ class Hack1ViewController: UIViewController {
         hacksLabel.text = hacks[0] + ", " + hacks[1]
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
+    
 }

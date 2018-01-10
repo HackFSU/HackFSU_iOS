@@ -41,10 +41,14 @@ class LoginVewController: UIViewController {
                 {
                     (result : UIAlertAction) -> Void in
                     print("You pressed OK")
-                    self.dismiss(animated: true, completion: nil)
+                    //self.dismiss(animated: true, completion: nil)
+                    let controller = self.storyboard?.instantiateViewController(withIdentifier: "initialNotifications")
+                    self.present(controller!, animated: true, completion: nil)
+                    
                 }
                 alertController.addAction(okAction)
                 self.present(alertController, animated: true, completion: nil)
+                
             }
             else {
                 let alertController = UIAlertController(title: "HackFSU", message: "Login unsuccessful!", preferredStyle: UIAlertControllerStyle.alert)

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		842A6C72D8B87F13957D392B /* Pods_HackFSU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC35D8A4E9396569DA4F8E2 /* Pods_HackFSU.framework */; };
+		B9D84F0B20069C2D00556ABE /* NotificationAfterLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D84F0A20069C2D00556ABE /* NotificationAfterLoginViewController.swift */; };
 		DF21FEF81FA5132B00116A29 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF21FEF71FA5132B00116A29 /* PersistenceService.swift */; };
 		DF2AD2C21F8A9DC700AB4BF6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2AD2C11F8A9DC700AB4BF6 /* LoginViewController.swift */; };
 		DF2AD2C41F8AA3CA00AB4BF6 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2AD2C31F8AA3CA00AB4BF6 /* InfoViewController.swift */; };
@@ -49,6 +50,7 @@
 /* Begin PBXFileReference section */
 		5DFE20503AECE17FCC104065 /* Pods-HackFSU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackFSU.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackFSU/Pods-HackFSU.release.xcconfig"; sourceTree = "<group>"; };
 		8869AA6F541FA6D71D6D689B /* Pods-HackFSU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackFSU.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackFSU/Pods-HackFSU.debug.xcconfig"; sourceTree = "<group>"; };
+		B9D84F0A20069C2D00556ABE /* NotificationAfterLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationAfterLoginViewController.swift; sourceTree = "<group>"; };
 		CCC35D8A4E9396569DA4F8E2 /* Pods_HackFSU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackFSU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF21FEF71FA5132B00116A29 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		DF2AD2C11F8A9DC700AB4BF6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				DF5A18551F8A998600803F50 /* Assets.xcassets */,
 				DF5A18571F8A998600803F50 /* LaunchScreen.storyboard */,
 				DF5A185A1F8A998600803F50 /* Info.plist */,
+				B9D84F0A20069C2D00556ABE /* NotificationAfterLoginViewController.swift */,
 			);
 			path = HackFSU;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				DF512E0A1FB556BD0066D42B /* User+CoreDataProperties.swift in Sources */,
 				DF70F1552004FB5300EE255F /* ScheduleCustomCell.swift in Sources */,
 				DF2AD2C21F8A9DC700AB4BF6 /* LoginViewController.swift in Sources */,
+				B9D84F0B20069C2D00556ABE /* NotificationAfterLoginViewController.swift in Sources */,
 				DF97420A1FC4B42800EFEB50 /* LetsVoteViewController.swift in Sources */,
 				DF5A18511F8A998600803F50 /* ScheduleViewController.swift in Sources */,
 				DF5A184D1F8A998600803F50 /* AppDelegate.swift in Sources */,
