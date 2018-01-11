@@ -45,6 +45,7 @@ class LiveFeedViewController: UIViewController {
         }
     }
     
+    //only needed to properly return from login
     @IBAction func returnToMainViewFromLogin(unwindSegue: UIStoryboardSegue) {
         
     }

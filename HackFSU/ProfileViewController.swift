@@ -101,6 +101,7 @@ class ProfileViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    //only needed to properly return from voting panel
     @IBAction func returnToMainView(unwindSegue: UIStoryboardSegue) {
         
     }
