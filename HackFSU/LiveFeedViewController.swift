@@ -28,7 +28,7 @@ class LiveFeedViewController: UIViewController {
             API.retriveUserInfo()
             let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
             do {
-                _ = try PersistenceService.context.fetch(fetchRequest)
+                let user = try PersistenceService.context.fetch(fetchRequest)
             } catch {
                 
             }

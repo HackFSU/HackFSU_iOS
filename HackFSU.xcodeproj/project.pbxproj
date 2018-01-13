@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		842A6C72D8B87F13957D392B /* Pods_HackFSU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC35D8A4E9396569DA4F8E2 /* Pods_HackFSU.framework */; };
+		B91491A52009BCAD006FD7DF /* FirstHackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91491A12009BCAC006FD7DF /* FirstHackViewController.swift */; };
+		B91491A62009BCAD006FD7DF /* FinalRankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91491A22009BCAC006FD7DF /* FinalRankingViewController.swift */; };
+		B91491A72009BCAD006FD7DF /* SecondHackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91491A32009BCAC006FD7DF /* SecondHackViewController.swift */; };
+		B91491A82009BCAD006FD7DF /* thirdHackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91491A42009BCAC006FD7DF /* thirdHackViewController.swift */; };
+		B91491AB2009BCB7006FD7DF /* superlativeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91491A92009BCB7006FD7DF /* superlativeTableViewCell.swift */; };
+		B91491AC2009BCB7006FD7DF /* InitialHackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91491AA2009BCB7006FD7DF /* InitialHackViewController.swift */; };
 		B9D84F0B20069C2D00556ABE /* NotificationAfterLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D84F0A20069C2D00556ABE /* NotificationAfterLoginViewController.swift */; };
 		DF21FEF81FA5132B00116A29 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF21FEF71FA5132B00116A29 /* PersistenceService.swift */; };
 		DF2AD2C21F8A9DC700AB4BF6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2AD2C11F8A9DC700AB4BF6 /* LoginViewController.swift */; };
@@ -50,6 +56,12 @@
 /* Begin PBXFileReference section */
 		5DFE20503AECE17FCC104065 /* Pods-HackFSU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackFSU.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackFSU/Pods-HackFSU.release.xcconfig"; sourceTree = "<group>"; };
 		8869AA6F541FA6D71D6D689B /* Pods-HackFSU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackFSU.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackFSU/Pods-HackFSU.debug.xcconfig"; sourceTree = "<group>"; };
+		B91491A12009BCAC006FD7DF /* FirstHackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstHackViewController.swift; sourceTree = "<group>"; };
+		B91491A22009BCAC006FD7DF /* FinalRankingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinalRankingViewController.swift; sourceTree = "<group>"; };
+		B91491A32009BCAC006FD7DF /* SecondHackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondHackViewController.swift; sourceTree = "<group>"; };
+		B91491A42009BCAC006FD7DF /* thirdHackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = thirdHackViewController.swift; sourceTree = "<group>"; };
+		B91491A92009BCB7006FD7DF /* superlativeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = superlativeTableViewCell.swift; sourceTree = "<group>"; };
+		B91491AA2009BCB7006FD7DF /* InitialHackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialHackViewController.swift; sourceTree = "<group>"; };
 		B9D84F0A20069C2D00556ABE /* NotificationAfterLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationAfterLoginViewController.swift; sourceTree = "<group>"; };
 		CCC35D8A4E9396569DA4F8E2 /* Pods_HackFSU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackFSU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF21FEF71FA5132B00116A29 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
@@ -182,6 +194,12 @@
 		DF97420D1FC4BA6B00EFEB50 /* JudgeView */ = {
 			isa = PBXGroup;
 			children = (
+				B91491A22009BCAC006FD7DF /* FinalRankingViewController.swift */,
+				B91491A32009BCAC006FD7DF /* SecondHackViewController.swift */,
+				B91491A12009BCAC006FD7DF /* FirstHackViewController.swift */,
+				B91491A42009BCAC006FD7DF /* thirdHackViewController.swift */,
+				B91491AA2009BCB7006FD7DF /* InitialHackViewController.swift */,
+				B91491A92009BCB7006FD7DF /* superlativeTableViewCell.swift */,
 				DF9742091FC4B42800EFEB50 /* LetsVoteViewController.swift */,
 				DF97420B1FC4BA5B00EFEB50 /* Hack1ViewController.swift */,
 			);
@@ -390,18 +408,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF2AD2C61F8AA3E300AB4BF6 /* ProfileViewController.swift in Sources */,
+				B91491A62009BCAD006FD7DF /* FinalRankingViewController.swift in Sources */,
 				DF70128D1FA2B9730061C2B9 /* HackFSU.xcdatamodeld in Sources */,
 				DF512E0A1FB556BD0066D42B /* User+CoreDataProperties.swift in Sources */,
+				B91491AB2009BCB7006FD7DF /* superlativeTableViewCell.swift in Sources */,
 				DF70F1552004FB5300EE255F /* ScheduleCustomCell.swift in Sources */,
 				DF2AD2C21F8A9DC700AB4BF6 /* LoginViewController.swift in Sources */,
+				B91491A82009BCAD006FD7DF /* thirdHackViewController.swift in Sources */,
 				B9D84F0B20069C2D00556ABE /* NotificationAfterLoginViewController.swift in Sources */,
+				B91491A52009BCAD006FD7DF /* FirstHackViewController.swift in Sources */,
 				DF97420A1FC4B42800EFEB50 /* LetsVoteViewController.swift in Sources */,
 				DF5A18511F8A998600803F50 /* ScheduleViewController.swift in Sources */,
 				DF5A184D1F8A998600803F50 /* AppDelegate.swift in Sources */,
+				B91491A72009BCAD006FD7DF /* SecondHackViewController.swift in Sources */,
 				DF5A184F1F8A998600803F50 /* LiveFeedViewController.swift in Sources */,
 				DF97420C1FC4BA5B00EFEB50 /* Hack1ViewController.swift in Sources */,
 				DFA85E9B1FA2E669003C4E20 /* API.swift in Sources */,
 				DF21FEF81FA5132B00116A29 /* PersistenceService.swift in Sources */,
+				B91491AC2009BCB7006FD7DF /* InitialHackViewController.swift in Sources */,
 				DF566EB41FB4C40A004FBBBD /* User+CoreDataClass.swift in Sources */,
 				DF2AD2C41F8AA3CA00AB4BF6 /* InfoViewController.swift in Sources */,
 			);
@@ -571,11 +595,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NE788D48N6;
+				DEVELOPMENT_TEAM = QS56B24SK6;
 				INFOPLIST_FILE = HackFSU/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hackfsu.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ibarraandres;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -588,11 +612,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NE788D48N6;
+				DEVELOPMENT_TEAM = QS56B24SK6;
 				INFOPLIST_FILE = HackFSU/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hackfsu.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ibarraandres;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

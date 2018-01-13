@@ -61,8 +61,11 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func leftAction(_ sender: Any) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "LetsVoteViewController")
+//        let vc = storyboard?.instantiateViewController(withIdentifier: "LetsVoteViewController")
+//        self.present(vc!, animated: true, completion: nil)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "newJudgeView")
         self.present(vc!, animated: true, completion: nil)
+
     }
     
     @IBAction func rightAction(_ sender: Any) {

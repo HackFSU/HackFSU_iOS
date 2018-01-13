@@ -9,19 +9,41 @@
 import UIKit
 import Alamofire
 
-class LoginVewController: UIViewController {
+class LoginVewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var mainLayer: UIView!
     
+    @IBOutlet var notificationView: UIView!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passField: UITextField!
     @IBOutlet weak var logginButton: UIButton!
     var emitter = CAEmitterLayer()
     
+    @IBOutlet var notificationsAlertView: UIView!
     
+    @IBOutlet var yesButton: UIButton!
+    @IBOutlet var noButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        emailField.delegate = self
+        passField.delegate = self
+        
+        noButton.layer.cornerRadius = 20.0
+        noButton.layer.masksToBounds = true
+        noButton.layer.borderWidth = 1
+        noButton.layer.borderColor = #colorLiteral(red:1.00, green:0.38, blue:0.82, alpha:1.0)
+        
+        yesButton.layer.cornerRadius = 20.0
+        yesButton.layer.masksToBounds = true
+        yesButton.layer.borderWidth = 1
+        yesButton.layer.borderColor = #colorLiteral(red:1.00, green:0.38, blue:0.82, alpha:1.0)
+        
+        notificationsAlertView.isHidden = true
+        notificationsAlertView.layer.cornerRadius = 30.0
+        notificationsAlertView.layer.masksToBounds = true
+        
         
         emailField.layer.cornerRadius = 26.0
         passField.layer.cornerRadius = 26.0
@@ -33,14 +55,25 @@ class LoginVewController: UIViewController {
         emitter.emitterCells = generateEmitterCells()
         
         self.view.layer.insertSublayer(emitter, at: 0)
+        notificationsAlertView.layer.position = CGPoint(x: self.view.bounds.width/2, y: self.view.bounds.height/2)
        
         
    
         
     }
     
+    // DESCRIPTION:
+    // Called when the editing is done on a textfield
+    // and the return button is clicked to remove the keyboard
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
     
     @IBAction func loginFam(_ sender: Any) {
+        self.view.endEditing(true)
+        
         let parameters: Parameters = [
             "email": emailField.text!,
             "password": passField.text!
@@ -56,9 +89,8 @@ class LoginVewController: UIViewController {
                 {
                     (result : UIAlertAction) -> Void in
                     print("You pressed OK")
-                    //self.dismiss(animated: true, completion: nil)
-                    let controller = self.storyboard?.instantiateViewController(withIdentifier: "initialNotifications")
-                    self.present(controller!, animated: true, completion: nil)
+                    self.view.endEditing(true)
+                    self.notificationsAlertView.isHidden = false
                     
                 }
                 alertController.addAction(okAction)
@@ -78,6 +110,19 @@ class LoginVewController: UIViewController {
             }
         }
     }
+    
+    
+    
+    @IBAction func clickedYesNotifications(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+        
+        
+    }
+    
+    @IBAction func clickedNoNotifications(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
     /*CONFETTI GENERATOR*/
     
@@ -103,8 +148,7 @@ class LoginVewController: UIViewController {
         return cells
     }
     
-    enum Images {
-        
+    enum Images { 
         static let box = UIImage(named: "Box")!
         static let triangle = UIImage(named: "Triangle")!
         static let circle = UIImage(named: "Circle")!
