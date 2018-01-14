@@ -55,31 +55,40 @@ extension ScheduleViewController:  UITableViewDelegate, UITableViewDataSource, U
         cell.eventDescriptionLabel.text = schedule[indexPath.row]["description"]
         if cell.eventDescriptionLabel.text!.count > 400 {
             //resize cell
-            height = height + (Double(cell.eventDescriptionLabel.text!.count)/2)
+            height = height + (Double(cell.eventDescriptionLabel.text!.count)/1.6)
+           
             
+            cell.eventDescriptionLabel.numberOfLines = cell.eventDescriptionLabel.numberOfLines + 13
             
-            cell.eventDescriptionLabel.numberOfLines =  cell.eventDescriptionLabel.numberOfLines + 10
-            
-        }else if cell.eventDescriptionLabel.text!.count > 71 {
+        }else if cell.eventDescriptionLabel.text!.count > 150 {
             //resize cell
-            height = height + (Double(cell.eventDescriptionLabel.text!.count)/4)
+           
+            height = height + (Double(cell.eventDescriptionLabel.text!.count)/1.7)
             
+            cell.eventDescriptionLabel.numberOfLines = 10
             
-            cell.eventDescriptionLabel.numberOfLines =  cell.eventDescriptionLabel.numberOfLines + 6
+        }else if cell.eventDescriptionLabel.text!.count > 70 {
+           
+            //resize cell
+            height = height + (Double(cell.eventDescriptionLabel.text!.count)/3)
+            if height < 100 {
+                 height = height + (Double(cell.eventDescriptionLabel.text!.count)/3)
+            }
             
-        }else if cell.eventDescriptionLabel.text!.count < 40 && cell.eventDescriptionLabel.text!.count > 2  {
+            cell.eventDescriptionLabel.numberOfLines = 6
+            
+        }else if cell.eventDescriptionLabel.text!.count < 50 && cell.eventDescriptionLabel.text!.count > 2  {
             height = 90
-            cell.eventDescriptionLabel.numberOfLines = 1
+            cell.eventDescriptionLabel.numberOfLines = 3
             
             
         }else if cell.eventDescriptionLabel.text!.count < 2 {
             height = 70
             cell.eventDescriptionLabel.numberOfLines = 1
-        
-        
+           
         }else{
             height = 110
-        cell.eventDescriptionLabel.numberOfLines = 3
+            cell.eventDescriptionLabel.numberOfLines = 3
         }
  
         if schedule[indexPath.row]["day"] == "Thursday"{

@@ -1129,7 +1129,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="superlativeCells" rowHeight="79" id="Da4-ap-eel" customClass="superlativeTableViewCell" customModule="judgeViewTesting" customModuleProvider="target">
+                                    <tableViewCell autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="superlativeCells" rowHeight="79" id="Da4-ap-eel" customClass="superlativeTableViewCell" customModule="HackFSU" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.333333333333336" width="343" height="79"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Da4-ap-eel" id="WhA-Ec-YZb">
@@ -1250,7 +1250,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="superlativeCells" rowHeight="79" id="TMc-Og-Gng" customClass="superlativeTableViewCell" customModule="judgeViewTesting" customModuleProvider="target">
+                                    <tableViewCell autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="superlativeCells" rowHeight="79" id="TMc-Og-Gng" customClass="superlativeTableViewCell" customModule="HackFSU" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.333333333333336" width="343" height="79"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TMc-Og-Gng" id="3Vq-h5-SQf">
@@ -1330,7 +1330,7 @@
         <!--First Hack View Controller-->
         <scene sceneID="wVM-Vd-TcG">
             <objects>
-                <viewController id="rWX-PS-89W" customClass="FirstHackViewController" customModule="judgeViewTesting" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="rWX-PS-89W" customClass="FirstHackViewController" customModule="HackFSU" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4gj-L2-Uei">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1371,7 +1371,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="superlativeCells" rowHeight="79" id="m2q-6o-WdE" customClass="superlativeTableViewCell" customModule="judgeViewTesting" customModuleProvider="target">
+                                    <tableViewCell autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="superlativeCells" rowHeight="79" id="m2q-6o-WdE" customClass="superlativeTableViewCell" customModule="HackFSU" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.333333333333336" width="343" height="79"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="m2q-6o-WdE" id="OX0-qJ-sSV">
@@ -1451,7 +1451,7 @@
         <!--Final Ranking View Controller-->
         <scene sceneID="ZA0-8a-ROt">
             <objects>
-                <viewController id="jq8-eQ-MqL" customClass="FinalRankingViewController" customModule="judgeViewTesting" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jq8-eQ-MqL" customClass="FinalRankingViewController" customModule="HackFSU" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JNa-Tl-2rw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
