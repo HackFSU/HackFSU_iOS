@@ -94,6 +94,19 @@ class FinalRankingViewController: UIViewController {
         doneButton.isHidden = true
         doneButton.layer.position = CGPoint(x: self.view.bounds.width/2, y: (9*self.view.bounds.height/10))
         
+        
+        if nothird{
+            
+            thirdPlaceholder.layer.isHidden = true
+            thirdplaceLabel.layer.isHidden = true
+            thirdHack.layer.isHidden = true
+            thirdSelected = true
+        }
+        
+        
+        
+        
+        
     }
 
     @objc func draggedView1(_ sender:UIPanGestureRecognizer){
@@ -233,11 +246,22 @@ class FinalRankingViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         for i in 1..<rankedHacks.count+1{
-            print("\(i) -> \(String(describing: rankedHacks[String(i)]!))")
-            
+            if nothird && i == 3{
+                print("\(i) -> NO THIRD HACK")
+            }else{
+                print("\(i) -> \(String(describing: rankedHacks[String(i)]!))")
+            }
+        }
+        
+        for given in superlatives{
+            print(given.key + " -> " + given.value)
         }
         
         
+        //this will clear all information to start a blank slate
+        rankedHacks.removeAll()
+        superlatives.removeAll()
+        superlativeOptions.removeAll()
         
         
     }

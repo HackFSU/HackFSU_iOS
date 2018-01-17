@@ -13,6 +13,8 @@ class LoginVewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var mainLayer: UIView!
     
+    @IBOutlet var logInViewContainer: UIView!
+    
     @IBOutlet var notificationView: UIView!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passField: UITextField!
@@ -56,10 +58,9 @@ class LoginVewController: UIViewController, UITextFieldDelegate {
         
         self.view.layer.insertSublayer(emitter, at: 0)
         notificationsAlertView.layer.position = CGPoint(x: self.view.bounds.width/2, y: self.view.bounds.height/2)
-       
+        logInViewContainer.layer.position = CGPoint(x: self.view.bounds.width/2, y: (2*self.view.bounds.height)/5)
         
    
-        
     }
     
     // DESCRIPTION:
@@ -195,8 +196,35 @@ class LoginVewController: UIViewController, UITextFieldDelegate {
         }
     }
 
+    func moveTextField(textField: UITextField, distance: Int, up: Bool){
+        let duration = 0.3
+        let movement: CGFloat = CGFloat(up ? -distance : distance)
+        UIView.beginAnimations("animateKeyboard", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(duration)
+        self.view.frame = (self.view.frame).offsetBy(dx: 0, dy: movement)
+        UIView.commitAnimations()
+        
+    }
     
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField.tag == 1{
+            moveTextField(textField: textField, distance: 125, up: false)
+        }
+        else if textField.tag == 2{
+            moveTextField(textField: textField, distance: 150, up: false)
+        }
+    }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField.tag == 1{
+            moveTextField(textField: textField, distance: 125, up: true)
+            
+        }else if textField.tag == 2{
+            moveTextField(textField: textField, distance: 150, up: true)
+        }
+    }
 }
+
 
 

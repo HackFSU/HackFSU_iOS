@@ -15,6 +15,7 @@ class ProfileViewController: UIViewController {
     let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
     var yourArray = [User]()
     
+    @IBOutlet var QRimage: UIImageView!
     @IBOutlet weak var position: UILabel!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var actionButton: UIButton!
@@ -24,7 +25,10 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        
+       
+        
         actionButton.layer.isHidden = true
         
         do {
@@ -61,8 +65,7 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func leftAction(_ sender: Any) {
-//        let vc = storyboard?.instantiateViewController(withIdentifier: "LetsVoteViewController")
-//        self.present(vc!, animated: true, completion: nil)
+
         let vc = storyboard?.instantiateViewController(withIdentifier: "newJudgeView")
         self.present(vc!, animated: true, completion: nil)
 

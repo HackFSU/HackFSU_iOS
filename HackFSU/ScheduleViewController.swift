@@ -77,7 +77,13 @@ extension ScheduleViewController:  UITableViewDelegate, UITableViewDataSource, U
             
             cell.eventDescriptionLabel.numberOfLines = 6
             
-        }else if cell.eventDescriptionLabel.text!.count < 50 && cell.eventDescriptionLabel.text!.count > 2  {
+        }else if cell.eventDescriptionLabel.text!.count < 50 && cell.eventDescriptionLabel.text!.count > 30  {
+            height = 100
+            cell.eventDescriptionLabel.numberOfLines = 3
+            
+            
+        }
+        else if cell.eventDescriptionLabel.text!.count < 30 && cell.eventDescriptionLabel.text!.count > 2  {
             height = 90
             cell.eventDescriptionLabel.numberOfLines = 3
             

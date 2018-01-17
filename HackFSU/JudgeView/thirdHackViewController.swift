@@ -17,7 +17,6 @@ class thirdHackViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableDescriptionLabel.text = "Go To Table #\(String(describing: givenHacks["3"]!))"
         
         
         tableDescriptionLabel.layer.position = CGPoint(x: self.view.bounds.width/2, y: self.view.bounds.height/4)
@@ -43,6 +42,10 @@ class thirdHackViewController: UIViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+       
+    }
+    
     
     @IBAction func clickedAddSuperlative(_ sender: Any) {
         superlativesTableView.reloadData()
@@ -64,8 +67,12 @@ class thirdHackViewController: UIViewController {
             }
             sender.setImage(#imageLiteral(resourceName: "circle-tick-7"), for: UIControlState())
         }
-        
-        
+    }
+    
+    @IBAction func clickedNext(_ sender: Any) {
+       
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "FinalRankingView")
+            self.present(vc!, animated: true, completion: nil)
         
     }
    

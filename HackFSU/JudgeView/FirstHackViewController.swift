@@ -8,11 +8,7 @@
 
 import UIKit
 
-//key = hack #
-//value = superlative given
-var superlatives = ["":""]
 
-var superlativeOptions = ["Coolest Hack", "Most Innovative Hack", "Funniest Hack"]
 class FirstHackViewController: UIViewController {
     
     @IBOutlet var superlativesTableView: UITableView!
@@ -60,6 +56,7 @@ class FirstHackViewController: UIViewController {
     @IBAction func selectedSuperlative(_ sender: UIButton) {
         if sender.image(for: UIControlState()) == #imageLiteral(resourceName: "circle-tick-7"){
             //already selected so unselect
+            superlatives[givenHacks["1"]!] = nil
             sender.setImage(#imageLiteral(resourceName: "plus-simple-7"), for: UIControlState())
             
         }else{
@@ -71,11 +68,32 @@ class FirstHackViewController: UIViewController {
                 }
             }
             sender.setImage(#imageLiteral(resourceName: "circle-tick-7"), for: UIControlState())
+            for cell in cells{
+                if cell.addButton.image(for: UIControlState()) == #imageLiteral(resourceName: "circle-tick-7"){
+                    if let sText =  cell.superlative.text{
+                    superlatives[givenHacks["1"]!] = sText
+                    }
+                }
+            }
+            
+            
         }
-       
-        
-      
     }
+    
+    
+    @IBAction func clickedNext(_ sender: Any) {
+        if nosecond && nothird{
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "FinalRankingView")
+            self.present(vc!, animated: true, completion: nil)
+           
+        }else{
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "SecondHackView")
+            self.present(vc!, animated: true, completion: nil)
+            
+        }
+    
+    }
+    
     
 
 }

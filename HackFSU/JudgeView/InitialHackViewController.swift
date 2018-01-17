@@ -7,10 +7,19 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 //key is hack #, value is hack table
-var givenHacks = ["1":"20", "2":"25", "3":"10"]
+var givenHacks = ["1":"20", "2":"25", "3":""]
+var nofirst = true
+var nosecond = true
+var nothird = true
+//key = hack #
+//value = superlative given
+var superlatives = Dictionary<String, String>()
 
+var superlativeOptions = [String]()
 
 class InitialHackViewController: UIViewController {
 
@@ -30,9 +39,22 @@ class InitialHackViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        givenHacks["1"] = String(arc4random_uniform(50)+1)
-        givenHacks["2"] = String(arc4random_uniform(50)+1)
-        givenHacks["3"] = String(arc4random_uniform(50)+1)
+        //just randomizing for now
+        givenHacks["1"] = nil
+        givenHacks["2"] = nil
+        givenHacks["3"] = nil
+        
+        Alamofire.request("https://api.hackfsu.com/api/judge/hacks", method: .get, parameters: nil, encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {
+            response in
+            print(response)
+            
+            switch response.result {
+            case .success(_):
+                self.parseResults(theJSON: JSON(response.result.value!))
+            case .failure(_):
+                print("Failed to retrive User Info")
+            }
+        })
         
         
         
@@ -67,13 +89,11 @@ class InitialHackViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        firstHackView.isHidden = false
-        secondHackView.isHidden = false
-        thirdHackView.isHidden = false
         
-        firstHackLabel.text = "TABLE #\(String(describing: givenHacks["1"]!))"
-        secondHackLabel.text = "TABLE #\(String(describing: givenHacks["2"]!))"
-        thirdHackLabel.text = "TABLE #\(String(describing: givenHacks["3"]!))"
+        
+        
+      
+       
     }
     
     override func viewDidAppear(_ animated: Bool){
@@ -103,5 +123,56 @@ class InitialHackViewController: UIViewController {
     }
 
 
+}
+
+extension InitialHackViewController{
+    
+    func parseResults(theJSON: JSON) {
+        var hacks = [String]()
+        
+        for result in theJSON["hacks"].arrayValue {
+            hacks.append(result.stringValue)
+        }
+        
+        for result in theJSON["superlatives"].arrayValue {
+            
+            if !superlativeOptions.contains(where: {$0 == result.stringValue}){
+                superlativeOptions.append(result.stringValue)
+            }
+        }
+        
+        
+        if hacks.count == 0{
+            //do nothing
+        }else if hacks.count == 1{
+            givenHacks["1"] = hacks[0]
+           
+        }else if hacks.count == 2{
+            givenHacks["1"] = hacks[0]
+            givenHacks["2"] = hacks[1]
+        }else if hacks.count == 3{
+            givenHacks["1"] = hacks[0]
+            givenHacks["2"] = hacks[1]
+             givenHacks["3"] = hacks[2]
+        }
+    
+        if givenHacks["1"] != nil{
+            nofirst = false
+            firstHackView.isHidden = false
+            firstHackLabel.text = "TABLE #\(String(describing: givenHacks["1"]!))"
+        }
+        if givenHacks["2"] != nil{
+            nosecond = false
+            secondHackView.isHidden = false
+            secondHackLabel.text = "TABLE #\(String(describing: givenHacks["2"]!))"
+        }
+        if givenHacks["3"] != nil{
+            nothird = false
+            thirdHackView.isHidden = false
+            thirdHackLabel.text = "TABLE #\(String(describing: givenHacks["3"]!))"
+        }
+    }
+    
+    
 }
 
