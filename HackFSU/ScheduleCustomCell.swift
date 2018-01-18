@@ -13,6 +13,8 @@ class ScheduleCustomCell: UITableViewCell {
     @IBOutlet var dayIdentifierCircle: UIImageView!
     @IBOutlet var eventNameLabel: UILabel!
     @IBOutlet var eventDurationLabel: UILabel!
+   
     @IBOutlet var eventDescriptionLabel: UILabel!
+    
     @IBOutlet var eventTimeLabel: UILabel!
 }

@@ -15,6 +15,7 @@ class ProfileViewController: UIViewController {
     let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
     var yourArray = [User]()
     
+    @IBOutlet var QRimage: UIImageView!
     @IBOutlet weak var position: UILabel!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var actionButton: UIButton!
@@ -24,7 +25,11 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        
+       
+        
+        actionButton.layer.isHidden = true
         
         do {
             yourArray = try context.fetch(fetchRequest)
@@ -60,8 +65,10 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func leftAction(_ sender: Any) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "LetsVoteViewController")
+
+        let vc = storyboard?.instantiateViewController(withIdentifier: "newJudgeView")
         self.present(vc!, animated: true, completion: nil)
+
     }
     
     @IBAction func rightAction(_ sender: Any) {
@@ -100,9 +107,9 @@ class ProfileViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    //only needed to properly return from voting panel
+    @IBAction func returnToMainView(unwindSegue: UIStoryboardSegue) {
+        
     }
     
     

@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 
 var schedule: [[String:String]] = [[:]]
-
+var height = 110.0
 
 
 class ScheduleViewController: UIViewController {
@@ -27,9 +27,8 @@ class ScheduleViewController: UIViewController {
         
         
     }
-    override func viewDidAppear(_ animated: Bool) {
-        
-    }
+  
+    
     
     
 }
@@ -54,11 +53,50 @@ extension ScheduleViewController:  UITableViewDelegate, UITableViewDataSource, U
         cell.eventNameLabel.text = schedule[indexPath.row]["name"]
         cell.eventDurationLabel.text = " "
         cell.eventDescriptionLabel.text = schedule[indexPath.row]["description"]
-        
-        
-        //IBM Design Thinking Workshop
-        
-        
+        if cell.eventDescriptionLabel.text!.count > 400 {
+            //resize cell
+            height = height + (Double(cell.eventDescriptionLabel.text!.count)/1.6)
+           
+            
+            cell.eventDescriptionLabel.numberOfLines = cell.eventDescriptionLabel.numberOfLines + 13
+            
+        }else if cell.eventDescriptionLabel.text!.count > 150 {
+            //resize cell
+           
+            height = height + (Double(cell.eventDescriptionLabel.text!.count)/1.7)
+            
+            cell.eventDescriptionLabel.numberOfLines = 10
+            
+        }else if cell.eventDescriptionLabel.text!.count > 70 {
+           
+            //resize cell
+            height = height + (Double(cell.eventDescriptionLabel.text!.count)/3)
+            if height < 100 {
+                 height = height + (Double(cell.eventDescriptionLabel.text!.count)/3)
+            }
+            
+            cell.eventDescriptionLabel.numberOfLines = 6
+            
+        }else if cell.eventDescriptionLabel.text!.count < 50 && cell.eventDescriptionLabel.text!.count > 30  {
+            height = 100
+            cell.eventDescriptionLabel.numberOfLines = 3
+            
+            
+        }
+        else if cell.eventDescriptionLabel.text!.count < 30 && cell.eventDescriptionLabel.text!.count > 2  {
+            height = 90
+            cell.eventDescriptionLabel.numberOfLines = 3
+            
+            
+        }else if cell.eventDescriptionLabel.text!.count < 2 {
+            height = 70
+            cell.eventDescriptionLabel.numberOfLines = 1
+           
+        }else{
+            height = 110
+            cell.eventDescriptionLabel.numberOfLines = 3
+        }
+ 
         if schedule[indexPath.row]["day"] == "Thursday"{
             cell.dayIdentifierCircle.image = #imageLiteral(resourceName: "ThursdayCirclePink")
             
@@ -66,10 +104,10 @@ extension ScheduleViewController:  UITableViewDelegate, UITableViewDataSource, U
             cell.dayIdentifierCircle.image = #imageLiteral(resourceName: "FridayCircleMint")
             
         }else if schedule[indexPath.row]["day"] == "Saturday"{
-            cell.dayIdentifierCircle.image = #imageLiteral(resourceName: "FridayCircleMint")
+            cell.dayIdentifierCircle.image = #imageLiteral(resourceName: "SundayCirclePurple")
             
         }else if schedule[indexPath.row]["day"] == "Sunday"{
-            cell.dayIdentifierCircle.image = #imageLiteral(resourceName: "SundayCirclePurple")
+            cell.dayIdentifierCircle.image = #imageLiteral(resourceName: "SaturdayCircleGray")
             
         }
         
@@ -162,7 +200,7 @@ extension ScheduleViewController:  UITableViewDelegate, UITableViewDataSource, U
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 110
+        return CGFloat(height)
     }
     
     

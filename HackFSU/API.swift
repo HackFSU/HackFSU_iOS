@@ -51,8 +51,14 @@ class API {
         })
     }
     
+    
+    //Function: getSchedule(url: URL) -> Array<Dictionary<String, String>>
+    //
+    //Description: This function will make the JSON request and parse through the information
+    //as well as be able to call 2 separate functions: convertDate() and getDayString()
+    //to be able to get the correct date and time, given the fact that they are in UTC
+    
     class func getSchedule(url: URL) -> Array<Dictionary<String, String>>{
-        
         var allinfo: [[String:String]] = [[:]]
         
         Alamofire.request(url).responseJSON { response in
@@ -65,17 +71,19 @@ class API {
                 for items in OGjson["schedule_items"]{
                     //assigning eventjson the inside json
                     let eventjson = items.1
-                    //grabbing some of the information
                     
+                    
+                    //accessing additional infomation outside that will be
+                    //needed regardless of if there is an end date or not
                     let nameinfo = eventjson["name"].string!
                     let descriptioninfo = eventjson["description"].string!
                     
-                    
+                    //this is here in case we don't have an end time, so we don't crash the application
                     if let enddate = eventjson["end"].string {
-                            //grabbing the strings
+                            //grabbing the correct strings
+                            let startString = convertDate(date: eventjson["start"].string!)
+                            let endString = convertDate(date: enddate)
                         
-                            let startString = eventjson["start"].string!
-                            let endString = enddate
                             //setting the index and range of the times
                             let sIndex = startString.index(startString.startIndex, offsetBy: 11)
                             let eIndex = startString.index(startString.endIndex, offsetBy: -6)
@@ -85,19 +93,21 @@ class API {
                             let startTime = startString[range]
                             let endTime = endString[range]
                         
+                            //Grabbing Day of the Week
                             let dayofWeek = getDayString(date: startString)
-                        
                         
                             //making the dictionary
                             let dictionary = ["start":String(describing: startTime), "end":String(describing: endTime), "name":nameinfo,"description":descriptioninfo, "day":dayofWeek]
                         
-                            //dictionary insertion
+                            //dictionary check/insertion
                             if !allinfo.contains(where: {$0 == dictionary}){
                                 allinfo.append(dictionary)
                             }
                         
                     } else{
-                            let startString = eventjson["start"].string!
+                            //grabbing the correct strings
+                            let startString = convertDate(date: eventjson["start"].string!)
+                       
                             //setting the index and range of the times
                             let sIndex = startString.index(startString.startIndex, offsetBy: 11)
                             let eIndex = startString.index(startString.endIndex, offsetBy: -6)
@@ -117,8 +127,10 @@ class API {
                     }
                     
                 }
-
+                
+                //erasing null event to hold place
                 allinfo.removeFirst()
+                //assigning schedule to global variable schedule
                 schedule = allinfo
 
             }
@@ -131,18 +143,22 @@ class API {
         
     }
     
-    
+    //Function: getDayString(date: String) -> String
+    //
+    //Description: This function will return the day of the week, given the timezone
     class func getDayString(date: String) -> String{
         var day = " "
         let s_formatter = DateFormatter()
         s_formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss+ss:ss"
-       
-        s_formatter.date(from: date)
+        s_formatter.timeZone = TimeZone(abbreviation: "EST")
+            
+        //s_formatter.date(from: date)
+        
         let givendate = s_formatter.date(from: date)
          
         let myCalendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)!
         let myComponents = myCalendar.components(.weekday, from: givendate!)
-        let weekDay = myComponents.weekday as! Int 
+        let weekDay = myComponents.weekday!
 
         switch weekDay {
         case 1:
@@ -169,9 +185,26 @@ class API {
         default:
             break
         }
-        
-        print(day)
+       
         return day
+    }
+    
+    //Function: convertDate(date: String) -> String
+    //
+    //Description: This function will converts from UTC to users current time zone
+    class func convertDate(date: String) -> String{
+        var datestring = " "
+        //setting up the date formatter
+        let s_formatter = DateFormatter()
+        s_formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss+ss:ss"
+        s_formatter.timeZone = TimeZone(abbreviation: "UTC")
+        
+        let newDate = s_formatter.date(from: date)
+        var localTimeZoneAbbreviation: String { return TimeZone.current.abbreviation() ?? "" }
+        s_formatter.timeZone =  TimeZone(abbreviation: localTimeZoneAbbreviation)
+        datestring = s_formatter.string(from: newDate!)
+       
+        return datestring
     }
     
     
