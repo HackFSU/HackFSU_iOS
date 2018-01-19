@@ -1188,7 +1188,6 @@
         <!--First Hack View Controller-->
         <scene sceneID="wVM-Vd-TcG">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aoZ-Ig-fr4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="FirstHackView" id="rWX-PS-89W" customClass="FirstHackViewController" customModule="HackFSU" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4gj-L2-Uei">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
@@ -1303,6 +1302,7 @@
                         <outlet property="tableDescriptionLabel" destination="ghZ-f5-9fs" id="Shq-RN-BY0"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aoZ-Ig-fr4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3162" y="2237"/>
         </scene>
