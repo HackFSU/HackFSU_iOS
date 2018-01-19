@@ -185,6 +185,9 @@ class FinalRankingViewController: UIViewController {
                 
                 
             }
+            else {
+                
+            }
             
         
         }else if givenView == "2"{

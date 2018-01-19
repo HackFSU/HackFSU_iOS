@@ -11,6 +11,8 @@ import CoreData
 
 class LiveFeedViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //Andres
@@ -49,7 +51,26 @@ class LiveFeedViewController: UIViewController {
     @IBAction func returnToMainViewFromLogin(unwindSegue: UIStoryboardSegue) {
         
     }
-  
-
-
 }
+    
+//extension LiveFeedViewController:   UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
+////
+////    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+////        return 1
+////    }
+////
+////    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+////        //return schedule.count
+////        return 1
+////    }
+////
+////    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+////        return cell
+////    }
+////    
+////    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+////        //return CGFloat(height)
+////    }
+////
+//}
+
