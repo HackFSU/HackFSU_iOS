@@ -184,6 +184,22 @@ class FinalRankingViewController: UIViewController {
                 rankedHacks["3"] = "1"
                 
                 
+            }else{
+                if rankedHacks["1"] == "1"{
+                    //deselect 1
+                    rankedHacks["1"] = nil
+                    firstSelected = false
+                }else if rankedHacks["2"] == "1"{
+                    //deselect 1
+                    rankedHacks["2"] = nil
+                    secondSelected = false
+                }else if rankedHacks["3"] == "1"{
+                    //deselect 1
+                    rankedHacks["3"] = nil
+                    thirdSelected = false
+                }
+                
+                
             }
             else {
                 
@@ -210,6 +226,22 @@ class FinalRankingViewController: UIViewController {
                 rankedHacks["3"] = "2"
                 
                 
+            }else{
+                if rankedHacks["1"] == "2"{
+                    //deselect 1
+                    rankedHacks["1"] = nil
+                    firstSelected = false
+                }else if rankedHacks["2"] == "2"{
+                    //deselect 1
+                    rankedHacks["2"] = nil
+                    secondSelected = false
+                }else if rankedHacks["3"] == "2"{
+                    //deselect 1
+                    rankedHacks["3"] = nil
+                    thirdSelected = false
+                }
+                
+                
             }
             
             
@@ -232,12 +264,30 @@ class FinalRankingViewController: UIViewController {
                 thirdSelected = true
                 rankedHacks["3"] = "3"
                
+            }else{
+                if rankedHacks["1"] == "3"{
+                    //deselect 1
+                    rankedHacks["1"] = nil
+                    firstSelected = false
+                }else if rankedHacks["2"] == "3"{
+                    //deselect 1
+                    rankedHacks["2"] = nil
+                    secondSelected = false
+                }else if rankedHacks["3"] == "3"{
+                    //deselect 1
+                    rankedHacks["3"] = nil
+                    thirdSelected = false
+                }
+                
+                
             }
             
         }
         
         if firstSelected && secondSelected && thirdSelected{
             doneButton.isHidden = false
+        }else{
+            doneButton.isHidden = true
         }
         
     }
