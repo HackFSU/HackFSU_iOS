@@ -59,7 +59,7 @@ class API {
     //to be able to get the correct date and time, given the fact that they are in UTC
     
     class func getSchedule(url: URL) -> Array<Dictionary<String, String>>{
-        var allinfo: [[String:String]] = [[:]]
+        var allinfo = [Dictionary<String, String>]()
         
         Alamofire.request(url).responseJSON { response in
             
@@ -81,8 +81,8 @@ class API {
                     //this is here in case we don't have an end time, so we don't crash the application
                     if let enddate = eventjson["end"].string {
                             //grabbing the correct strings
-                            let startString = convertDate(date: eventjson["start"].string!)
-                            let endString = convertDate(date: enddate)
+                        let startString = convertDate(date: eventjson["start"].string!, type: 0)
+                        let endString = convertDate(date: enddate, type: 0)
                         
                             //setting the index and range of the times
                             let sIndex = startString.index(startString.startIndex, offsetBy: 11)
@@ -94,7 +94,7 @@ class API {
                             let endTime = endString[range]
                         
                             //Grabbing Day of the Week
-                            let dayofWeek = getDayString(date: startString)
+                            let dayofWeek = getDayString(date: startString, type: 0)
                         
                             //making the dictionary
                             let dictionary = ["start":String(describing: startTime), "end":String(describing: endTime), "name":nameinfo,"description":descriptioninfo, "day":dayofWeek]
@@ -106,7 +106,7 @@ class API {
                         
                     } else{
                             //grabbing the correct strings
-                            let startString = convertDate(date: eventjson["start"].string!)
+                        let startString = convertDate(date: eventjson["start"].string!, type: 0)
                        
                             //setting the index and range of the times
                             let sIndex = startString.index(startString.startIndex, offsetBy: 11)
@@ -115,7 +115,7 @@ class API {
                         
                             //making new substring
                             let startTime = startString[range]
-                            let dayofWeek = getDayString(date: startString)
+                            let dayofWeek = getDayString(date: startString, type: 0)
                         
                             //making the dictionary
                             let dictionary = ["start":String(describing: startTime), "name":nameinfo,"description":descriptioninfo, "day":dayofWeek]
@@ -146,11 +146,17 @@ class API {
     //Function: getDayString(date: String) -> String
     //
     //Description: This function will return the day of the week, given the timezone
-    class func getDayString(date: String) -> String{
+    class func getDayString(date: String, type: Int) -> String{
         var day = " "
         let s_formatter = DateFormatter()
-        s_formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss+ss:ss"
-        s_formatter.timeZone = TimeZone(abbreviation: "EST")
+        if type == 0{
+            s_formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss+ss:ss"
+             s_formatter.timeZone = TimeZone(abbreviation: "EST")
+        }else if type == 1{
+            s_formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
+             s_formatter.timeZone = TimeZone(abbreviation: "UTC")
+        }
+       
             
         //s_formatter.date(from: date)
         
@@ -192,22 +198,34 @@ class API {
     //Function: convertDate(date: String) -> String
     //
     //Description: This function will converts from UTC to users current time zone
-    class func convertDate(date: String) -> String{
+    class func convertDate(date: String, type: Int) -> String{
         var datestring = " "
         //setting up the date formatter
         let s_formatter = DateFormatter()
+        if type == 0{
         s_formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss+ss:ss"
+        }else if type == 1{
+            s_formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSZZZZZ"
+        }
         s_formatter.timeZone = TimeZone(abbreviation: "UTC")
         
         let newDate = s_formatter.date(from: date)
         var localTimeZoneAbbreviation: String { return TimeZone.current.abbreviation() ?? "" }
         s_formatter.timeZone =  TimeZone(abbreviation: localTimeZoneAbbreviation)
+        
+        if type == 0{
         datestring = s_formatter.string(from: newDate!)
-       
+        }else if type == 1{
+            s_formatter.dateFormat = "E h:mm a"
+            datestring = s_formatter.string(from: newDate!)
+            
+        }
+        
+        
+        
+        
         return datestring
     }
-    
-    
     
     
     

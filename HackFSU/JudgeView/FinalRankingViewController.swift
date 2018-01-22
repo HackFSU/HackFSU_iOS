@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 var rankedHacks = ["1":"", "2":"", "3":""]
 
@@ -51,18 +52,23 @@ class FinalRankingViewController: UIViewController {
         firstHack.addGestureRecognizer(panGesture1)
         firstHack.layer.cornerRadius = 20.0;
         firstHack.layer.masksToBounds = true
+        firstHack.layer.position = CGPoint(x: 0.75*self.view.bounds.width/3, y: (6.5*self.view.bounds.height/7))
+        
+        
         
         panGesture2 = UIPanGestureRecognizer(target: self, action: #selector(FinalRankingViewController.draggedView2(_:)))
         secondHack.isUserInteractionEnabled = true
         secondHack.addGestureRecognizer(panGesture2)
         secondHack.layer.cornerRadius = 20.0;
         secondHack.layer.masksToBounds = true
+        secondHack.layer.position = CGPoint(x: (1.50*self.view.bounds.width)/3, y: (5.5*self.view.bounds.height/7))
         
         panGesture3 = UIPanGestureRecognizer(target: self, action: #selector(FinalRankingViewController.draggedView3(_:)))
         thirdHack.isUserInteractionEnabled = true
         thirdHack.addGestureRecognizer(panGesture3)
         thirdHack.layer.cornerRadius = 20.0;
         thirdHack.layer.masksToBounds = true
+        thirdHack.layer.position = CGPoint(x: (2.25*self.view.bounds.width)/3, y: (6.5*self.view.bounds.height/7))
         
         firstplaceLabel.layer.position = CGPoint(x: self.view.bounds.width/6, y: (1.5*self.view.bounds.height/6))
         secondplaceLabel.layer.position = CGPoint(x: self.view.bounds.width/6, y: (2.6*self.view.bounds.height/6))
@@ -93,6 +99,14 @@ class FinalRankingViewController: UIViewController {
         
         doneButton.isHidden = true
         doneButton.layer.position = CGPoint(x: self.view.bounds.width/2, y: (9*self.view.bounds.height/10))
+        
+        if nosecond{
+            
+            secondPlaceholder.layer.isHidden = true
+            secondplaceLabel.layer.isHidden = true
+            secondHack.layer.isHidden = true
+            secondSelected = true
+        }
         
         
         if nothird{
@@ -201,9 +215,7 @@ class FinalRankingViewController: UIViewController {
                 
                 
             }
-            else {
-                
-            }
+           
             
         
         }else if givenView == "2"{
@@ -305,10 +317,135 @@ class FinalRankingViewController: UIViewController {
                 print("\(i) -> \(String(describing: rankedHacks[String(i)]!))")
             }
         }
+        var parameters: Parameters = [
+            "order":[
+                "1": rankedHacks["1"],
+                "2": rankedHacks["2"],
+                "3": rankedHacks["3"]
+            ]
+        ]
         
-        for given in superlatives{
-            print(given.key + " -> " + given.value)
+        
+        if superlatives.count == 0{
+            //no superlatives
+            parameters = [
+                "order":[
+                    "1": rankedHacks["1"],
+                    "2": rankedHacks["2"],
+                    "3": rankedHacks["3"]
+                ],
+                "superlatives": [
+                  
+                ]
+            ]
         }
+        else if superlatives.count == 1{
+            //1 Superlatives
+            var oneSuperHack = ""
+            var oneSuperDescription = ""
+            
+            for given in superlatives{
+                print(given.key + " -> " + given.value)
+                oneSuperHack = given.key
+                oneSuperDescription =  given.value
+                
+            }
+            parameters = [
+                "order":[
+                    "1": rankedHacks["1"],
+                    "2": rankedHacks["2"],
+                    "3": rankedHacks["3"]
+                ],
+                "superlatives": [
+                    oneSuperHack : oneSuperDescription
+                ]
+            ]
+        }
+        else if superlatives.count == 2{
+            //2 Superlatives
+            var oneSuperHack = ""
+            var oneSuperDescription = ""
+            var twoSuperHack = ""
+            var twoSuperDescription = ""
+            
+            for given in superlatives{
+                print(given.key + " -> " + given.value)
+                if oneSuperHack == ""{
+                oneSuperHack = given.key
+                oneSuperDescription =  given.value
+                } else{
+                    twoSuperHack = given.key
+                    twoSuperDescription = given.value
+                }
+                
+            }
+ 
+            parameters = [
+                "order":[
+                    "1": rankedHacks["1"],
+                    "2": rankedHacks["2"],
+                    "3": rankedHacks["3"]
+                ],
+                "superlatives": [
+                    oneSuperHack : oneSuperDescription,
+                    twoSuperHack : twoSuperDescription
+                ]
+            ]
+        }
+        else if superlatives.count == 3{
+            //3 Superlatives
+            var oneSuperHack = ""
+            var oneSuperDescription = ""
+            var twoSuperHack = ""
+            var twoSuperDescription = ""
+            var threeSuperHack = ""
+            var threeSuperDescription = ""
+            
+            for given in superlatives{
+                print(given.key + " -> " + given.value)
+                if oneSuperHack == ""{
+                    oneSuperHack = given.key
+                    oneSuperDescription =  given.value
+                }else if twoSuperHack == ""{
+                    twoSuperHack = given.key
+                    twoSuperDescription = given.value
+                }else{
+                    threeSuperHack = given.key
+                    threeSuperDescription = given.value
+                }
+                
+            }
+            
+            parameters = [
+                "order":[
+                    "1": rankedHacks["1"],
+                    "2": rankedHacks["2"],
+                    "3": rankedHacks["3"]
+                ],
+                "superlatives": [
+                    oneSuperHack : oneSuperDescription,
+                    twoSuperHack : twoSuperDescription,
+                    threeSuperHack : threeSuperDescription
+                ]
+            ]
+            
+            
+        }
+        
+        
+        
+        
+        API.postRequest(url: URL(string: "https://api.hackfsu.com/api/judge/hacks")!, params: parameters) {
+            (statuscode) in
+            
+            if (statuscode == 200) {
+                //good
+                print("done")
+            }
+        }
+        
+        
+        
         
         
         //this will clear all information to start a blank slate
