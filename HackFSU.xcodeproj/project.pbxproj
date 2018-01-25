@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		842A6C72D8B87F13957D392B /* Pods_HackFSU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC35D8A4E9396569DA4F8E2 /* Pods_HackFSU.framework */; };
+		B90B5A8B20157F7400811040 /* LiveFeedMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90B5A8A20157F7400811040 /* LiveFeedMainCell.swift */; };
 		B91491A52009BCAD006FD7DF /* FirstHackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91491A12009BCAC006FD7DF /* FirstHackViewController.swift */; };
 		B91491A62009BCAD006FD7DF /* FinalRankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91491A22009BCAC006FD7DF /* FinalRankingViewController.swift */; };
 		B91491A72009BCAD006FD7DF /* SecondHackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91491A32009BCAC006FD7DF /* SecondHackViewController.swift */; };
 		B91491A82009BCAD006FD7DF /* thirdHackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91491A42009BCAC006FD7DF /* thirdHackViewController.swift */; };
 		B91491AB2009BCB7006FD7DF /* superlativeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91491A92009BCB7006FD7DF /* superlativeTableViewCell.swift */; };
 		B91491AC2009BCB7006FD7DF /* InitialHackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91491AA2009BCB7006FD7DF /* InitialHackViewController.swift */; };
+		B945439420123141002F326B /* LiveFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B945439320123141002F326B /* LiveFeedTableViewCell.swift */; };
 		B9D84F0B20069C2D00556ABE /* NotificationAfterLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D84F0A20069C2D00556ABE /* NotificationAfterLoginViewController.swift */; };
 		DF21FEF81FA5132B00116A29 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF21FEF71FA5132B00116A29 /* PersistenceService.swift */; };
 		DF2AD2C21F8A9DC700AB4BF6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2AD2C11F8A9DC700AB4BF6 /* LoginViewController.swift */; };
@@ -54,12 +56,14 @@
 /* Begin PBXFileReference section */
 		5DFE20503AECE17FCC104065 /* Pods-HackFSU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackFSU.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackFSU/Pods-HackFSU.release.xcconfig"; sourceTree = "<group>"; };
 		8869AA6F541FA6D71D6D689B /* Pods-HackFSU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackFSU.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackFSU/Pods-HackFSU.debug.xcconfig"; sourceTree = "<group>"; };
+		B90B5A8A20157F7400811040 /* LiveFeedMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveFeedMainCell.swift; sourceTree = "<group>"; };
 		B91491A12009BCAC006FD7DF /* FirstHackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstHackViewController.swift; sourceTree = "<group>"; };
 		B91491A22009BCAC006FD7DF /* FinalRankingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinalRankingViewController.swift; sourceTree = "<group>"; };
 		B91491A32009BCAC006FD7DF /* SecondHackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondHackViewController.swift; sourceTree = "<group>"; };
 		B91491A42009BCAC006FD7DF /* thirdHackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = thirdHackViewController.swift; sourceTree = "<group>"; };
 		B91491A92009BCB7006FD7DF /* superlativeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = superlativeTableViewCell.swift; sourceTree = "<group>"; };
 		B91491AA2009BCB7006FD7DF /* InitialHackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialHackViewController.swift; sourceTree = "<group>"; };
+		B945439320123141002F326B /* LiveFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveFeedTableViewCell.swift; sourceTree = "<group>"; };
 		B9D84F0A20069C2D00556ABE /* NotificationAfterLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationAfterLoginViewController.swift; sourceTree = "<group>"; };
 		CCC35D8A4E9396569DA4F8E2 /* Pods_HackFSU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackFSU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF21FEF71FA5132B00116A29 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
@@ -160,6 +164,8 @@
 				DF21FEF71FA5132B00116A29 /* PersistenceService.swift */,
 				DF2AD2C11F8A9DC700AB4BF6 /* LoginViewController.swift */,
 				DF5A18521F8A998600803F50 /* Main.storyboard */,
+				B90B5A8A20157F7400811040 /* LiveFeedMainCell.swift */,
+				B945439320123141002F326B /* LiveFeedTableViewCell.swift */,
 				DF70F1542004FB5300EE255F /* ScheduleCustomCell.swift */,
 				DF5A18551F8A998600803F50 /* Assets.xcassets */,
 				DF5A18571F8A998600803F50 /* LaunchScreen.storyboard */,
@@ -411,9 +417,11 @@
 				B91491A82009BCAD006FD7DF /* thirdHackViewController.swift in Sources */,
 				B9D84F0B20069C2D00556ABE /* NotificationAfterLoginViewController.swift in Sources */,
 				B91491A52009BCAD006FD7DF /* FirstHackViewController.swift in Sources */,
+				B90B5A8B20157F7400811040 /* LiveFeedMainCell.swift in Sources */,
 				DF5A18511F8A998600803F50 /* ScheduleViewController.swift in Sources */,
 				DF5A184D1F8A998600803F50 /* AppDelegate.swift in Sources */,
 				B91491A72009BCAD006FD7DF /* SecondHackViewController.swift in Sources */,
+				B945439420123141002F326B /* LiveFeedTableViewCell.swift in Sources */,
 				DF5A184F1F8A998600803F50 /* LiveFeedViewController.swift in Sources */,
 				DFA85E9B1FA2E669003C4E20 /* API.swift in Sources */,
 				DF21FEF81FA5132B00116A29 /* PersistenceService.swift in Sources */,

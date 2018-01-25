@@ -17,7 +17,7 @@ class thirdHackViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableDescriptionLabel.text = "Go To Table #\(String(describing: givenHacks["3"]!))"
         
         tableDescriptionLabel.layer.position = CGPoint(x: self.view.bounds.width/2, y: self.view.bounds.height/4)
         superlativesTableView.layer.position = CGPoint(x: self.view.bounds.width/2, y: self.view.bounds.height/2)
