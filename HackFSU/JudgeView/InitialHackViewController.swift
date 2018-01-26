@@ -44,18 +44,8 @@ class InitialHackViewController: UIViewController {
         givenHacks["2"] = nil
         givenHacks["3"] = nil
         
-        Alamofire.request("https://api.hackfsu.com/api/judge/hacks", method: .get, parameters: nil, encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {
-            response in
-            print(response)
-            
-            switch response.result {
-            case .success(_):
-                self.parseResults(theJSON: JSON(response.result.value!))
-            case .failure(_):
-                print("Failed to retrive User Info")
-            }
-        })
         
+      
         
         
         //visual Formatting
@@ -87,16 +77,23 @@ class InitialHackViewController: UIViewController {
       
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        
-        
-        
-        
-      
-       
-    }
+    
+    
     
     override func viewDidAppear(_ animated: Bool){
+        
+        Alamofire.request("https://api.hackfsu.com/api/judge/hacks", method: .get, parameters: nil, encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {
+            response in
+            print(response)
+            
+            switch response.result {
+            case .success(_):
+                self.parseResults(theJSON: JSON(response.result.value!))
+            case .failure(_):
+                print("Failed to retrive User Info")
+            }
+        })
+        
         UIView.animate(withDuration: 0.5, delay: 0.5, options: [], animations: {
             self.firstHackView.layer.position = CGPoint(x: self.view.bounds.width/2, y: -50)
             self.firstHackView.layer.position = CGPoint(x: self.view.bounds.width/2, y: self.view.bounds.height/4)

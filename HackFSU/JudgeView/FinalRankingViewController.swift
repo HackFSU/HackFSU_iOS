@@ -183,19 +183,19 @@ class FinalRankingViewController: UIViewController {
             if firstHack.frame.contains(firstplaceLocationPoint){
                 firstHack.layer.position = firstPlaceholder.layer.position
                 firstSelected = true
-                rankedHacks["1"] = "1"
+                rankedHacks["1"] = givenHacks["1"]
                
                 
             }else if firstHack.frame.contains(secondplaceLocationPoint){
                 firstHack.layer.position = secondPlaceholder.layer.position
                 secondSelected = true
-                rankedHacks["2"] = "1"
+                rankedHacks["2"] = givenHacks["1"]
               
                 
             }else if firstHack.frame.contains(thirdplaceLocationPoint){
                 firstHack.layer.position = thirdPlaceholder.layer.position
                 thirdSelected = true
-                rankedHacks["3"] = "1"
+                rankedHacks["3"] = givenHacks["1"]
                 
                 
             }else{
@@ -223,19 +223,19 @@ class FinalRankingViewController: UIViewController {
             if secondHack.frame.contains(firstplaceLocationPoint){
                 secondHack.layer.position = firstPlaceholder.layer.position
                 firstSelected = true
-                rankedHacks["1"] = "2"
+                rankedHacks["1"] = givenHacks["2"]
                 
                 
             }else if secondHack.frame.contains(secondplaceLocationPoint){
                 secondHack.layer.position = secondPlaceholder.layer.position
                 secondSelected = true
-                rankedHacks["2"] = "2"
+                rankedHacks["2"] = givenHacks["2"]
                 
                 
             }else if secondHack.frame.contains(thirdplaceLocationPoint){
                 secondHack.layer.position = thirdPlaceholder.layer.position
                 thirdSelected = true
-                rankedHacks["3"] = "2"
+                rankedHacks["3"] = givenHacks["2"]
                 
                 
             }else{
@@ -262,19 +262,19 @@ class FinalRankingViewController: UIViewController {
             if thirdHack.frame.contains(firstplaceLocationPoint){
                 thirdHack.layer.position = firstPlaceholder.layer.position
                 firstSelected = true
-                rankedHacks["1"] = "3"
+                rankedHacks["1"] = givenHacks["3"]
                 
                 
             }else if thirdHack.frame.contains(secondplaceLocationPoint){
                 thirdHack.layer.position = secondPlaceholder.layer.position
                 secondSelected = true
-                rankedHacks["2"] = "3"
+                rankedHacks["2"] = givenHacks["3"]
                 
                 
             }else if thirdHack.frame.contains(thirdplaceLocationPoint){
                 thirdHack.layer.position = thirdPlaceholder.layer.position
                 thirdSelected = true
-                rankedHacks["3"] = "3"
+                rankedHacks["3"] = givenHacks["3"]
                
             }else{
                 if rankedHacks["1"] == "3"{
@@ -310,6 +310,11 @@ class FinalRankingViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        for x in rankedHacks{
+            print(x)
+            
+        }
+        
         for i in 1..<rankedHacks.count+1{
             if nothird && i == 3{
                 print("\(i) -> NO THIRD HACK")
@@ -319,9 +324,9 @@ class FinalRankingViewController: UIViewController {
         }
         var parameters: Parameters = [
             "order":[
-                "1": rankedHacks["1"],
-                "2": rankedHacks["2"],
-                "3": rankedHacks["3"]
+                "1": Int(rankedHacks["1"]!)!,
+                "2": Int(rankedHacks["2"]!)!,
+                "3": Int(rankedHacks["3"]!)!
             ]
         ]
         
@@ -330,9 +335,9 @@ class FinalRankingViewController: UIViewController {
             //no superlatives
             parameters = [
                 "order":[
-                    "1": rankedHacks["1"],
-                    "2": rankedHacks["2"],
-                    "3": rankedHacks["3"]
+                    "1": Int(rankedHacks["1"]!)!,
+                    "2": Int(rankedHacks["2"]!)!,
+                    "3": Int(rankedHacks["3"]!)!
                 ],
                 "superlatives": [
                   
@@ -352,9 +357,9 @@ class FinalRankingViewController: UIViewController {
             }
             parameters = [
                 "order":[
-                    "1": rankedHacks["1"],
-                    "2": rankedHacks["2"],
-                    "3": rankedHacks["3"]
+                    "1": Int(rankedHacks["1"]!)!,
+                    "2": Int(rankedHacks["2"]!)!,
+                    "3": Int(rankedHacks["3"]!)!
                 ],
                 "superlatives": [
                     oneSuperHack : oneSuperDescription
@@ -382,9 +387,9 @@ class FinalRankingViewController: UIViewController {
  
             parameters = [
                 "order":[
-                    "1": rankedHacks["1"],
-                    "2": rankedHacks["2"],
-                    "3": rankedHacks["3"]
+                    "1": Int(rankedHacks["1"]!)!,
+                    "2": Int(rankedHacks["2"]!)!,
+                    "3": Int(rankedHacks["3"]!)!
                 ],
                 "superlatives": [
                     oneSuperHack : oneSuperDescription,
@@ -418,9 +423,9 @@ class FinalRankingViewController: UIViewController {
             
             parameters = [
                 "order":[
-                    "1": rankedHacks["1"],
-                    "2": rankedHacks["2"],
-                    "3": rankedHacks["3"]
+                    "1": Int(rankedHacks["1"]!)!,
+                    "2": Int(rankedHacks["2"]!)!,
+                    "3": Int(rankedHacks["3"]!)!
                 ],
                 "superlatives": [
                     oneSuperHack : oneSuperDescription,
@@ -434,13 +439,16 @@ class FinalRankingViewController: UIViewController {
         
         
         
-        
-        API.postRequest(url: URL(string: "https://api.hackfsu.com/api/judge/hacks")!, params: parameters) {
+        print(parameters)
+        API.postRequest(url: URL(string: "https://api.hackfsu.com/api/judge/hacks/upload")!, params: parameters) {
             (statuscode) in
             
             if (statuscode == 200) {
                 //good
                 print("done")
+            }else if (statuscode == 400) {
+                //good
+                print("wrong")
             }
         }
         
