@@ -43,8 +43,6 @@ class InitialHackViewController: UIViewController {
         givenHacks["1"] = nil
         givenHacks["2"] = nil
         givenHacks["3"] = nil
-        
-        
       
         
         
@@ -81,7 +79,8 @@ class InitialHackViewController: UIViewController {
     
     
     override func viewDidAppear(_ animated: Bool){
-        
+        nothird = false
+        nosecond = false
         Alamofire.request("https://api.hackfsu.com/api/judge/hacks", method: .get, parameters: nil, encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {
             response in
             print(response)
@@ -117,12 +116,23 @@ class InitialHackViewController: UIViewController {
     //only needed to properly return from login
     @IBAction func restartHacks(unwindSegue: UIStoryboardSegue) {
         
+        
     }
 
 
 }
 
 extension InitialHackViewController{
+    
+    @IBAction func clickedNext(_ sender: Any) {
+        if nofirst{  
+            self.dismiss(animated: true, completion: nil)
+        }else{
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "FirstHackView")
+            self.present(vc!, animated: true, completion: nil)
+        }
+        
+    }
     
     func parseResults(theJSON: JSON) {
         var hacks = [String]()
@@ -141,16 +151,44 @@ extension InitialHackViewController{
         
         if hacks.count == 0{
             //do nothing
+            nofirst = true
+            nosecond = true
+            nothird = true
+            
+            secondHackView.isHidden = false
+             UIView.animate(withDuration: 0.5, delay: 0.5, options: [], animations: {
+            self.startJudginButton.layer.position = CGPoint(x: 4*self.view.bounds.width, y: (6*self.view.bounds.height)/7)
+                
+            self.leaveJudging.layer.position = CGPoint(x: self.view.bounds.width/2, y: (6*self.view.bounds.height)/7)
+                
+            self.secondHackLabel.text = "No Hacks Yet!"
+                
+            self.secondHackView.layer.position = CGPoint(x: self.view.bounds.width/2, y: -50)
+            self.secondHackView.layer.position = CGPoint(x: self.view.bounds.width/2, y: (1.8*self.view.bounds.height)/4)
+            self.secondHackLabel.layer.position = CGPoint(x: self.secondHackView.bounds.width/2, y: self.secondHackView.bounds.height/2)
+            
+            })
+            
+            
+            
         }else if hacks.count == 1{
             givenHacks["1"] = hacks[0]
-           
+            nosecond = true
+            nothird = true
+            startJudginButton.isHidden = true
+            
         }else if hacks.count == 2{
             givenHacks["1"] = hacks[0]
             givenHacks["2"] = hacks[1]
+            nothird = true
+            startJudginButton.isHidden = false
         }else if hacks.count == 3{
             givenHacks["1"] = hacks[0]
             givenHacks["2"] = hacks[1]
              givenHacks["3"] = hacks[2]
+            nosecond = false
+            nothird = false
+            startJudginButton.isHidden = false
         }
     
         if givenHacks["1"] != nil{
