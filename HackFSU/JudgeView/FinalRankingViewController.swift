@@ -41,6 +41,8 @@ class FinalRankingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(nosecond)
+        print(nothird)
         
         firstSelected = false
         secondSelected = false
@@ -183,19 +185,19 @@ class FinalRankingViewController: UIViewController {
             if firstHack.frame.contains(firstplaceLocationPoint){
                 firstHack.layer.position = firstPlaceholder.layer.position
                 firstSelected = true
-                rankedHacks["1"] = "1"
+                rankedHacks["1"] = givenHacks["1"]
                
                 
             }else if firstHack.frame.contains(secondplaceLocationPoint){
                 firstHack.layer.position = secondPlaceholder.layer.position
                 secondSelected = true
-                rankedHacks["2"] = "1"
+                rankedHacks["2"] = givenHacks["1"]
               
                 
             }else if firstHack.frame.contains(thirdplaceLocationPoint){
                 firstHack.layer.position = thirdPlaceholder.layer.position
                 thirdSelected = true
-                rankedHacks["3"] = "1"
+                rankedHacks["3"] = givenHacks["1"]
                 
                 
             }else{
@@ -223,19 +225,19 @@ class FinalRankingViewController: UIViewController {
             if secondHack.frame.contains(firstplaceLocationPoint){
                 secondHack.layer.position = firstPlaceholder.layer.position
                 firstSelected = true
-                rankedHacks["1"] = "2"
+                rankedHacks["1"] = givenHacks["2"]
                 
                 
             }else if secondHack.frame.contains(secondplaceLocationPoint){
                 secondHack.layer.position = secondPlaceholder.layer.position
                 secondSelected = true
-                rankedHacks["2"] = "2"
+                rankedHacks["2"] = givenHacks["2"]
                 
                 
             }else if secondHack.frame.contains(thirdplaceLocationPoint){
                 secondHack.layer.position = thirdPlaceholder.layer.position
                 thirdSelected = true
-                rankedHacks["3"] = "2"
+                rankedHacks["3"] = givenHacks["2"]
                 
                 
             }else{
@@ -262,19 +264,19 @@ class FinalRankingViewController: UIViewController {
             if thirdHack.frame.contains(firstplaceLocationPoint){
                 thirdHack.layer.position = firstPlaceholder.layer.position
                 firstSelected = true
-                rankedHacks["1"] = "3"
+                rankedHacks["1"] = givenHacks["3"]
                 
                 
             }else if thirdHack.frame.contains(secondplaceLocationPoint){
                 thirdHack.layer.position = secondPlaceholder.layer.position
                 secondSelected = true
-                rankedHacks["2"] = "3"
+                rankedHacks["2"] = givenHacks["3"]
                 
                 
             }else if thirdHack.frame.contains(thirdplaceLocationPoint){
                 thirdHack.layer.position = thirdPlaceholder.layer.position
                 thirdSelected = true
-                rankedHacks["3"] = "3"
+                rankedHacks["3"] = givenHacks["3"]
                
             }else{
                 if rankedHacks["1"] == "3"{
@@ -310,137 +312,157 @@ class FinalRankingViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        for i in 1..<rankedHacks.count+1{
-            if nothird && i == 3{
-                print("\(i) -> NO THIRD HACK")
-            }else{
-                print("\(i) -> \(String(describing: rankedHacks[String(i)]!))")
-            }
+        for x in rankedHacks{
+            print(x)
+            
         }
-        var parameters: Parameters = [
-            "order":[
-                "1": rankedHacks["1"],
-                "2": rankedHacks["2"],
-                "3": rankedHacks["3"]
+        
+    
+        var parameters = Parameters()
+        print(nosecond)
+        print(nothird)
+            if !nothird && !nosecond{
+            parameters = [
+                "order":[
+                    "1": Int(rankedHacks["1"]!)!,
+                    "2": Int(rankedHacks["2"]!)!,
+                    "3": Int(rankedHacks["3"]!)!
+                ]
             ]
-        ]
         
         
-        if superlatives.count == 0{
+            if superlatives.count == 0{
             //no superlatives
-            parameters = [
-                "order":[
-                    "1": rankedHacks["1"],
-                    "2": rankedHacks["2"],
-                    "3": rankedHacks["3"]
-                ],
-                "superlatives": [
+                parameters = [
+                    "order":[
+                        "1": Int(rankedHacks["1"]!)!,
+                        "2": Int(rankedHacks["2"]!)!,
+                        "3": Int(rankedHacks["3"]!)!
+                    ],
+                    "superlatives": [
                   
+                    ]
                 ]
-            ]
-        }
-        else if superlatives.count == 1{
-            //1 Superlatives
-            var oneSuperHack = ""
-            var oneSuperDescription = ""
-            
-            for given in superlatives{
-                print(given.key + " -> " + given.value)
-                oneSuperHack = given.key
-                oneSuperDescription =  given.value
-                
             }
-            parameters = [
-                "order":[
-                    "1": rankedHacks["1"],
-                    "2": rankedHacks["2"],
-                    "3": rankedHacks["3"]
-                ],
-                "superlatives": [
-                    oneSuperHack : oneSuperDescription
-                ]
-            ]
-        }
-        else if superlatives.count == 2{
-            //2 Superlatives
-            var oneSuperHack = ""
-            var oneSuperDescription = ""
-            var twoSuperHack = ""
-            var twoSuperDescription = ""
+            else if superlatives.count == 1{
+                //1 Superlatives
+                var oneSuperHack = ""
+                var oneSuperDescription = ""
             
-            for given in superlatives{
-                print(given.key + " -> " + given.value)
-                if oneSuperHack == ""{
-                oneSuperHack = given.key
-                oneSuperDescription =  given.value
-                } else{
-                    twoSuperHack = given.key
-                    twoSuperDescription = given.value
-                }
-                
-            }
- 
-            parameters = [
-                "order":[
-                    "1": rankedHacks["1"],
-                    "2": rankedHacks["2"],
-                    "3": rankedHacks["3"]
-                ],
-                "superlatives": [
-                    oneSuperHack : oneSuperDescription,
-                    twoSuperHack : twoSuperDescription
-                ]
-            ]
-        }
-        else if superlatives.count == 3{
-            //3 Superlatives
-            var oneSuperHack = ""
-            var oneSuperDescription = ""
-            var twoSuperHack = ""
-            var twoSuperDescription = ""
-            var threeSuperHack = ""
-            var threeSuperDescription = ""
-            
-            for given in superlatives{
-                print(given.key + " -> " + given.value)
-                if oneSuperHack == ""{
+                for given in superlatives{
+                    print(given.key + " -> " + given.value)
                     oneSuperHack = given.key
                     oneSuperDescription =  given.value
-                }else if twoSuperHack == ""{
-                    twoSuperHack = given.key
-                    twoSuperDescription = given.value
-                }else{
-                    threeSuperHack = given.key
-                    threeSuperDescription = given.value
-                }
                 
-            }
-            
-            parameters = [
-                "order":[
-                    "1": rankedHacks["1"],
-                    "2": rankedHacks["2"],
-                    "3": rankedHacks["3"]
-                ],
-                "superlatives": [
-                    oneSuperHack : oneSuperDescription,
-                    twoSuperHack : twoSuperDescription,
-                    threeSuperHack : threeSuperDescription
+                }
+                parameters = [
+                    "order":[
+                        "1": Int(rankedHacks["1"]!)!,
+                        "2": Int(rankedHacks["2"]!)!,
+                        "3": Int(rankedHacks["3"]!)!
+                    ],
+                    "superlatives": [
+                        oneSuperHack : [oneSuperDescription]
+                    ]
                 ]
-            ]
+            }
+            else if superlatives.count == 2{
+                //2 Superlatives
+                var oneSuperHack = ""
+                var oneSuperDescription = ""
+                var twoSuperHack = ""
+                var twoSuperDescription = ""
+            
+                for given in superlatives{
+                    print(given.key + " -> " + given.value)
+                    if oneSuperHack == ""{
+                        oneSuperHack = given.key
+                        oneSuperDescription =  given.value
+                    } else{
+                        twoSuperHack = given.key
+                        twoSuperDescription = given.value
+                    }
+                
+                }
+ 
+                parameters = [
+                    "order":[
+                        "1": Int(rankedHacks["1"]!)!,
+                        "2": Int(rankedHacks["2"]!)!,
+                        "3": Int(rankedHacks["3"]!)!
+                    ],
+                    "superlatives": [
+                        oneSuperHack : [oneSuperDescription],
+                        twoSuperHack : [twoSuperDescription]
+                    ]
+                ]
+            }
+            else if superlatives.count == 3{
+                //3 Superlatives
+                var oneSuperHack = ""
+                var oneSuperDescription = ""
+                var twoSuperHack = ""
+                var twoSuperDescription = ""
+                var threeSuperHack = ""
+                var threeSuperDescription = ""
+            
+                for given in superlatives{
+                    print(given.key + " -> " + given.value)
+                    if oneSuperHack == ""{
+                        oneSuperHack = given.key
+                        oneSuperDescription =  given.value
+                    }else if twoSuperHack == ""{
+                        twoSuperHack = given.key
+                        twoSuperDescription = given.value
+                    }else{
+                        threeSuperHack = given.key
+                        threeSuperDescription = given.value
+                    }
+                
+                }
+            
+                parameters = [
+                    "order":[
+                            "1": Int(rankedHacks["1"]!)!,
+                    "2": Int(rankedHacks["2"]!)!,
+                        "3": Int(rankedHacks["3"]!)!
+                    ],
+                    "superlatives": [
+                        oneSuperHack : [oneSuperDescription],
+                        twoSuperHack : [twoSuperDescription],
+                        threeSuperHack : [threeSuperDescription]
+                    ]
+                ]
             
             
+            }
         }
+            else if !nothird && nosecond{
+                parameters = [
+                    "order":[
+                        "1": Int(rankedHacks["1"]!)!,
+                        "2": Int(rankedHacks["2"]!)!,
+                    ]
+                ]
+            }else{
+                parameters = [
+                    "order":[
+                        "1": Int(rankedHacks["1"]!)!,
+                    ]
+                ]
+            }
         
         
-        
-        
-        API.postRequest(url: URL(string: "https://api.hackfsu.com/api/judge/hacks")!, params: parameters) {
+        print(parameters)
+        API.postRequest(url: URL(string: "https://api.hackfsu.com/api/judge/hacks/upload")!, params: parameters) {
             (statuscode) in
             
             if (statuscode == 200) {
                 //good
                 print("done")
+            }else if (statuscode == 400) {
+                //good
+                print("wrong")
             }
         }
         

@@ -17,6 +17,8 @@ class SecondHackViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         tableDescriptionLabel.text = "Go To Table #\(String(describing: givenHacks["2"]!))"
         
         //positioning everything correctly

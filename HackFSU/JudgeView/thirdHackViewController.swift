@@ -41,11 +41,7 @@ class thirdHackViewController: UIViewController {
         
         
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-       
-    }
-    
+   
     
     @IBAction func clickedAddSuperlative(_ sender: Any) {
         superlativesTableView.reloadData()

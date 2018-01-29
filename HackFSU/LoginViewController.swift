@@ -209,19 +209,19 @@ class LoginVewController: UIViewController, UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField.tag == 1{
-            moveTextField(textField: textField, distance: 80, up: false)
+            moveTextField(textField: textField, distance: 20, up: false)
         }
         else if textField.tag == 2{
-            moveTextField(textField: textField, distance: 10, up: false)
+            moveTextField(textField: textField, distance: 30, up: false)
         }
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField.tag == 1{
-            moveTextField(textField: textField, distance: 80, up: true)
+            moveTextField(textField: textField, distance: 20, up: true)
             
         }else if textField.tag == 2{
-            moveTextField(textField: textField, distance: 10, up: true)
+            moveTextField(textField: textField, distance: 30, up: true)
         }
     }
 }

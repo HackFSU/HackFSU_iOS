@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 
+var foodItemNumber = 5
 
 class ProfileViewController: UIViewController {
     
@@ -16,19 +17,28 @@ class ProfileViewController: UIViewController {
     let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
     var yourArray = [User]()
     
+    @IBOutlet var hackerInfoBottomView: UIView!
+    @IBOutlet var judgeInfoBottomView: UIView!
+    
+    @IBOutlet var judgeandOrgInfoBottomView: UIView!
+    @IBOutlet var logoutButton: UIButton!
+    
+    
     @IBOutlet var QRimage: UIImageView!
     @IBOutlet weak var position: UILabel!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var actionButton: UIButton!
-    
+
     @IBOutlet weak var leftButton: UIButton!
     @IBOutlet weak var rightButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-       
+        logoutButton.layer.borderWidth = 3
+        logoutButton.layer.cornerRadius = 15
+        logoutButton.layer.masksToBounds = true
+        logoutButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         
         actionButton.layer.isHidden = true
         
@@ -42,21 +52,37 @@ class ProfileViewController: UIViewController {
         name.text = yourArray[0].firstname! + " " + yourArray[0].lastname!
         
         if yourArray[0].groups!.count == 2 {
+            hackerInfoBottomView.isHidden = true
             self.actionButton.isHidden = true
-            position.text = "You are a " + yourArray[0].groups![0] + " and " + yourArray[0].groups![1]
+            position.text = yourArray[0].groups![0] + " | " + yourArray[0].groups![1]
             if yourArray[0].groups!.contains("judge") {
                 leftButton.setTitle("Let's Vote!", for: .normal)
+                 judgeInfoBottomView.isHidden = false
             }
             if yourArray[0].groups!.contains("organizer") {
                 rightButton.setTitle("Admin Panel", for: .normal)
+                judgeandOrgInfoBottomView.isHidden = false
+                judgeInfoBottomView.isHidden = true
+
             }
         }
         else {
             self.leftButton.isHidden = true
             self.rightButton.isHidden = true
-            position.text = "You are a " + yourArray[0].groups![0]
+            position.text = yourArray[0].groups![0]
             if yourArray[0].groups!.contains("judge") {
                 actionButton.setTitle("Let's vote!", for: .normal)
+                
+                hackerInfoBottomView.isHidden = true
+                judgeInfoBottomView.isHidden = false
+                judgeandOrgInfoBottomView.isHidden = true
+            }
+            else{
+                actionButton.setTitle("Some Function", for: .normal)
+                hackerInfoBottomView.isHidden = false
+                judgeandOrgInfoBottomView.isHidden = true
+                judgeInfoBottomView.isHidden = true
+                
             }
         }
     }
@@ -115,3 +141,4 @@ class ProfileViewController: UIViewController {
     
     
 }
+
