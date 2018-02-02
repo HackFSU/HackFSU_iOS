@@ -16,18 +16,14 @@ class ProfileViewController: UIViewController {
     let context: NSManagedObjectContext = PersistenceService.context
     let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
     var yourArray = [User]()
-    
-    @IBOutlet var hackerInfoBottomView: UIView!
-    @IBOutlet var judgeInfoBottomView: UIView!
-    
-    @IBOutlet var judgeandOrgInfoBottomView: UIView!
+   
     @IBOutlet var logoutButton: UIButton!
     
     
     @IBOutlet var QRimage: UIImageView!
     @IBOutlet weak var position: UILabel!
     @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var actionButton: UIButton!
+    //@IBOutlet weak var actionButton: UIButton!
 
     @IBOutlet weak var leftButton: UIButton!
     @IBOutlet weak var rightButton: UIButton!
@@ -40,51 +36,71 @@ class ProfileViewController: UIViewController {
         logoutButton.layer.masksToBounds = true
         logoutButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         
-        actionButton.layer.isHidden = true
+        leftButton.layer.position = CGPoint(x: (1.25*self.view.bounds.width)/5, y: (4.25*self.view.bounds.height)/7)
+        rightButton.layer.position = CGPoint(x: (3.75*self.view.bounds.width)/5, y: (4.25*self.view.bounds.height)/7)
         
+        //actionButton.layer.isHidden = true
+    
+        var backgroundURL = NSURL()
+
         do {
             yourArray = try context.fetch(fetchRequest)
             
         } catch {
             
         }
+        print(yourArray[0])
         
+        backgroundURL = NSURL(string: yourArray[0].qrURL!)!
         name.text = yourArray[0].firstname! + " " + yourArray[0].lastname!
         
         if yourArray[0].groups!.count == 2 {
-            hackerInfoBottomView.isHidden = true
-            self.actionButton.isHidden = true
+            
+           
+            //self.actionButton.isHidden = true
             position.text = yourArray[0].groups![0] + " | " + yourArray[0].groups![1]
             if yourArray[0].groups!.contains("judge") {
                 leftButton.setTitle("Let's Vote!", for: .normal)
-                 judgeInfoBottomView.isHidden = false
+                
             }
             if yourArray[0].groups!.contains("organizer") {
                 rightButton.setTitle("Admin Panel", for: .normal)
-                judgeandOrgInfoBottomView.isHidden = false
-                judgeInfoBottomView.isHidden = true
 
             }
         }
         else {
-            self.leftButton.isHidden = true
+            
+            //self.actionButton.isHidden = true
+            self.leftButton.isHidden = false
             self.rightButton.isHidden = true
+            
+            self.leftButton.layer.position = CGPoint(x: (3*self.view.bounds.width)/5, y: (4.5*self.view.bounds.height)/7)
+            
             position.text = yourArray[0].groups![0]
             if yourArray[0].groups!.contains("judge") {
-                actionButton.setTitle("Let's vote!", for: .normal)
+                //actionButton.setTitle("Let's vote!", for: .normal)
                 
-                hackerInfoBottomView.isHidden = true
-                judgeInfoBottomView.isHidden = false
-                judgeandOrgInfoBottomView.isHidden = true
             }
             else{
-                actionButton.setTitle("Some Function", for: .normal)
-                hackerInfoBottomView.isHidden = false
-                judgeandOrgInfoBottomView.isHidden = true
-                judgeInfoBottomView.isHidden = true
+                
+               // actionButton.setTitle("Some Function", for: .normal)
                 
             }
         }
+        
+        
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            let backgroundData:NSData? = NSData(contentsOf: backgroundURL as URL)
+            DispatchQueue.main.async {
+                if (backgroundData != nil) {
+                    self.QRimage.image = UIImage(data: backgroundData! as Data)
+                }
+            }
+        }
+        
+        
+        
     }
     
     @IBAction func actionFam(_ sender: Any) {
@@ -99,6 +115,11 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func rightAction(_ sender: Any) {
+        
+        let vc = storyboard?.instantiateViewController(withIdentifier: "adminPanel")
+        self.present(vc!, animated: true, completion: nil)
+        
+        
     }
     
     @IBAction func logOut(_ sender: Any) {

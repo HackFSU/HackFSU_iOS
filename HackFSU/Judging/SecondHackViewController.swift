@@ -1,5 +1,5 @@
 //
-//  thirdHackViewController.swift
+//  SecondHackViewController.swift
 //  judgeViewTesting
 //
 //  Created by Andres Ibarra on 1/12/18.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-class thirdHackViewController: UIViewController {
-    
+class SecondHackViewController: UIViewController {
+
     @IBOutlet var superlativesTableView: UITableView!
     @IBOutlet var addSuperlativeButton: UIButton!
     @IBOutlet var nextButton: UIButton!
@@ -17,8 +17,11 @@ class thirdHackViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableDescriptionLabel.text = "Go To Table #\(String(describing: givenHacks["3"]!))"
         
+        
+        tableDescriptionLabel.text = "Go To Table #\(String(describing: givenHacks["2"]!))"
+        
+        //positioning everything correctly
         tableDescriptionLabel.layer.position = CGPoint(x: self.view.bounds.width/2, y: self.view.bounds.height/4)
         superlativesTableView.layer.position = CGPoint(x: self.view.bounds.width/2, y: self.view.bounds.height/2)
         
@@ -41,7 +44,7 @@ class thirdHackViewController: UIViewController {
         
         
     }
-   
+    
     
     @IBAction func clickedAddSuperlative(_ sender: Any) {
         superlativesTableView.reloadData()
@@ -49,34 +52,68 @@ class thirdHackViewController: UIViewController {
     }
     
     @IBAction func selectedSuperlative(_ sender: UIButton) {
+        var deselected = false
+        let cells = superlativesTableView.visibleCells as! [superlativeTableViewCell]
+        
         if sender.image(for: UIControlState()) == #imageLiteral(resourceName: "circle-tick-7"){
-            //already selected so unselect
-            sender.setImage(#imageLiteral(resourceName: "plus-simple-7"), for: UIControlState())
-            
+            deselected = true
         }else{
-            let cells = superlativesTableView.visibleCells as! [superlativeTableViewCell]
-            
+            deselected = false
+        }
+        
+        
+        if deselected{
             for cell in cells{
-                if cell.addButton.image(for: UIControlState()) == #imageLiteral(resourceName: "circle-tick-7"){
-                    cell.addButton.setImage(#imageLiteral(resourceName: "plus-simple-7"), for: UIControlState())
+                if cell.addButton == sender{
+                    if let sText =  cell.superlative.text{
+                        superlatives[givenHacks["2"]!]! = superlatives[givenHacks["2"]!]!.filter{$0 != sText}
+                        sender.setImage(#imageLiteral(resourceName: "plus-simple-7"), for: UIControlState())
+                        print("Displaying after deletion")
+                        for x in superlatives{
+                            print(x)
+                        }
+                        return
+                    }
                 }
             }
+        }else{
             sender.setImage(#imageLiteral(resourceName: "circle-tick-7"), for: UIControlState())
+            for cell in cells{
+                if cell.addButton.image(for: UIControlState()) == #imageLiteral(resourceName: "circle-tick-7"){
+                    if let sText =  cell.superlative.text{
+                        if !superlatives[givenHacks["2"]!]!.contains(where: {$0 == sText}){
+                            superlatives[givenHacks["2"]!]?.append(sText)
+                        }
+                        print("Displaying after insertion")
+                        for x in superlatives{
+                            print(x)
+                        }
+                        
+                    }
+                }
+            }
         }
     }
     
+    
     @IBAction func clickedNext(_ sender: Any) {
-       
+        if nothird{
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "FinalRankingView")
             self.present(vc!, animated: true, completion: nil)
+            
+        }else{
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "ThirdHackView")
+            self.present(vc!, animated: true, completion: nil)
+            
+        }
+        
         
     }
-   
     
 
-
 }
-extension thirdHackViewController: UITableViewDelegate, UITableViewDataSource{
+
+extension SecondHackViewController: UITableViewDelegate, UITableViewDataSource{
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -89,7 +126,16 @@ extension thirdHackViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "superlativeCells") as! superlativeTableViewCell
         
+        cell.cellView.layer.cornerRadius = 10.0
+        cell.cellView.layer.masksToBounds = true
+        
         cell.superlative.text = superlativeOptions[indexPath.row]
         return cell
     }
+    
+    
+    
+    
+    
 }
+

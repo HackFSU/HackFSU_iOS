@@ -80,7 +80,7 @@ class LoginVewController: UIViewController, UITextFieldDelegate {
             "password": passField.text!
         ]
         
-        API.postRequest(url: URL(string: "https://api.hackfsu.com/api/user/login")!, params: parameters) {
+        API.postRequest(url: URL(string: "https://testapi.hackfsu.com/api/user/login")!, params: parameters) {
             (statuscode) in
             
             if (statuscode == 200) {

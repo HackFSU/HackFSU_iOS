@@ -12,8 +12,9 @@ import SwiftyJSON
 
 class API {
     class func retriveUserInfo() {
-        Alamofire.request("https://api.hackfsu.com/api/user/get/profile", method: .get, parameters: nil, encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {
+        Alamofire.request("https://testapi.hackfsu.com/api/user/get/profile", method: .get, parameters: nil, encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {
             response in
+            
             print(response)
             
             switch response.result {
@@ -29,6 +30,8 @@ class API {
         let email = theJSON["email"].stringValue
         let firstName = theJSON["first_name"].stringValue
         let lastName = theJSON["last_name"].stringValue
+        let qrAddr = theJSON["qr"].stringValue
+        
         var g = [String]()
         
         for result in theJSON["groups"].arrayValue {
@@ -40,6 +43,10 @@ class API {
         user.firstname = firstName
         user.lastname = lastName
         user.groups = g
+        user.qrURL = qrAddr
+    
+        
+   
         PersistenceService.saveContext()
     }
     

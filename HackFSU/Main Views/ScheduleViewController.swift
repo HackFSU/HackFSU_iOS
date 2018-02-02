@@ -23,9 +23,7 @@ class ScheduleViewController: UIViewController {
         eventTableView.delegate = self
         eventTableView.dataSource = self
         self.navigationController?.isNavigationBarHidden = true
-        
-        
-        
+  
     }
   
     
@@ -60,7 +58,7 @@ extension ScheduleViewController:  UITableViewDelegate, UITableViewDataSource, U
             
             cell.eventDescriptionLabel.numberOfLines = cell.eventDescriptionLabel.numberOfLines + 13
             
-        }else if cell.eventDescriptionLabel.text!.count > 150 {
+        }else if cell.eventDescriptionLabel.text!.count > 160 {
             //resize cell
            
             height = height + (Double(cell.eventDescriptionLabel.text!.count)/1.7)

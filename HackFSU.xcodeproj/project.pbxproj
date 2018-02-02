@@ -15,7 +15,10 @@
 		B91491A82009BCAD006FD7DF /* thirdHackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91491A42009BCAC006FD7DF /* thirdHackViewController.swift */; };
 		B91491AB2009BCB7006FD7DF /* superlativeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91491A92009BCB7006FD7DF /* superlativeTableViewCell.swift */; };
 		B91491AC2009BCB7006FD7DF /* InitialHackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91491AA2009BCB7006FD7DF /* InitialHackViewController.swift */; };
+		B91F44B0202226D500DCA395 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91F44AF202226D500DCA395 /* ScannerViewController.swift */; };
 		B945439420123141002F326B /* LiveFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B945439320123141002F326B /* LiveFeedTableViewCell.swift */; };
+		B99698D02023F8C5002A91B7 /* EventSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99698CF2023F8C5002A91B7 /* EventSelectionViewController.swift */; };
+		B9B6DF842022BDBF009D6009 /* adminPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B6DF832022BDBF009D6009 /* adminPanelViewController.swift */; };
 		B9D84F0B20069C2D00556ABE /* NotificationAfterLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D84F0A20069C2D00556ABE /* NotificationAfterLoginViewController.swift */; };
 		DF21FEF81FA5132B00116A29 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF21FEF71FA5132B00116A29 /* PersistenceService.swift */; };
 		DF2AD2C21F8A9DC700AB4BF6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2AD2C11F8A9DC700AB4BF6 /* LoginViewController.swift */; };
@@ -63,15 +66,18 @@
 		B91491A42009BCAC006FD7DF /* thirdHackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = thirdHackViewController.swift; sourceTree = "<group>"; };
 		B91491A92009BCB7006FD7DF /* superlativeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = superlativeTableViewCell.swift; sourceTree = "<group>"; };
 		B91491AA2009BCB7006FD7DF /* InitialHackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialHackViewController.swift; sourceTree = "<group>"; };
+		B91F44AF202226D500DCA395 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		B945439320123141002F326B /* LiveFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveFeedTableViewCell.swift; sourceTree = "<group>"; };
+		B99698CF2023F8C5002A91B7 /* EventSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSelectionViewController.swift; sourceTree = "<group>"; };
+		B9B6DF832022BDBF009D6009 /* adminPanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = adminPanelViewController.swift; sourceTree = "<group>"; };
 		B9D84F0A20069C2D00556ABE /* NotificationAfterLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationAfterLoginViewController.swift; sourceTree = "<group>"; };
 		CCC35D8A4E9396569DA4F8E2 /* Pods_HackFSU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackFSU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF21FEF71FA5132B00116A29 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		DF2AD2C11F8A9DC700AB4BF6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DF2AD2C31F8AA3CA00AB4BF6 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		DF2AD2C51F8AA3E300AB4BF6 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		DF512E091FB556BD0066D42B /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "User+CoreDataProperties.swift"; path = "HackFSU/User+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		DF566EB21FB4C40A004FBBBD /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "User+CoreDataClass.swift"; path = "HackFSU/User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DF512E091FB556BD0066D42B /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DF566EB21FB4C40A004FBBBD /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		DF5A18491F8A998600803F50 /* HackFSU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackFSU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF5A184C1F8A998600803F50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF5A184E1F8A998600803F50 /* LiveFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveFeedViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +123,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B99698D120240377002A91B7 /* Main Views */ = {
+			isa = PBXGroup;
+			children = (
+				DF5A184C1F8A998600803F50 /* AppDelegate.swift */,
+				DF5A184E1F8A998600803F50 /* LiveFeedViewController.swift */,
+				DF2AD2C51F8AA3E300AB4BF6 /* ProfileViewController.swift */,
+				DF5A18501F8A998600803F50 /* ScheduleViewController.swift */,
+				DF2AD2C31F8AA3CA00AB4BF6 /* InfoViewController.swift */,
+				DF2AD2C11F8A9DC700AB4BF6 /* LoginViewController.swift */,
+			);
+			path = "Main Views";
+			sourceTree = "<group>";
+		};
+		B99698D220240416002A91B7 /* Helper and Custom Cell Files */ = {
+			isa = PBXGroup;
+			children = (
+				DF70128B1FA2B9730061C2B9 /* HackFSU.xcdatamodeld */,
+				DF566EB21FB4C40A004FBBBD /* User+CoreDataClass.swift */,
+				DF512E091FB556BD0066D42B /* User+CoreDataProperties.swift */,
+				DFA85E9A1FA2E669003C4E20 /* API.swift */,
+				DF21FEF71FA5132B00116A29 /* PersistenceService.swift */,
+				B90B5A8A20157F7400811040 /* LiveFeedMainCell.swift */,
+				B945439320123141002F326B /* LiveFeedTableViewCell.swift */,
+				DF70F1542004FB5300EE255F /* ScheduleCustomCell.swift */,
+			);
+			path = "Helper and Custom Cell Files";
+			sourceTree = "<group>";
+		};
+		B99698D320240440002A91B7 /* Backend Views */ = {
+			isa = PBXGroup;
+			children = (
+				B9B6DF832022BDBF009D6009 /* adminPanelViewController.swift */,
+				B99698CF2023F8C5002A91B7 /* EventSelectionViewController.swift */,
+				B9D84F0A20069C2D00556ABE /* NotificationAfterLoginViewController.swift */,
+				B91F44AF202226D500DCA395 /* ScannerViewController.swift */,
+			);
+			path = "Backend Views";
+			sourceTree = "<group>";
+		};
+		B99698D420240475002A91B7 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				DF5A18521F8A998600803F50 /* Main.storyboard */,
+				DF5A18571F8A998600803F50 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		D43F31F55B93B9D9974D28CD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,9 +183,6 @@
 		DF5A18401F8A998600803F50 = {
 			isa = PBXGroup;
 			children = (
-				DF70128B1FA2B9730061C2B9 /* HackFSU.xcdatamodeld */,
-				DF566EB21FB4C40A004FBBBD /* User+CoreDataClass.swift */,
-				DF512E091FB556BD0066D42B /* User+CoreDataProperties.swift */,
 				DF5A184B1F8A998600803F50 /* HackFSU */,
 				DF5A18621F8A998700803F50 /* HackFSUTests */,
 				DF5A186D1F8A998700803F50 /* HackFSUUITests */,
@@ -154,23 +205,13 @@
 		DF5A184B1F8A998600803F50 /* HackFSU */ = {
 			isa = PBXGroup;
 			children = (
-				DF5A184C1F8A998600803F50 /* AppDelegate.swift */,
-				DF5A184E1F8A998600803F50 /* LiveFeedViewController.swift */,
-				DF5A18501F8A998600803F50 /* ScheduleViewController.swift */,
-				DF2AD2C31F8AA3CA00AB4BF6 /* InfoViewController.swift */,
-				DF2AD2C51F8AA3E300AB4BF6 /* ProfileViewController.swift */,
-				DF97420D1FC4BA6B00EFEB50 /* JudgeView */,
-				DFA85E9A1FA2E669003C4E20 /* API.swift */,
-				DF21FEF71FA5132B00116A29 /* PersistenceService.swift */,
-				DF2AD2C11F8A9DC700AB4BF6 /* LoginViewController.swift */,
-				DF5A18521F8A998600803F50 /* Main.storyboard */,
-				B90B5A8A20157F7400811040 /* LiveFeedMainCell.swift */,
-				B945439320123141002F326B /* LiveFeedTableViewCell.swift */,
-				DF70F1542004FB5300EE255F /* ScheduleCustomCell.swift */,
+				B99698D120240377002A91B7 /* Main Views */,
+				B99698D320240440002A91B7 /* Backend Views */,
+				DF97420D1FC4BA6B00EFEB50 /* Judging */,
+				B99698D420240475002A91B7 /* Storyboards */,
+				B99698D220240416002A91B7 /* Helper and Custom Cell Files */,
 				DF5A18551F8A998600803F50 /* Assets.xcassets */,
-				DF5A18571F8A998600803F50 /* LaunchScreen.storyboard */,
 				DF5A185A1F8A998600803F50 /* Info.plist */,
-				B9D84F0A20069C2D00556ABE /* NotificationAfterLoginViewController.swift */,
 			);
 			path = HackFSU;
 			sourceTree = "<group>";
@@ -193,7 +234,7 @@
 			path = HackFSUUITests;
 			sourceTree = "<group>";
 		};
-		DF97420D1FC4BA6B00EFEB50 /* JudgeView */ = {
+		DF97420D1FC4BA6B00EFEB50 /* Judging */ = {
 			isa = PBXGroup;
 			children = (
 				B91491A22009BCAC006FD7DF /* FinalRankingViewController.swift */,
@@ -203,7 +244,7 @@
 				B91491AA2009BCB7006FD7DF /* InitialHackViewController.swift */,
 				B91491A92009BCB7006FD7DF /* superlativeTableViewCell.swift */,
 			);
-			path = JudgeView;
+			path = Judging;
 			sourceTree = "<group>";
 		};
 		EB6577161CB0C212598C3E8A /* Frameworks */ = {
@@ -426,8 +467,11 @@
 				DFA85E9B1FA2E669003C4E20 /* API.swift in Sources */,
 				DF21FEF81FA5132B00116A29 /* PersistenceService.swift in Sources */,
 				B91491AC2009BCB7006FD7DF /* InitialHackViewController.swift in Sources */,
+				B9B6DF842022BDBF009D6009 /* adminPanelViewController.swift in Sources */,
+				B99698D02023F8C5002A91B7 /* EventSelectionViewController.swift in Sources */,
 				DF566EB41FB4C40A004FBBBD /* User+CoreDataClass.swift in Sources */,
 				DF2AD2C41F8AA3CA00AB4BF6 /* InfoViewController.swift in Sources */,
+				B91F44B0202226D500DCA395 /* ScannerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
