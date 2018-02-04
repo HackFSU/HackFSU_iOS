@@ -53,22 +53,28 @@ extension ScheduleViewController:  UITableViewDelegate, UITableViewDataSource, U
         cell.eventDescriptionLabel.text = schedule[indexPath.row]["description"]
         if cell.eventDescriptionLabel.text!.count > 400 {
             //resize cell
-            height = height + (Double(cell.eventDescriptionLabel.text!.count)/1.6)
+            height = 110.0 + (Double(cell.eventDescriptionLabel.text!.count)/2.1)
            
             
             cell.eventDescriptionLabel.numberOfLines = cell.eventDescriptionLabel.numberOfLines + 13
             
-        }else if cell.eventDescriptionLabel.text!.count > 160 {
+        }else if cell.eventDescriptionLabel.text!.count > 161 {
             //resize cell
            
             height = height + (Double(cell.eventDescriptionLabel.text!.count)/1.7)
             
             cell.eventDescriptionLabel.numberOfLines = 10
             
+        }else if cell.eventDescriptionLabel.text!.count > 120 {
+            //resize cell
+            height = 110.0 + (Double(cell.eventDescriptionLabel.text!.count)/2.5)
+            
+            cell.eventDescriptionLabel.numberOfLines = 6
+            
         }else if cell.eventDescriptionLabel.text!.count > 70 {
            
             //resize cell
-            height = height + (Double(cell.eventDescriptionLabel.text!.count)/3)
+            height = height + (Double(cell.eventDescriptionLabel.text!.count)/2.5)
             if height < 100 {
                  height = height + (Double(cell.eventDescriptionLabel.text!.count)/3)
             }

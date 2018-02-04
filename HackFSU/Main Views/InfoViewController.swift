@@ -20,12 +20,17 @@ class InfoViewController: UIViewController {
     @IBOutlet var aboutButton: UIButton!
     @IBOutlet var mapView: UIView!
     
+    @IBOutlet var informationSideBar: UIImageView!
+    
     var inMap = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
        
     self.navigationController?.navigationBar.isHidden = true
+        
+        informationSideBar.layer.position = CGPoint(x: (0.565*self.view.bounds.height)/4, y: (0.5*self.view.bounds.height)/4)
+        
         
         if !inMap {
             mapView.layer.isHidden = true
@@ -35,6 +40,7 @@ class InfoViewController: UIViewController {
         }else {
             mapView.layer.isHidden = false
         }
+        
         mapButton.layer.borderWidth = 3
         mapButton.layer.cornerRadius = 15
         mapButton.layer.masksToBounds = true
