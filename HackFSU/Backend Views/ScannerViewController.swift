@@ -9,10 +9,16 @@
 import UIKit
 import AVFoundation
 
-class ScannerViewController: UIViewController  {
-    
+class ScannerViewController: UIViewController, UITextFieldDelegate  {
+
     var stringURL: String!
+    var id: Int = 0
     
+    @IBOutlet var manualHexField: UITextField!
+    
+    @IBOutlet var continueScanningButton: UIButton!
+    
+    @IBOutlet var submitHexcodeButton: UIButton!
     @IBOutlet var signedInLabel: UILabel!
     @IBOutlet var hackerNameLabel: UILabel!
     var captureSession = AVCaptureSession()
@@ -35,10 +41,21 @@ class ScannerViewController: UIViewController  {
         signedInLabel.isHidden = true
         hackerNameLabel.isHidden = true
         
-       
+        manualHexField.layer.cornerRadius = 26.0
+        manualHexField.delegate = self
+        
         
         returntoAdminPanel.layer.cornerRadius = 30.0
         returntoAdminPanel.layer.masksToBounds = true
+        
+        continueScanningButton.layer.cornerRadius = 30.0
+        continueScanningButton.layer.masksToBounds = true
+        
+        continueScanningButton.layer.isHidden = true
+        
+        submitHexcodeButton.layer.cornerRadius = 10.0
+        submitHexcodeButton.layer.masksToBounds = true
+        
         
         if #available(iOS 10.2, *) {
             let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera], mediaType: AVMediaType.video, position: .back)
@@ -96,8 +113,50 @@ class ScannerViewController: UIViewController  {
         
         
     }
+    
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
 
-   
+    @IBAction func clickedScanNext(_ sender: UIButton) {
+        self.continueScanningButton.layer.isHidden = true
+        qrCodeFrameView?.frame = CGRect.zero
+        self.signedInLabel.isHidden = true
+        self.hackerNameLabel.isHidden = true
+       
+        
+        captureSession.startRunning()
+        
+    }
+    
+    
+    @IBAction func clickedSubmit(_ sender: Any) {
+        if let manualHex = manualHexField.text {
+            let parameters = [
+                "event": id,
+                "hacker" : manualHex
+                ] as [String : Any]
+            
+            API.postRequest(url: URL(string: "https://testapi.hackfsu.com/api/events/scan")!, params: parameters) {
+                (statuscode) in
+                
+                if statuscode == 200{
+                    print("submitted")
+                    self.hackerNameLabel.text = manualHex
+                    self.signedInLabel.isHidden = false
+                    self.hackerNameLabel.isHidden = false
+                    self.continueScanningButton.layer.isHidden = false
+                    self.view.endEditing(true)
+                    self.captureSession.stopRunning()
+                }
+            }
+            
+        }
+    }
     
 }
 
@@ -109,7 +168,6 @@ extension ScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects.count == 0 {
             qrCodeFrameView?.frame = CGRect.zero
-      
             return
         }
         
@@ -120,20 +178,32 @@ extension ScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
             //If the found metadata is equal to the QR code metadata then update the status label's text and set the bounds
             let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
             qrCodeFrameView?.frame = barCodeObject!.bounds
-            
+            print(metadataObj)
             if metadataObj.stringValue != nil {
-                print(metadataObj.stringValue!)
-                print(metadataObj)
+                // Stop video capture.
+                captureSession.stopRunning()
                 
-                //obviously this will be the actual name, when we look it up
-                hackerNameLabel.text = metadataObj.stringValue!
-                signedInLabel.isHidden = false
-                hackerNameLabel.isHidden = false
+                let parameters = [
+                    "event": id,
+                    "hacker" : metadataObj.stringValue!
+                    ] as [String : Any]
 
+                print(parameters)
                 
-                
-                
-                //self.dismiss(animated: true, completion: nil)
+                API.postRequest(url: URL(string: "https://testapi.hackfsu.com/api/events/scan")!, params: parameters) {
+                    (statuscode) in
+                    
+                    //print(statuscode)
+   
+                    if statuscode == 200{
+                        print("submitted")
+                        self.hackerNameLabel.text = metadataObj.stringValue!
+                        self.signedInLabel.isHidden = false
+                        self.hackerNameLabel.isHidden = false
+                        self.continueScanningButton.layer.isHidden = false
+                    }
+
+                }
             }
         }
     }

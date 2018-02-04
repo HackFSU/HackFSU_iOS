@@ -8,17 +8,24 @@
 
 import UIKit
 
-var eventList = Dictionary<String, String>()
+var eventList = [String]()
+var eventId = Dictionary<String, String>()
 
 class EventSelectionViewController: UIViewController {
 
     @IBOutlet var eventTable: UITableView!
     
+    @IBOutlet var returnButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         eventTable.delegate = self
         eventTable.dataSource = self
-
+        
+        returnButton.layer.borderWidth = 3
+        returnButton.layer.cornerRadius = 15
+        returnButton.layer.masksToBounds = true
+        returnButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         
     }
 
@@ -43,7 +50,7 @@ extension EventSelectionViewController: UITableViewDataSource,UITableViewDelegat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell") as! eventListTableCell
         
-        cell.eventLabel.text = eventList[String(indexPath.row+1)]
+        cell.eventLabel.text = eventList[indexPath.row]
         
         return cell
     }
@@ -51,8 +58,12 @@ extension EventSelectionViewController: UITableViewDataSource,UITableViewDelegat
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
-        let vc = storyboard?.instantiateViewController(withIdentifier: "scanner")
-        self.present(vc!, animated: true, completion: nil)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "scanner") as! ScannerViewController
+        
+        vc.id = Int(eventId[eventList[indexPath.row]]!)!
+        print(vc.id)
+       
+        self.present(vc, animated: true, completion: nil)
     }
     
     

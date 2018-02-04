@@ -10,6 +10,8 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
+
+
 class adminPanelViewController: UIViewController {
 
     @IBOutlet var returnButton: UIButton!
@@ -22,7 +24,7 @@ class adminPanelViewController: UIViewController {
         
         Alamofire.request("https://testapi.hackfsu.com/api/hacker/get/events", method: .get, parameters: nil, encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {
             response in
-            print(response)
+            //print(response)
             
             switch response.result {
             case .success(_):
@@ -43,17 +45,7 @@ class adminPanelViewController: UIViewController {
         adminOptionsView.dataSource = self
         adminOptionsView.sectionFooterHeight = CGFloat(5)
         
-        for x in 1..<5{
-            eventList[String(x)] = (String(x))
-            
-        }
-        for x in 1..<5{
-            print(eventList[String(x)]!)
-            
-        }
-
-
-        
+   
        
     }
 
@@ -109,13 +101,15 @@ extension adminPanelViewController: UITableViewDelegate, UITableViewDataSource{
     
     func parseResults(theJSON: JSON) {
        
-        print(theJSON)
+        for result in theJSON["events"].arrayValue {
+            print(result["id"].stringValue)
+            eventList.append(result["name"].stringValue)
+            eventId[result["name"].stringValue] = result["id"].stringValue
+        }
+  
     }
         
-        
-    
-    
-    
+  
 
 }
 
