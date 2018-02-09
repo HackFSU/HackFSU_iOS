@@ -18,6 +18,7 @@
 		B91F44B0202226D500DCA395 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91F44AF202226D500DCA395 /* ScannerViewController.swift */; };
 		B945439420123141002F326B /* LiveFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B945439320123141002F326B /* LiveFeedTableViewCell.swift */; };
 		B99698D02023F8C5002A91B7 /* EventSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99698CF2023F8C5002A91B7 /* EventSelectionViewController.swift */; };
+		B9A589702029120F000BF51A /* HackFSUWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B9A5896F2029120F000BF51A /* HackFSUWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B9B6DF842022BDBF009D6009 /* adminPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B6DF832022BDBF009D6009 /* adminPanelViewController.swift */; };
 		B9D84F0B20069C2D00556ABE /* NotificationAfterLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D84F0A20069C2D00556ABE /* NotificationAfterLoginViewController.swift */; };
 		DF21FEF81FA5132B00116A29 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF21FEF71FA5132B00116A29 /* PersistenceService.swift */; };
@@ -40,6 +41,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		B9A589712029120F000BF51A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DF5A18411F8A998600803F50 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B9A5896E2029120F000BF51A;
+			remoteInfo = "HackFSUWatch Extension";
+		};
 		DF5A18601F8A998600803F50 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DF5A18411F8A998600803F50 /* Project object */;
@@ -56,8 +64,23 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B9A589862029120F000BF51A /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B9A589702029120F000BF51A /* HackFSUWatch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		5DFE20503AECE17FCC104065 /* Pods-HackFSU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackFSU.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackFSU/Pods-HackFSU.release.xcconfig"; sourceTree = "<group>"; };
+		82C765DDB99166C1D4AA0065 /* Pods_HackFSUWatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackFSUWatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8869AA6F541FA6D71D6D689B /* Pods-HackFSU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackFSU.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackFSU/Pods-HackFSU.debug.xcconfig"; sourceTree = "<group>"; };
 		B90B5A8A20157F7400811040 /* LiveFeedMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveFeedMainCell.swift; sourceTree = "<group>"; };
 		B91491A12009BCAC006FD7DF /* FirstHackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstHackViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +92,8 @@
 		B91F44AF202226D500DCA395 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		B945439320123141002F326B /* LiveFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveFeedTableViewCell.swift; sourceTree = "<group>"; };
 		B99698CF2023F8C5002A91B7 /* EventSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSelectionViewController.swift; sourceTree = "<group>"; };
+		B9A589632029120F000BF51A /* HackFSUWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackFSUWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9A5896F2029120F000BF51A /* HackFSUWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "HackFSUWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9B6DF832022BDBF009D6009 /* adminPanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = adminPanelViewController.swift; sourceTree = "<group>"; };
 		B9D84F0A20069C2D00556ABE /* NotificationAfterLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationAfterLoginViewController.swift; sourceTree = "<group>"; };
 		CCC35D8A4E9396569DA4F8E2 /* Pods_HackFSU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackFSU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +123,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B9A5896C2029120F000BF51A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1C76FCD66EF461384321C5B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DF5A18461F8A998600803F50 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -198,6 +237,8 @@
 				DF5A18491F8A998600803F50 /* HackFSU.app */,
 				DF5A185F1F8A998600803F50 /* HackFSUTests.xctest */,
 				DF5A186A1F8A998700803F50 /* HackFSUUITests.xctest */,
+				B9A589632029120F000BF51A /* HackFSUWatch.app */,
+				B9A5896F2029120F000BF51A /* HackFSUWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -251,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				CCC35D8A4E9396569DA4F8E2 /* Pods_HackFSU.framework */,
+				82C765DDB99166C1D4AA0065 /* Pods_HackFSUWatch.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -258,6 +300,41 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B9A589622029120F000BF51A /* HackFSUWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B9A589872029120F000BF51A /* Build configuration list for PBXNativeTarget "HackFSUWatch" */;
+			buildPhases = (
+				B9A589612029120F000BF51A /* Resources */,
+				B9A589862029120F000BF51A /* Embed App Extensions */,
+				C1C76FCD66EF461384321C5B /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B9A589722029120F000BF51A /* PBXTargetDependency */,
+			);
+			name = HackFSUWatch;
+			productName = HackFSUWatch;
+			productReference = B9A589632029120F000BF51A /* HackFSUWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		B9A5896E2029120F000BF51A /* HackFSUWatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B9A589852029120F000BF51A /* Build configuration list for PBXNativeTarget "HackFSUWatch Extension" */;
+			buildPhases = (
+				B9A5896B2029120F000BF51A /* Sources */,
+				B9A5896C2029120F000BF51A /* Frameworks */,
+				B9A5896D2029120F000BF51A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "HackFSUWatch Extension";
+			productName = "HackFSUWatch Extension";
+			productReference = B9A5896F2029120F000BF51A /* HackFSUWatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		DF5A18481F8A998600803F50 /* HackFSU */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DF5A18731F8A998700803F50 /* Build configuration list for PBXNativeTarget "HackFSU" */;
@@ -320,10 +397,18 @@
 		DF5A18411F8A998600803F50 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0900;
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = HackFSU;
 				TargetAttributes = {
+					B9A589622029120F000BF51A = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					B9A5896E2029120F000BF51A = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 					DF5A18481F8A998600803F50 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
@@ -356,11 +441,27 @@
 				DF5A18481F8A998600803F50 /* HackFSU */,
 				DF5A185E1F8A998600803F50 /* HackFSUTests */,
 				DF5A18691F8A998700803F50 /* HackFSUUITests */,
+				B9A589622029120F000BF51A /* HackFSUWatch */,
+				B9A5896E2029120F000BF51A /* HackFSUWatch Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B9A589612029120F000BF51A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9A5896D2029120F000BF51A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DF5A18471F8A998600803F50 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -396,11 +497,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-HackFSU/Pods-HackFSU-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -444,6 +547,13 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B9A5896B2029120F000BF51A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DF5A18451F8A998600803F50 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -494,6 +604,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		B9A589722029120F000BF51A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B9A5896E2029120F000BF51A /* HackFSUWatch Extension */;
+			targetProxy = B9A589712029120F000BF51A /* PBXContainerItemProxy */;
+		};
 		DF5A18611F8A998600803F50 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DF5A18481F8A998600803F50 /* HackFSU */;
@@ -526,6 +641,78 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B9A589812029120F000BF51A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QS56B24SK6;
+				IBSC_MODULE = HackFSUWatch_Extension;
+				INFOPLIST_FILE = HackFSUWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ibarraandres.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Debug;
+		};
+		B9A589822029120F000BF51A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QS56B24SK6;
+				IBSC_MODULE = HackFSUWatch_Extension;
+				INFOPLIST_FILE = HackFSUWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ibarraandres.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Release;
+		};
+		B9A589832029120F000BF51A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QS56B24SK6;
+				INFOPLIST_FILE = "HackFSUWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ibarraandres.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Debug;
+		};
+		B9A589842029120F000BF51A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QS56B24SK6;
+				INFOPLIST_FILE = "HackFSUWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ibarraandres.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Release;
+		};
 		DF5A18711F8A998700803F50 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -736,6 +923,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B9A589852029120F000BF51A /* Build configuration list for PBXNativeTarget "HackFSUWatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9A589832029120F000BF51A /* Debug */,
+				B9A589842029120F000BF51A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B9A589872029120F000BF51A /* Build configuration list for PBXNativeTarget "HackFSUWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9A589812029120F000BF51A /* Debug */,
+				B9A589822029120F000BF51A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DF5A18441F8A998600803F50 /* Build configuration list for PBXProject "HackFSU" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

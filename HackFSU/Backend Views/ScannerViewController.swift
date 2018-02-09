@@ -8,6 +8,8 @@
 
 import UIKit
 import AVFoundation
+import Alamofire
+import SwiftyJSON
 
 class ScannerViewController: UIViewController, UITextFieldDelegate  {
 
@@ -19,7 +21,9 @@ class ScannerViewController: UIViewController, UITextFieldDelegate  {
     @IBOutlet var continueScanningButton: UIButton!
     
     @IBOutlet var submitHexcodeButton: UIButton!
+    //signed in will hold the hackers name
     @IBOutlet var signedInLabel: UILabel!
+    //HackerName will hold the return message after the POST
     @IBOutlet var hackerNameLabel: UILabel!
     var captureSession = AVCaptureSession()
     
@@ -29,6 +33,7 @@ class ScannerViewController: UIViewController, UITextFieldDelegate  {
     @IBOutlet var cameraView: UIView!
     
     @IBOutlet var returntoAdminPanel: UIButton!
+    
     enum error: Error{
         case noCameraAvailable
         case videoInputInitFail
@@ -190,20 +195,41 @@ extension ScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
 
                 print(parameters)
                 
-                API.postRequest(url: URL(string: "https://testapi.hackfsu.com/api/events/scan")!, params: parameters) {
-                    (statuscode) in
+                let url = URL(string: "https://testapi.hackfsu.com/api/events/scan")!
+                
+                Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {
+                    response in
+                    let statusCode = response.response?.statusCode
+                    let responseData = response.result.value as! Dictionary<String,Any>
                     
-                    //print(statuscode)
-   
-                    if statuscode == 200{
-                        print("submitted")
-                        self.hackerNameLabel.text = metadataObj.stringValue!
+                    //print(responseData!)
+            
+                    
+                    if (responseData["status"] as! Int) == 200{
+                        self.hackerNameLabel.text = (responseData["message"] as! String)
+                        self.signedInLabel.text = (responseData["name"] as! String)
+                        self.signedInLabel.isHidden = false
+                        self.hackerNameLabel.isHidden = false
+                        self.continueScanningButton.layer.isHidden = false
+                    }
+                    else if (responseData["status"] as! Int) == 401{
+                        //already did the event
+                        self.hackerNameLabel.text = (responseData["message"] as! String)
+                        self.signedInLabel.text = (responseData["name"] as! String)
+                        self.signedInLabel.isHidden = false
+                        self.hackerNameLabel.isHidden = false
+                        self.continueScanningButton.layer.isHidden = false
+                    }else{
+                        //something is wrong
+                        self.hackerNameLabel.text = (responseData["message"] as! String)
+                        self.signedInLabel.text = (responseData["name"] as! String)
                         self.signedInLabel.isHidden = false
                         self.hackerNameLabel.isHidden = false
                         self.continueScanningButton.layer.isHidden = false
                     }
 
-                }
+                })
+                
             }
         }
     }

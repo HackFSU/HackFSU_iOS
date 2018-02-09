@@ -28,6 +28,7 @@ class EventSelectionViewController: UIViewController {
         returnButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         
     }
+    
 
 
 }
@@ -38,7 +39,13 @@ extension EventSelectionViewController: UITableViewDataSource,UITableViewDelegat
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.bounds.height/CGFloat(eventList.count)
+        
+        var sizeofCells = tableView.bounds.height/CGFloat(eventList.count)
+        if sizeofCells  < CGFloat(20){
+            sizeofCells = CGFloat(40)
+        }
+        
+        return sizeofCells
     }
     
     

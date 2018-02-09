@@ -64,7 +64,6 @@ class API {
     //Description: This function will make the JSON request and parse through the information
     //as well as be able to call 2 separate functions: convertDate() and getDayString()
     //to be able to get the correct date and time, given the fact that they are in UTC
-    
     class func getSchedule(url: URL) -> Array<Dictionary<String, String>>{
         var allinfo = [Dictionary<String, String>]()
         

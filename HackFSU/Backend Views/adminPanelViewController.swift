@@ -102,9 +102,12 @@ extension adminPanelViewController: UITableViewDelegate, UITableViewDataSource{
     func parseResults(theJSON: JSON) {
        
         for result in theJSON["events"].arrayValue {
-            print(result["id"].stringValue)
-            eventList.append(result["name"].stringValue)
-            eventId[result["name"].stringValue] = result["id"].stringValue
+            //print(result["id"].stringValue)
+            if !eventList.contains(where: {$0 == result["name"].stringValue}){
+                eventList.append(result["name"].stringValue)
+                eventId[result["name"].stringValue] = result["id"].stringValue
+            }
+            
         }
   
     }

@@ -5,5 +5,7 @@ use_frameworks!
 target 'HackFSU' do
     pod 'Alamofire', '~> 4.5'
     pod 'SwiftyJSON'
-    #pod 'Reachability'
+    pod 'Reachability'
 end
+
+
