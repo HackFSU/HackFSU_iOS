@@ -80,9 +80,9 @@ class LoginVewController: UIViewController, UITextFieldDelegate {
             "password": passField.text!
         ]
         
-        API.postRequest(url: URL(string: "https://api.hackfsu.com/api/user/login")!, params: parameters) {
+        API.postRequest(url: URL(string: "https://testapi.hackfsu.com/api/user/login")!, params: parameters) {
             (statuscode) in
-            
+            print(statuscode)
             if (statuscode == 200) {
                 API.retriveUserInfo()
                 let alertController = UIAlertController(title: "HackFSU", message: "Login successful!", preferredStyle: UIAlertControllerStyle.alert)
@@ -99,6 +99,7 @@ class LoginVewController: UIViewController, UITextFieldDelegate {
                 
             }
             else {
+            
                 let alertController = UIAlertController(title: "HackFSU", message: "Login unsuccessful!", preferredStyle: UIAlertControllerStyle.alert)
                 
                 let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
@@ -108,6 +109,7 @@ class LoginVewController: UIViewController, UITextFieldDelegate {
                 }
                 alertController.addAction(okAction)
                 self.present(alertController, animated: true, completion: nil)
+ 
             }
         }
     }

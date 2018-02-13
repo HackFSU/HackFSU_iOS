@@ -20,5 +20,6 @@ extension User {
     @NSManaged public var firstname: String?
     @NSManaged public var lastname: String?
     @NSManaged public var groups: [String]?
+    @NSManaged public var qrURL: String?
 
 }

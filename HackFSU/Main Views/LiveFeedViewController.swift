@@ -17,7 +17,8 @@ var liveFeedNotifications = [Dictionary<String, String>]()
 
 class LiveFeedViewController: UIViewController {
    
-  
+    @IBOutlet var liveFeedBanner: UIImageView!
+    
     var cellHeight = 150.00
     var latestUpdate = Dictionary<String, String>()
     let refreshControl = UIRefreshControl()
@@ -27,6 +28,27 @@ class LiveFeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //this is for the events that are loaded in for the profile page
+        Alamofire.request("https://testapi.hackfsu.com/api/user/get/events", method: .get, parameters: nil, encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {
+            response in
+            switch response.result {
+            case .success(_):
+                let eventsJSON = JSON(response.result.value!)["events"]
+                for x in eventsJSON.arrayValue{
+                    let newdictionary = ["name" : x["name"].stringValue,"time":x["time"].stringValue]
+                    
+                    if !profileEventsArray.contains(where: {$0 == newdictionary}){
+                        profileEventsArray.append(newdictionary)
+                    }
+                }
+                
+                print(profileEventsArray)
+            case .failure(_):
+                print("Failed to retrive User Info")
+            }
+        })
+        
+        
         refreshControl.addTarget(self, action: #selector(LiveFeedViewController.handleRefresh(refreshControl:)), for: .valueChanged)
     
         self.tableView.addSubview(self.refreshControl)
@@ -35,6 +57,10 @@ class LiveFeedViewController: UIViewController {
         tableView.sectionFooterHeight = CGFloat(2)
 
         addLiveInfomationFirst()
+        
+        //print(UIDevice.current.modelName)
+        
+        liveFeedBanner.layer.position = CGPoint(x: (0.565*self.view.bounds.height)/4, y: (0.5*self.view.bounds.height)/4)
         
         //Andres for Schedule
         self.navigationController?.navigationBar.isHidden = true
@@ -233,4 +259,3 @@ extension LiveFeedViewController:   UITableViewDelegate, UITableViewDataSource, 
     }
 
 }
-
