@@ -40,6 +40,9 @@ class ProfileViewController: UIViewController {
     
     
     func reloadScanEventsData(){
+        profileEventsArray.removeAll()
+        
+        
         Alamofire.request("https://testapi.hackfsu.com/api/user/get/events", method: .get, parameters: nil, encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {
             response in
             switch response.result {
@@ -54,6 +57,11 @@ class ProfileViewController: UIViewController {
                 }
                 self.profileEventsCollectionView.reloadData()
                 print(profileEventsArray)
+                if profileEventsArray.count != 0{
+                    self.noScan.isHidden = true
+                }else{
+                     self.noScan.isHidden = false
+                }
             case .failure(_):
                 print("Failed to retrive User Info")
             }
@@ -63,6 +71,14 @@ class ProfileViewController: UIViewController {
     //reload all the scanned events
     override func viewWillDisappear(_ animated: Bool) {
         reloadScanEventsData()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        reloadScanEventsData()
+        profileEventsCollectionView.layer.borderWidth = 1
+        profileEventsCollectionView.layer.borderColor = UIColor.gray.cgColor
+        
     }
     
     
@@ -147,7 +163,7 @@ class ProfileViewController: UIViewController {
             self.leftButton.isHidden = false
             self.rightButton.isHidden = true
             
-            self.leftButton.layer.position = CGPoint(x: (3*self.view.bounds.width)/5, y: (4.5*self.view.bounds.height)/7)
+            self.leftButton.layer.position = CGPoint(x: (2.5*self.view.bounds.width)/5, y: (4.35*self.view.bounds.height)/7)
             
             position.text = yourArray[0].groups![0]
             if yourArray[0].groups!.contains("judge") {

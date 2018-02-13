@@ -94,6 +94,9 @@ extension adminPanelViewController: UITableViewDelegate, UITableViewDataSource{
             let vc = storyboard?.instantiateViewController(withIdentifier: "eventLabel")
             self.present(vc!, animated: true, completion: nil)
         }else if adminOptions[indexPath.row] == "Post Announcement"{
+            let vc = storyboard?.instantiateViewController(withIdentifier: "postAnnouncements")
+            self.present(vc!, animated: true, completion: nil)
+            
            
         }
     }
