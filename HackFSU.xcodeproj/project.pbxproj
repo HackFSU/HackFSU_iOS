@@ -20,6 +20,7 @@
 		B977B8EE20325D8A00271ADA /* PostAnnouncement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B977B8ED20325D8A00271ADA /* PostAnnouncement.swift */; };
 		B99698D02023F8C5002A91B7 /* EventSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99698CF2023F8C5002A91B7 /* EventSelectionViewController.swift */; };
 		B9A589702029120F000BF51A /* HackFSUWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B9A5896F2029120F000BF51A /* HackFSUWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B9B4A75E20365FE500D79AAE /* tabBarVisualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B4A75D20365FE500D79AAE /* tabBarVisualViewController.swift */; };
 		B9B6DF842022BDBF009D6009 /* adminPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B6DF832022BDBF009D6009 /* adminPanelViewController.swift */; };
 		B9D84F0B20069C2D00556ABE /* NotificationAfterLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D84F0A20069C2D00556ABE /* NotificationAfterLoginViewController.swift */; };
 		DF21FEF81FA5132B00116A29 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF21FEF71FA5132B00116A29 /* PersistenceService.swift */; };
@@ -96,6 +97,7 @@
 		B99698CF2023F8C5002A91B7 /* EventSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSelectionViewController.swift; sourceTree = "<group>"; };
 		B9A589632029120F000BF51A /* HackFSUWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackFSUWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9A5896F2029120F000BF51A /* HackFSUWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "HackFSUWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9B4A75D20365FE500D79AAE /* tabBarVisualViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabBarVisualViewController.swift; sourceTree = "<group>"; };
 		B9B6DF832022BDBF009D6009 /* adminPanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = adminPanelViewController.swift; sourceTree = "<group>"; };
 		B9D84F0A20069C2D00556ABE /* NotificationAfterLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationAfterLoginViewController.swift; sourceTree = "<group>"; };
 		CCC35D8A4E9396569DA4F8E2 /* Pods_HackFSU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackFSU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				DF5A184C1F8A998600803F50 /* AppDelegate.swift */,
+				B9B4A75D20365FE500D79AAE /* tabBarVisualViewController.swift */,
 				DF5A184E1F8A998600803F50 /* LiveFeedViewController.swift */,
 				DF2AD2C51F8AA3E300AB4BF6 /* ProfileViewController.swift */,
 				DF5A18501F8A998600803F50 /* ScheduleViewController.swift */,
@@ -581,6 +584,7 @@
 				DF21FEF81FA5132B00116A29 /* PersistenceService.swift in Sources */,
 				B91491AC2009BCB7006FD7DF /* InitialHackViewController.swift in Sources */,
 				B9B6DF842022BDBF009D6009 /* adminPanelViewController.swift in Sources */,
+				B9B4A75E20365FE500D79AAE /* tabBarVisualViewController.swift in Sources */,
 				B99698D02023F8C5002A91B7 /* EventSelectionViewController.swift in Sources */,
 				DF566EB41FB4C40A004FBBBD /* User+CoreDataClass.swift in Sources */,
 				B977B8EE20325D8A00271ADA /* PostAnnouncement.swift in Sources */,
