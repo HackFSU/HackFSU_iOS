@@ -145,7 +145,7 @@ extension LiveFeedViewController:   UITableViewDelegate, UITableViewDataSource, 
             cell.latestUpdateTime.text = latestUpdate["submitted_time"]!
             cell.latestUpdateDescription.text = latestUpdate["description"]
             
-            cellHeight = 150 + Double(cell.latestUpdateDescription.text.count)/3.0
+            cellHeight = 175 + Double(cell.latestUpdateDescription.text.count)/3.0
             return cell
         }
         

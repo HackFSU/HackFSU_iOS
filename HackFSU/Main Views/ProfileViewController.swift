@@ -111,8 +111,6 @@ class ProfileViewController: UIViewController {
                         profileEventsArray.append(newdictionary)
                     }
                 }
-                
-                print(profileEventsArray)
             case .failure(_):
                 print("Failed to retrive User Info")
             }
