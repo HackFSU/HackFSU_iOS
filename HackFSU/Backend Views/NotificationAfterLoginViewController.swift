@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import UserNotifications
 
 class NotificationAfterLoginViewController: UIViewController {
 
@@ -38,6 +39,8 @@ class NotificationAfterLoginViewController: UIViewController {
     @IBAction func clickedYes(_ sender: Any) {
         
         //handle all notification things
+        
+        
         
     }
     
