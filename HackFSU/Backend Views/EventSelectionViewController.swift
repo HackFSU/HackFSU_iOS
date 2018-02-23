@@ -26,6 +26,16 @@ class EventSelectionViewController: UIViewController {
         returnButton.layer.cornerRadius = 15
         returnButton.layer.masksToBounds = true
         returnButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+
+
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        if let index = self.eventTable.indexPathForSelectedRow{
+            eventTable.deselectRow(at: index, animated: true)
+        }
         
     }
     

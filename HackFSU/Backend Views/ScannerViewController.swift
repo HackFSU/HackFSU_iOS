@@ -63,8 +63,13 @@ class ScannerViewController: UIViewController, UITextFieldDelegate  {
         
         
         if #available(iOS 10.2, *) {
-            let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera], mediaType: AVMediaType.video, position: .back)
             
+            let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [AVCaptureDevice.DeviceType.builtInWideAngleCamera], mediaType: AVMediaType.video, position: .back)
+            
+            //let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera, .builtInDuoCamera], mediaType: AVMediaType.video, position: .back)
+            
+            
+            print(deviceDiscoverySession.devices)
             guard let captureDevice = deviceDiscoverySession.devices.first else {
                 print("Failed to get the camera device")
                 return
@@ -126,7 +131,14 @@ class ScannerViewController: UIViewController, UITextFieldDelegate  {
         return false
     }
     
+    @IBAction func clickedReturn(_ sender: Any) {
+        
+        self.dismiss(animated: true, completion: nil)
+        
+    }
+    
 
+    
     @IBAction func clickedScanNext(_ sender: UIButton) {
         self.continueScanningButton.layer.isHidden = true
         qrCodeFrameView?.frame = CGRect.zero

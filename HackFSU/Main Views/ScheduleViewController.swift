@@ -112,7 +112,7 @@ extension ScheduleViewController:  UITableViewDelegate, UITableViewDataSource, U
             cell.dayIdentifierCircle.image = #imageLiteral(resourceName: "SundayCirclePurple")
             
         }else if schedule[indexPath.row]["day"] == "Sunday"{
-            cell.dayIdentifierCircle.image = #imageLiteral(resourceName: "SaturdayCircleGray")
+            cell.dayIdentifierCircle.image = #imageLiteral(resourceName: "ThursdayCirclePink")
             
         }
         
