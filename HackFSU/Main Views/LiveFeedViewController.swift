@@ -27,7 +27,6 @@ class LiveFeedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         //this is for the events that are loaded in for the profile page
         Alamofire.request("https://testapi.hackfsu.com/api/user/get/events", method: .get, parameters: nil, encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {
             response in
@@ -257,5 +256,7 @@ extension LiveFeedViewController:   UITableViewDelegate, UITableViewDataSource, 
         }
         
     }
+    
+    
 
 }

@@ -24,7 +24,7 @@ class InfoViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var firstFloorButton: UIButton!
     @IBOutlet var secondFloorButton: UIButton!
     @IBOutlet var thirdFloorButton: UIButton!
-    @IBOutlet var fourthFloorButton: UIButton!
+    
     
     @IBOutlet var mapDisplayImage: UIImageView!
     @IBOutlet var mapButton: UIButton!
@@ -56,12 +56,12 @@ class InfoViewController: UIViewController, UIScrollViewDelegate {
             mapView.layer.isHidden = false
         }
         
-        mapButton.layer.borderWidth = 3
+        mapButton.layer.borderWidth = 1
         mapButton.layer.cornerRadius = 15
         mapButton.layer.masksToBounds = true
         mapButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         
-        aboutButton.layer.borderWidth = 3
+        aboutButton.layer.borderWidth = 1
         aboutButton.layer.cornerRadius = 15
         aboutButton.layer.masksToBounds = true
         aboutButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
@@ -69,25 +69,20 @@ class InfoViewController: UIViewController, UIScrollViewDelegate {
         //MAP FLOOR BUTTON SETUP
         //How to set purple borderColor
         //#colorLiteral(red:0.70, green:0.49, blue:0.98, alpha:1.0)
-        firstFloorButton.layer.cornerRadius = 11.0
+        firstFloorButton.layer.cornerRadius = 15.0
         firstFloorButton.layer.masksToBounds = true
         firstFloorButton.layer.borderWidth = 0
-        firstFloorButton.layer.borderColor = #colorLiteral(red:0.70, green:0.49, blue:0.98, alpha:1.0)
+        firstFloorButton.layer.borderColor = #colorLiteral(red: 0.5397022367, green: 0.1908569932, blue: 0.9999027848, alpha: 1)
         
-        secondFloorButton.layer.cornerRadius = 11.0
+        secondFloorButton.layer.cornerRadius = 15.0
         secondFloorButton.layer.masksToBounds = true
         secondFloorButton.layer.borderWidth = 2
-        secondFloorButton.layer.borderColor = #colorLiteral(red:0.70, green:0.49, blue:0.98, alpha:1.0)
+        secondFloorButton.layer.borderColor = #colorLiteral(red: 0.5397022367, green: 0.1908569932, blue: 0.9999027848, alpha: 1)
         
-        thirdFloorButton.layer.cornerRadius = 11.0
+        thirdFloorButton.layer.cornerRadius = 15.0
         thirdFloorButton.layer.masksToBounds = true
         thirdFloorButton.layer.borderWidth = 0
-        thirdFloorButton.layer.borderColor = #colorLiteral(red:0.70, green:0.49, blue:0.98, alpha:1.0)
-        
-        fourthFloorButton.layer.cornerRadius = 11.0
-        fourthFloorButton.layer.masksToBounds = true
-        fourthFloorButton.layer.borderWidth = 0
-        fourthFloorButton.layer.borderColor = #colorLiteral(red:0.70, green:0.49, blue:0.98, alpha:1.0)
+        thirdFloorButton.layer.borderColor = #colorLiteral(red: 0.5397022367, green: 0.1908569932, blue: 0.9999027848, alpha: 1)
         
         infoTextView.layer.position = CGPoint(x: infoView.bounds.midX, y: infoView.bounds.midY/1.45)
         
@@ -141,10 +136,10 @@ class InfoViewController: UIViewController, UIScrollViewDelegate {
                     mapURL = URL(string: images["link"]!)
                 } 
             }
-            firstFloorButton.layer.borderWidth = 2
+            firstFloorButton.layer.borderWidth = 1
             secondFloorButton.layer.borderWidth = 0
             thirdFloorButton.layer.borderWidth = 0
-            fourthFloorButton.layer.borderWidth = 0
+            
             
         }else if sender.titleLabel?.text! == "ONE"{
             //2nd Floor (Entrance Level)
@@ -155,9 +150,9 @@ class InfoViewController: UIViewController, UIScrollViewDelegate {
                 
             }
             firstFloorButton.layer.borderWidth = 0
-            secondFloorButton.layer.borderWidth = 2
+            secondFloorButton.layer.borderWidth = 1
             thirdFloorButton.layer.borderWidth = 0
-            fourthFloorButton.layer.borderWidth = 0
+            
             
         }else if sender.titleLabel?.text! == "TWO"{
             //3rd Floor (Upper Level)
@@ -169,21 +164,8 @@ class InfoViewController: UIViewController, UIScrollViewDelegate {
             }
             firstFloorButton.layer.borderWidth = 0
             secondFloorButton.layer.borderWidth = 0
-            thirdFloorButton.layer.borderWidth = 3
-            fourthFloorButton.layer.borderWidth = 0
+            thirdFloorButton.layer.borderWidth = 1
             
-        }else if sender.titleLabel?.text! == "THREE"{
-            //3rd Floor (Upper Level) CHANGE THIS TO FOURTH FLOOR WHEN WE GET IMAGES
-            for images in imageURlDict{
-                if images["title"] == "3rd Floor (Upper Level)"{
-                    mapURL = URL(string: images["link"]!)
-                }
-                
-            }
-            firstFloorButton.layer.borderWidth = 0
-            secondFloorButton.layer.borderWidth = 0
-            thirdFloorButton.layer.borderWidth = 0
-            fourthFloorButton.layer.borderWidth = 2
             
         }
         

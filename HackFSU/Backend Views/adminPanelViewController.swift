@@ -45,6 +45,7 @@ class adminPanelViewController: UIViewController {
         adminOptionsView.dataSource = self
         adminOptionsView.sectionFooterHeight = CGFloat(5)
         
+        
    
        
     }
@@ -53,7 +54,12 @@ class adminPanelViewController: UIViewController {
         
     }
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        if let index = self.adminOptionsView.indexPathForSelectedRow{
+            adminOptionsView.deselectRow(at: index, animated: true)
+        }
+    }
 
 }
 
