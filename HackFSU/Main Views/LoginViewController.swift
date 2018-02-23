@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import UserNotifications
 
 class LoginVewController: UIViewController, UITextFieldDelegate {
     
@@ -117,9 +118,16 @@ class LoginVewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func clickedYesNotifications(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-        
-        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+            print("grandted : \(granted)")
+            self.dismiss(animated: true, completion: nil)
+            if granted == true {
+                DispatchQueue.main.async(execute: {
+                    UIApplication.shared.registerForRemoteNotifications()
+                }) 
+            }
+        }
+    
     }
     
     @IBAction func clickedNoNotifications(_ sender: Any) {
