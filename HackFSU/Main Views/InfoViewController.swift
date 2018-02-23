@@ -12,6 +12,8 @@ import SwiftyJSON
 
 class InfoViewController: UIViewController, UIScrollViewDelegate {
     
+    @IBOutlet var infoTextView: UILabel!
+    @IBOutlet var infoView: UIView!
     var mapURL: URL!
     
     @IBOutlet var mapScrollView: UIScrollView!
@@ -86,6 +88,9 @@ class InfoViewController: UIViewController, UIScrollViewDelegate {
         fourthFloorButton.layer.masksToBounds = true
         fourthFloorButton.layer.borderWidth = 0
         fourthFloorButton.layer.borderColor = #colorLiteral(red:0.70, green:0.49, blue:0.98, alpha:1.0)
+        
+        infoTextView.layer.position = CGPoint(x: infoView.bounds.midX, y: infoView.bounds.midY/1.45)
+        
         
         
     }
