@@ -32,7 +32,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lOm-jb-IJh">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lOm-jb-IJh">
                                 <rect key="frame" x="0.0" y="206" width="375" height="606"/>
                                 <color key="backgroundColor" red="0.96851021049999997" green="0.96861487629999998" blue="0.97259420159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" red="0.96851021049999997" green="0.96861487629999998" blue="0.97259420159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2013,7 +2013,7 @@
         <scene sceneID="TLE-NS-UbK">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="J77-p1-fSg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Live Feed" image="rss-7" id="acW-dT-cKf">
+                    <tabBarItem key="tabBarItem" title="Live Feed" image="news" id="acW-dT-cKf">
                         <color key="badgeColor" red="0.0" green="0.81522768739999996" blue="0.92101407049999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -2055,7 +2055,7 @@
         <scene sceneID="wNM-E1-UQU">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="l1r-2m-21s" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Info" image="gear-7" id="XF7-mw-Q9j">
+                    <tabBarItem key="tabBarItem" title="Info" image="map" id="XF7-mw-Q9j">
                         <color key="badgeColor" red="0.0" green="0.81522768739999996" blue="0.92101407049999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -3117,11 +3117,11 @@
         <image name="ProfilePageSidebar" width="1831" height="552"/>
         <image name="SchedulePageSidebar" width="1831" height="552"/>
         <image name="alertFeather" width="1291" height="1149"/>
-        <image name="gear-7" width="30" height="30"/>
         <image name="lineColorImage" width="3000" height="3000"/>
         <image name="list-simple-7" width="30" height="30"/>
+        <image name="map" width="25" height="25"/>
+        <image name="news" width="25" height="25"/>
         <image name="plus-simple-7" width="30" height="30"/>
-        <image name="rss-7" width="30" height="30"/>
         <image name="yoda" width="24" height="24"/>
     </resources>
 </document>

@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import Agrume
 
 class InfoViewController: UIViewController, UIScrollViewDelegate {
     
@@ -27,6 +28,7 @@ class InfoViewController: UIViewController, UIScrollViewDelegate {
     
     
     @IBOutlet var mapDisplayImage: UIImageView!
+    
     @IBOutlet var mapButton: UIButton!
     @IBOutlet var aboutButton: UIButton!
     @IBOutlet var mapView: UIView!
@@ -46,6 +48,9 @@ class InfoViewController: UIViewController, UIScrollViewDelegate {
         
         informationSideBar.layer.position = CGPoint(x: (0.565*self.view.bounds.height)/4, y: (0.5*self.view.bounds.height)/4)
         
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        mapDisplayImage.isUserInteractionEnabled = true
+        mapDisplayImage.addGestureRecognizer(tapGestureRecognizer)
         
         if !inMap {
             mapView.layer.isHidden = true
@@ -218,6 +223,12 @@ class InfoViewController: UIViewController, UIScrollViewDelegate {
     }
     
     
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+        let tappedImage = tapGestureRecognizer.view as! UIImageView
+        let agrume = Agrume(image: tappedImage.image!, backgroundBlurStyle: .dark)
+        agrume.showFrom(self)
+        
+    }
    
     
 }
