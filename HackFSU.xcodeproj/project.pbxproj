@@ -23,6 +23,7 @@
 		B9B4A75E20365FE500D79AAE /* tabBarVisualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B4A75D20365FE500D79AAE /* tabBarVisualViewController.swift */; };
 		B9B6DF842022BDBF009D6009 /* adminPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B6DF832022BDBF009D6009 /* adminPanelViewController.swift */; };
 		B9D84F0B20069C2D00556ABE /* NotificationAfterLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D84F0A20069C2D00556ABE /* NotificationAfterLoginViewController.swift */; };
+		DF00B44D204316B600C5F86A /* routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF00B44C204316B600C5F86A /* routes.swift */; };
 		DF21FEF81FA5132B00116A29 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF21FEF71FA5132B00116A29 /* PersistenceService.swift */; };
 		DF2AD2C21F8A9DC700AB4BF6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2AD2C11F8A9DC700AB4BF6 /* LoginViewController.swift */; };
 		DF2AD2C41F8AA3CA00AB4BF6 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2AD2C31F8AA3CA00AB4BF6 /* InfoViewController.swift */; };
@@ -101,6 +102,7 @@
 		B9B6DF832022BDBF009D6009 /* adminPanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = adminPanelViewController.swift; sourceTree = "<group>"; };
 		B9D84F0A20069C2D00556ABE /* NotificationAfterLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationAfterLoginViewController.swift; sourceTree = "<group>"; };
 		CCC35D8A4E9396569DA4F8E2 /* Pods_HackFSU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackFSU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF00B44C204316B600C5F86A /* routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = routes.swift; sourceTree = "<group>"; };
 		DF1B33A2203E59AA0032B5BE /* HackFSU.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HackFSU.entitlements; sourceTree = "<group>"; };
 		DF21FEF71FA5132B00116A29 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		DF2AD2C11F8A9DC700AB4BF6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 		B99698D120240377002A91B7 /* Main Views */ = {
 			isa = PBXGroup;
 			children = (
+				DF00B44C204316B600C5F86A /* routes.swift */,
 				DF5A184C1F8A998600803F50 /* AppDelegate.swift */,
 				B9B4A75D20365FE500D79AAE /* tabBarVisualViewController.swift */,
 				DF5A184E1F8A998600803F50 /* LiveFeedViewController.swift */,
@@ -588,6 +591,7 @@
 				B945439420123141002F326B /* LiveFeedTableViewCell.swift in Sources */,
 				DF5A184F1F8A998600803F50 /* LiveFeedViewController.swift in Sources */,
 				DFA85E9B1FA2E669003C4E20 /* API.swift in Sources */,
+				DF00B44D204316B600C5F86A /* routes.swift in Sources */,
 				DF21FEF81FA5132B00116A29 /* PersistenceService.swift in Sources */,
 				B91491AC2009BCB7006FD7DF /* InitialHackViewController.swift in Sources */,
 				B9B6DF842022BDBF009D6009 /* adminPanelViewController.swift in Sources */,

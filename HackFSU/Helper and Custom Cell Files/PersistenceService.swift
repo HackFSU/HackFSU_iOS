@@ -40,7 +40,7 @@ class PersistenceService {
         if context.hasChanges {
             do {
                 try context.save()
-                print("SAVED IN COREDATA")
+                //print("SAVED IN COREDATA")
             } catch {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")

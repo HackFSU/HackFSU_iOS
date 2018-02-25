@@ -72,10 +72,10 @@ class FirstHackViewController: UIViewController {
                     if let sText =  cell.superlative.text{
                         superlatives[givenHacks["1"]!]! = superlatives[givenHacks["1"]!]!.filter{$0 != sText}
                         sender.setImage(#imageLiteral(resourceName: "plus-simple-7"), for: UIControlState())
-                        print("Displaying after deletion")
-                        for x in superlatives{
-                            print(x)
-                        }
+                        //print("Displaying after deletion")
+//                        for x in superlatives{
+//                            print(x)
+//                        }
                     return
                 }
             }
@@ -88,10 +88,10 @@ class FirstHackViewController: UIViewController {
                         if !superlatives[givenHacks["1"]!]!.contains(where: {$0 == sText}){
                             superlatives[givenHacks["1"]!]?.append(sText)
                         }
-                        print("Displaying after insertion")
-                        for x in superlatives{
-                            print(x)
-                        }
+                        //print("Displaying after insertion")
+//                        for x in superlatives{
+//                            print(x)
+//                        }
                     
                     }
                 }

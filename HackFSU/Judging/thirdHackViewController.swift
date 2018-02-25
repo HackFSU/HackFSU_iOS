@@ -65,10 +65,10 @@ class thirdHackViewController: UIViewController {
                     if let sText =  cell.superlative.text{
                         superlatives[givenHacks["3"]!]! = superlatives[givenHacks["3"]!]!.filter{$0 != sText}
                         sender.setImage(#imageLiteral(resourceName: "plus-simple-7"), for: UIControlState())
-                        print("Displaying after deletion")
-                        for x in superlatives{
-                            print(x)
-                        }
+//                        print("Displaying after deletion")
+//                        for x in superlatives{
+//                            print(x)
+//                        }
                         return
                     }
                 }
@@ -81,11 +81,10 @@ class thirdHackViewController: UIViewController {
                         if !superlatives[givenHacks["3"]!]!.contains(where: {$0 == sText}){
                             superlatives[givenHacks["3"]!]?.append(sText)
                         }
-                        print("Displaying after insertion")
-                        for x in superlatives{
-                            print(x)
-                        }
-                        
+//                        print("Displaying after insertion")
+//                        for x in superlatives{
+//                            print(x)
+//                        }
                     }
                 }
             }
@@ -93,9 +92,9 @@ class thirdHackViewController: UIViewController {
     }
     
     @IBAction func clickedNext(_ sender: Any) {
-            for x in superlatives{
-            print(x)
-            }
+//            for x in superlatives{
+//            print(x)
+//            }
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "FinalRankingView")
             self.present(vc!, animated: true, completion: nil)
         

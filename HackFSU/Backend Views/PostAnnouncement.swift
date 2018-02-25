@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class PostAnnouncement: UIViewController, UITextFieldDelegate{
 
@@ -51,34 +52,49 @@ class PostAnnouncement: UIViewController, UITextFieldDelegate{
             if announcementDescription.text != ""{
                 let title = announcementTitle.text
                 let description = announcementDescription.text
+                
+                let parameters: Parameters
+                if isANotificationSwitch.isOn {
+                    parameters = [
+                        "title": title!,
+                        "body": description!,
+                        "isUpdate": 1
+                    ]
+                }
+                else {
+                    parameters = [
+                        "title": title!,
+                        "body": description!,
+                        "isUpdate": 0
+                    ]
+                }
+        
+                API.postRequest(url: URL(string: routes.newPushNoti)!, params: parameters) {
+                    (statuscode) in
+                    
+                    if (statuscode == 200) {
+                        let alertController = UIAlertController(title: "Announcement Posted!", message: "Thank you!", preferredStyle: UIAlertControllerStyle.alert)
+                        let okAction = UIAlertAction(title: "Return", style: UIAlertActionStyle.default){
+                            (result : UIAlertAction) -> Void in
+                            self.view.endEditing(true)
+                        }
+                        alertController.addAction(okAction)
+                        self.present(alertController, animated: true, completion: nil)
+                    }
+                    else {
+                        let alertController = UIAlertController(title: "Uh oh!", message: "An error has occured with status code: \(statuscode)", preferredStyle: UIAlertControllerStyle.alert)
+                        let okAction = UIAlertAction(title: "Return", style: UIAlertActionStyle.default){
+                            (result : UIAlertAction) -> Void in
+                            self.view.endEditing(true)
+                        }
+                        alertController.addAction(okAction)
+                        self.present(alertController, animated: true, completion: nil)
+                    }
+                }
+                
+                isANotificationSwitch.setOn(false, animated: false)
                 announcementTitle.text = nil
                 announcementDescription.text = nil
-                
-                if isANotificationSwitch.isOn{
-                    //this is a notification as well as an announcement
-                    let alertController = UIAlertController(title: "Announcement Posted!", message: "Thank you!", preferredStyle: UIAlertControllerStyle.alert)
-                    let okAction = UIAlertAction(title: "Return", style: UIAlertActionStyle.default){
-                        (result : UIAlertAction) -> Void in
-                        self.view.endEditing(true)
-                        
-                    }
-                    alertController.addAction(okAction)
-                    self.present(alertController, animated: true, completion: nil)
-                    isANotificationSwitch.setOn(false, animated: false)
-
-                }else{
-                    print(title ?? " ", description ?? " ")
-                    
-                    let alertController = UIAlertController(title: "Announcement Posted!", message: "Thank you!", preferredStyle: UIAlertControllerStyle.alert)
-                    let okAction = UIAlertAction(title: "Return", style: UIAlertActionStyle.default){
-                        (result : UIAlertAction) -> Void in
-                        self.view.endEditing(true)
-                        
-                    }
-                    alertController.addAction(okAction)
-                    self.present(alertController, animated: true, completion: nil)
-                    isANotificationSwitch.setOn(false, animated: false)
-                }
                 
             }
    

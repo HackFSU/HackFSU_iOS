@@ -305,15 +305,14 @@ class FinalRankingViewController: UIViewController {
     }
  
     override func viewWillDisappear(_ animated: Bool) {
-        for x in rankedHacks{
-            print(x)
-            
-        }
-        
-        for given in superlatives{
-            print(given)
-        }
-        
+//        for x in rankedHacks{
+//            print(x)
+//
+//        }
+//
+//        for given in superlatives{
+//            print(given)
+//        }        
         var parameters = Parameters()
         if !nothird && !nosecond{
             parameters = [
@@ -353,17 +352,17 @@ class FinalRankingViewController: UIViewController {
             ]
         }
         
-        print(parameters)
+        //print(parameters)
         
-        API.postRequest(url: URL(string: "https://testapi.hackfsu.com/api/judge/hacks/upload")!, params: parameters) {
+        API.postRequest(url: URL(string: routes.uploadHacks)!, params: parameters) {
             (statuscode) in
             
             if (statuscode == 200) {
                 //good
-                print("done")
+                //print("done")
             }else if (statuscode == 400) {
                 //good
-                print("wrong")
+                //print("wrong")
             }
         }
         

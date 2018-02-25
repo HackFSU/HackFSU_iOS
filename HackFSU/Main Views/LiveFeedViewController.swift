@@ -28,7 +28,7 @@ class LiveFeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //this is for the events that are loaded in for the profile page
-        Alamofire.request("https://testapi.hackfsu.com/api/user/get/events", method: .get, parameters: nil, encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {
+        Alamofire.request(routes.getEvents, method: .get, parameters: nil, encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {
             response in
             switch response.result {
             case .success(_):
@@ -41,7 +41,7 @@ class LiveFeedViewController: UIViewController {
                     }
                 }
                 
-                print(profileEventsArray)
+                //print(profileEventsArray)
             case .failure(_):
                 print("Failed to retrive User Info")
             }
@@ -63,7 +63,7 @@ class LiveFeedViewController: UIViewController {
         
         //Andres for Schedule
         self.navigationController?.navigationBar.isHidden = true
-        schedule = API.getSchedule(url: URL(string:"https://2017.hackfsu.com/api/hackathon/get/schedule_items")!)
+        schedule = API.getSchedule(url: URL(string:routes.getScheduleItems)!)
         //
         
     }
@@ -137,7 +137,7 @@ extension LiveFeedViewController:   UITableViewDelegate, UITableViewDataSource, 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.section == 0{
-            print(indexPath.section)
+            //print(indexPath.section)
             let cell = tableView.dequeueReusableCell(withIdentifier: "mainNotificationCell") as! LiveFeedMainCell
             
             cell.latestUpdateTitle.text = latestUpdate["title"]!
@@ -214,7 +214,7 @@ extension LiveFeedViewController:   UITableViewDelegate, UITableViewDataSource, 
         
         var allinfo = [Dictionary<String, String>]()
         
-        Alamofire.request(URL(string: "https://2017.hackfsu.com/api/hackathon/get/updates")!).responseJSON { response in
+        Alamofire.request(URL(string: routes.getUpdates)!).responseJSON { response in
             do{
                 let OGjson = try JSON(data: response.data!)
                 //populate the info

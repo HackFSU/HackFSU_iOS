@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import UserNotifications
+import Alamofire
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
@@ -18,6 +19,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
         print("token: \(token)")
+        
+        let parameters: Parameters = [
+            "deviceID": token,
+            "platform": 1
+        ]
+        
+        API.postRequest(url: URL(string: routes.registerForPushNoti)!, params: parameters) {
+            (statuscode) in
+//            print(statuscode)
+//            if (statuscode == 201) {
+//                print("We good")
+//            }
+//            else {
+//                print("We not good")
+//            }
+//            print("token: \(token)")
+        }
+        
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {

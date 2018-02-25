@@ -81,16 +81,15 @@ class LoginVewController: UIViewController, UITextFieldDelegate {
             "password": passField.text!
         ]
         
-        API.postRequest(url: URL(string: "https://testapi.hackfsu.com/api/user/login")!, params: parameters) {
+        API.postRequest(url: URL(string: routes.loginURL)!, params: parameters) {
             (statuscode) in
-            print(statuscode)
             if (statuscode == 200) {
                 API.retriveUserInfo()
                 let alertController = UIAlertController(title: "HackFSU", message: "Login successful!", preferredStyle: UIAlertControllerStyle.alert)
                 let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
                 {
                     (result : UIAlertAction) -> Void in
-                    print("You pressed OK")
+                    
                     self.view.endEditing(true)
                     self.notificationsAlertView.isHidden = false
                     
@@ -106,7 +105,7 @@ class LoginVewController: UIViewController, UITextFieldDelegate {
                 let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
                 {
                     (result : UIAlertAction) -> Void in
-                    print("You pressed OK")
+                    
                 }
                 alertController.addAction(okAction)
                 self.present(alertController, animated: true, completion: nil)
@@ -119,7 +118,6 @@ class LoginVewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func clickedYesNotifications(_ sender: Any) {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (granted, error) in
-            print("grandted : \(granted)")
             self.dismiss(animated: true, completion: nil)
             if granted == true {
                 DispatchQueue.main.async(execute: {

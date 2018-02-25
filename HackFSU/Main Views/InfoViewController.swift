@@ -176,7 +176,7 @@ class InfoViewController: UIViewController, UIScrollViewDelegate {
     }
 
     func loadMapImages(){
-        Alamofire.request("https://2017.hackfsu.com/api/hackathon/get/maps", method: .get, parameters: nil, encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {
+        Alamofire.request(routes.getMaps, method: .get, parameters: nil, encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {
             response in
             switch response.result {
             case .success(_):

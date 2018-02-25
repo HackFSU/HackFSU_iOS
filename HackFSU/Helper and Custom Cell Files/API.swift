@@ -12,16 +12,16 @@ import SwiftyJSON
 
 class API {
     class func retriveUserInfo() {
-        Alamofire.request("https://testapi.hackfsu.com/api/user/get/profile", method: .get, parameters: nil, encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {
+        Alamofire.request(routes.getUserProfile, method: .get, parameters: nil, encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {
             response in
             
-            print(response)
+            //print(response)
             
             switch response.result {
                 case .success(_):
                     self.parseResults(theJSON: JSON(response.result.value!))
                 case .failure(_):
-                    print("Failed to retrive User Info")
+                    print("Failed to retrive user info")
             }
         })
     }

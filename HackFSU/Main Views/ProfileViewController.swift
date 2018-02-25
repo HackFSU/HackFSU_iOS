@@ -43,7 +43,7 @@ class ProfileViewController: UIViewController {
         profileEventsArray.removeAll()
         
         
-        Alamofire.request("https://testapi.hackfsu.com/api/user/get/events", method: .get, parameters: nil, encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {
+        Alamofire.request(routes.getEvents, method: .get, parameters: nil, encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {
             response in
             switch response.result {
             case .success(_):
@@ -56,7 +56,7 @@ class ProfileViewController: UIViewController {
                     }
                 }
                 self.profileEventsCollectionView.reloadData()
-                print(profileEventsArray)
+                //print(profileEventsArray)
                 
             case .failure(_):
                 print("Failed to retrive User Info")
@@ -68,13 +68,6 @@ class ProfileViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         reloadScanEventsData()
     }
-    
-    
-    
-    
-    
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,7 +95,7 @@ class ProfileViewController: UIViewController {
         profileEventsCollectionView.dataSource = self
         
         //reloading events
-        Alamofire.request("https://testapi.hackfsu.com/api/user/get/events", method: .get, parameters: nil, encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {
+        Alamofire.request(routes.getEvents, method: .get, parameters: nil, encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {
             response in
             switch response.result {
             case .success(_):
@@ -118,12 +111,6 @@ class ProfileViewController: UIViewController {
                 print("Failed to retrive User Info")
             }
         })
-     
-       
-        
-    
-        
-        
         
     }
 
@@ -143,7 +130,7 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func logOut(_ sender: Any) {
-        let url = URL(string: "https://testapi.hackfsu.com")
+        let url = URL(string: routes.domain)
         let cstorage = HTTPCookieStorage.shared
         //profileEventsArray.removeAll()
         if let cookies = cstorage.cookies(for: url!) {
@@ -159,7 +146,7 @@ class ProfileViewController: UIViewController {
                 context.delete(object)
             }
             
-            print(result.count)
+            //print(result.count)
             do {
                 try context.save() // <- remember to put this :)
             } catch {
@@ -174,8 +161,7 @@ class ProfileViewController: UIViewController {
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
         {
             (result : UIAlertAction) -> Void in
-            print("You pressed OK")
-            
+        
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController")
             self.present(vc!, animated: true, completion: nil)
         }
@@ -194,7 +180,7 @@ class ProfileViewController: UIViewController {
     
     
     func setupProfile(){
-        Alamofire.request("https://testapi.hackfsu.com/api/user/get/events", method: .get, parameters: nil, encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {
+        Alamofire.request(routes.getEvents, method: .get, parameters: nil, encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {
             response in
             switch response.result {
             case .success(_):
@@ -207,7 +193,7 @@ class ProfileViewController: UIViewController {
                     }
                 }
             case .failure(_):
-                print("Failed to retrive User Info")
+                print("Failed to retrive events")
             }
         })
         
@@ -225,7 +211,6 @@ class ProfileViewController: UIViewController {
         } catch {
             
         }
-        print(yourArray[0])
         
         backgroundURL = NSURL(string: yourArray[0].qrURL!)!
         name.text = yourArray[0].firstname! + " " + yourArray[0].lastname!

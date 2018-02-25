@@ -22,7 +22,7 @@ class adminPanelViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Alamofire.request("https://testapi.hackfsu.com/api/hacker/get/events", method: .get, parameters: nil, encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {
+        Alamofire.request(routes.getHackerEvents, method: .get, parameters: nil, encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {
             response in
             //print(response)
             
@@ -68,7 +68,7 @@ extension adminPanelViewController: UITableViewDelegate, UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        print("In here")
+        //print("In here")
         let footerView = UIView()
         footerView.backgroundColor =  UIColor.gray
         footerView.alpha = 1
@@ -94,7 +94,7 @@ extension adminPanelViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(adminOptions[indexPath.row])
+        //print(adminOptions[indexPath.row])
         
         if adminOptions[indexPath.row] == "Scan"{
             let vc = storyboard?.instantiateViewController(withIdentifier: "eventLabel")

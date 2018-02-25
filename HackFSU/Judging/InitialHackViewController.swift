@@ -78,9 +78,9 @@ class InitialHackViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool){
         
        
-        Alamofire.request("https://testapi.hackfsu.com/api/judge/hacks", method: .get, parameters: nil, encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {
+        Alamofire.request(routes.getHacks, method: .get, parameters: nil, encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {
             response in
-            print(response)
+            //print(response)
             
             switch response.result {
             case .success(_):
