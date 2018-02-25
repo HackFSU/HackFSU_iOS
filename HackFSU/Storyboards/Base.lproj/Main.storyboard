@@ -544,7 +544,7 @@
                                             <constraint firstAttribute="width" constant="60" id="jMP-It-RNC"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-BoldItalic" family="Avenir Next" pointSize="14"/>
-                                        <state key="normal" title="ZERO">
+                                        <state key="normal" title="ONE">
                                             <color key="titleColor" red="0.54074230209999996" green="0.1939292239" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <variation key="default">
@@ -569,7 +569,7 @@
                                             <constraint firstAttribute="width" constant="60" id="wPd-TV-rHI"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-BoldItalic" family="Avenir Next" pointSize="14"/>
-                                        <state key="normal" title="ONE">
+                                        <state key="normal" title="TWO">
                                             <color key="titleColor" red="0.54074230209999996" green="0.1939292239" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <variation key="default">
@@ -593,7 +593,7 @@
                                             <constraint firstAttribute="width" constant="56" id="m2C-rh-QV8"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-BoldItalic" family="Avenir Next" pointSize="14"/>
-                                        <state key="normal" title="TWO">
+                                        <state key="normal" title="THREE">
                                             <color key="titleColor" red="0.54074230209999996" green="0.1939292239" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <variation key="default">

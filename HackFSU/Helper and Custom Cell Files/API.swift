@@ -31,6 +31,7 @@ class API {
         let firstName = theJSON["first_name"].stringValue
         let lastName = theJSON["last_name"].stringValue
         let qrAddr = theJSON["qr"].stringValue
+        let hex = theJSON["hexcode"].stringValue
         
         var g = [String]()
         
@@ -44,6 +45,7 @@ class API {
         user.lastname = lastName
         user.groups = g
         user.qrURL = qrAddr
+        user.hex = hex
     
         
    
@@ -78,10 +80,10 @@ class API {
                     //assigning eventjson the inside json
                     let eventjson = items.1
                     
-                    
                     //accessing additional infomation outside that will be
                     //needed regardless of if there is an end date or not
                     let nameinfo = eventjson["name"].string!
+                    
                     let descriptioninfo = eventjson["description"].string!
                     
                     //this is here in case we don't have an end time, so we don't crash the application
@@ -135,7 +137,7 @@ class API {
                 }
                 
                 //erasing null event to hold place
-                allinfo.removeFirst()
+                //allinfo.removeFirst()
                 //assigning schedule to global variable schedule
                 schedule = allinfo
 

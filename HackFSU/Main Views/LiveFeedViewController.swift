@@ -232,9 +232,10 @@ extension LiveFeedViewController:   UITableViewDelegate, UITableViewDataSource, 
                     let dictionary = ["submitted_time":String(describing: convertedTime), "title":givenTitle,"description":givenContent, "day":dayofWeek]
                     
                     //dictionary insertion
-                    if !allinfo.contains(where: {$0 == dictionary}){
-                        allinfo.append(dictionary)
-                    }
+//                    if !allinfo.contains(where: {$0 == dictionary}){
+//                        allinfo.append(dictionary)
+//                    }
+                    allinfo.append(dictionary)
                     
                     //assigning livefeed to global variable liveFeedNotifications
                     liveFeedNotifications = allinfo
@@ -243,7 +244,7 @@ extension LiveFeedViewController:   UITableViewDelegate, UITableViewDataSource, 
                  loadedLiveFeed = true
                 self.latestUpdate = liveFeedNotifications[0]
                 
-                liveFeedNotifications.removeFirst()
+                //liveFeedNotifications.removeFirst()
                 
 
                 

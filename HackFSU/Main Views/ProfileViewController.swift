@@ -217,7 +217,7 @@ class ProfileViewController: UIViewController {
         
         if yourArray[0].groups!.count == 2 {
             //two roles, either judge and organizer, or hacker and attendee
-            position.text = yourArray[0].groups![0] + " | " + yourArray[0].groups![1]
+            position.text = yourArray[0].groups![0] + " | " + yourArray[0].groups![1] + "\t#" + yourArray[0].hex!
             if yourArray[0].groups!.contains("judge") && yourArray[0].groups!.contains("organizer") {
                 leftButton.setTitle("Let's Vote!", for: .normal)
                 rightButton.setTitle("Admin Panel", for: .normal)
@@ -248,7 +248,7 @@ class ProfileViewController: UIViewController {
             
             
             
-            position.text = yourArray[0].groups![0]
+            position.text = yourArray[0].groups![0] + "\t#" + yourArray[0].hex!
             if yourArray[0].groups!.contains("judge") {
                 leftButton.setTitle("Let's vote!", for: .normal)
                 

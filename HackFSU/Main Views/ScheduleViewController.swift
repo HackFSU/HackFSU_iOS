@@ -23,6 +23,7 @@ class ScheduleViewController: UIViewController {
         eventTableView.delegate = self
         eventTableView.dataSource = self
         self.navigationController?.isNavigationBarHidden = true
+        
   
     }
   

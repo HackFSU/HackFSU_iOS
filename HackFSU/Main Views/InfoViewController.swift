@@ -134,7 +134,7 @@ class InfoViewController: UIViewController, UIScrollViewDelegate {
     
     
     @IBAction func clickedNewLevel(_ sender: UIButton) {
-        if sender.titleLabel?.text! == "ZERO"{
+        if sender.titleLabel?.text! == "ONE"{
             //1st Floor (Basement)
             for images in imageURlDict{
                 if images["title"] == "1st Floor (Basement)"{
@@ -146,7 +146,7 @@ class InfoViewController: UIViewController, UIScrollViewDelegate {
             thirdFloorButton.layer.borderWidth = 0
             
             
-        }else if sender.titleLabel?.text! == "ONE"{
+        }else if sender.titleLabel?.text! == "TWO"{
             //2nd Floor (Entrance Level)
             for images in imageURlDict{
                 if images["title"] == "2nd Floor (Entrance Level)"{
@@ -159,7 +159,7 @@ class InfoViewController: UIViewController, UIScrollViewDelegate {
             thirdFloorButton.layer.borderWidth = 0
             
             
-        }else if sender.titleLabel?.text! == "TWO"{
+        }else if sender.titleLabel?.text! == "THREE"{
             //3rd Floor (Upper Level)
             for images in imageURlDict{
                 if images["title"] == "3rd Floor (Upper Level)"{

@@ -20,9 +20,8 @@ class routes {
     static let uploadHacks = domain + "/api/judge/hacks/upload"
     static let getHacks = domain + "/api/judge/hacks"
     static let getHackerEvents = domain + "/api/hacker/get/events"
+    static let getMaps = domain + "/api/hackathon/get/maps"
+    static let getScheduleItems = domain + "/api/hackathon/get/schedule_items"
     
-    //THIS NEEDS TO BE CHANGED!!!!
-    static let getScheduleItems = "https://2017.hackfsu.com/api/hackathon/get/schedule_items"
-    static let getMaps = "https://2017.hackfsu.com/api/hackathon/get/maps"
     
 }
