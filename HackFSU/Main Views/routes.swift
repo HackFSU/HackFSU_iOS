@@ -9,7 +9,7 @@
 import Foundation
 
 class routes {
-    static let domain = "https://testapi.hackfsu.com"
+    static let domain = "https://api.hackfsu.com"
     static let getUserProfile = domain + "/api/user/get/profile"
     static let registerForPushNoti = domain + "/api/push/register"
     static let getEvents = domain + "/api/user/get/events"
