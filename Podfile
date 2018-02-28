@@ -5,6 +5,7 @@ use_frameworks!
 target 'HackFSU' do
     pod 'Alamofire', '~> 4.6'
     pod 'SwiftyJSON'
+    pod 'Reachability'
     pod 'Agrume', :git => 'https://github.com/JanGorman/Agrume.git'
 end
 
