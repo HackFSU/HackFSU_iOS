@@ -54,10 +54,10 @@ class LiveFeedViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.sectionFooterHeight = CGFloat(2)
-
+        
         addLiveInfomationFirst()
         
-        //print(UIDevice.current.modelName)
+        
         
         liveFeedBanner.layer.position = CGPoint(x: (0.565*self.view.bounds.height)/4, y: (0.5*self.view.bounds.height)/4)
         
@@ -83,6 +83,10 @@ class LiveFeedViewController: UIViewController {
             } catch {
                 
             }
+            
+            addLiveInfomationFirst()
+            
+            
         }
     }
     
@@ -144,7 +148,8 @@ extension LiveFeedViewController:   UITableViewDelegate, UITableViewDataSource, 
             cell.latestUpdateTime.text = latestUpdate["submitted_time"]!
             cell.latestUpdateDescription.text = latestUpdate["description"]
             
-            cellHeight = 175 + Double(cell.latestUpdateDescription.text.count)/3.0
+            cellHeight = 120 + Double(cell.latestUpdateDescription.text.count)/2.5
+            
             return cell
         }
         
@@ -213,7 +218,7 @@ extension LiveFeedViewController:   UITableViewDelegate, UITableViewDataSource, 
     func addLiveInfomationFirst(){
         
         var allinfo = [Dictionary<String, String>]()
-        
+        liveFeedNotifications.removeAll()
         Alamofire.request(URL(string: routes.getUpdates)!).responseJSON { response in
             do{
                 let OGjson = try JSON(data: response.data!)
@@ -231,20 +236,16 @@ extension LiveFeedViewController:   UITableViewDelegate, UITableViewDataSource, 
                     
                     let dictionary = ["submitted_time":String(describing: convertedTime), "title":givenTitle,"description":givenContent, "day":dayofWeek]
                     
-                    //dictionary insertion
-//                    if !allinfo.contains(where: {$0 == dictionary}){
-//                        allinfo.append(dictionary)
-//                    }
+                    
                     allinfo.append(dictionary)
                     
                     //assigning livefeed to global variable liveFeedNotifications
                     liveFeedNotifications = allinfo
                     
                 }
-                 loadedLiveFeed = true
+                loadedLiveFeed = true
                 self.latestUpdate = liveFeedNotifications[0]
                 
-                //liveFeedNotifications.removeFirst()
                 
 
                 

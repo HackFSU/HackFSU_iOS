@@ -8,8 +8,11 @@
 
 import Foundation
 
+let env = Bundle.main.infoDictionary!["API_ROUTE"] as! String
+
+
 class routes {
-    static let domain = "https://testapi.hackfsu.com"
+    static let domain = "https://" + env
     static let getUserProfile = domain + "/api/user/get/profile"
     static let registerForPushNoti = domain + "/api/push/register"
     static let getEvents = domain + "/api/user/get/events"

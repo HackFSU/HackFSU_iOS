@@ -30,6 +30,8 @@ class LoginVewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(routes.domain)
+        
         emailField.delegate = self
         passField.delegate = self
         
@@ -186,7 +188,7 @@ class LoginVewController: UIViewController, UITextFieldDelegate {
         } else if i <= 8 {
             return  #colorLiteral(red:1.00, green:0.38, blue:0.82, alpha:1.0)
         } else if i <= 12 {
-            return  #colorLiteral(red:1.00, green:0.95, blue:0.19, alpha:1.0)
+            return #colorLiteral(red:1.00, green:0.95, blue:0.19, alpha:1.0)
         } else {
             return #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         }
