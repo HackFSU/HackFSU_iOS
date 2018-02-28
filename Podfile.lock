@@ -1,11 +1,13 @@
 PODS:
   - Agrume (4.0.4)
   - Alamofire (4.6.0)
+  - Reachability (3.2)
   - SwiftyJSON (4.0.0)
 
 DEPENDENCIES:
   - Agrume (from `https://github.com/JanGorman/Agrume.git`)
   - Alamofire (~> 4.6)
+  - Reachability
   - SwiftyJSON
 
 EXTERNAL SOURCES:
@@ -20,8 +22,9 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Agrume: 123943d590fd0436a00642e37032da1814518153
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: e976984fa8740331d72ebd4f90d52cc704878a67
+PODFILE CHECKSUM: 25732932e064cb0c5decd10483cfd0508acb46e6
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.4.0.beta.2
