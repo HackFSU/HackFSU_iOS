@@ -67,7 +67,7 @@ class ProfileViewController: UIViewController {
     //reload all the scanned events
     override func viewWillDisappear(_ animated: Bool) {
         reloadScanEventsData()
-        setupProfile()
+        //setupProfile()
     }
     
     override func viewDidLoad() {
