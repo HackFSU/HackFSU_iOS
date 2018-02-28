@@ -7,7 +7,7 @@
 		<key>HackFSU.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>5</integer>
 		</dict>
 		<key>HackFSUWatch (Notification).xcscheme</key>
 		<dict>
@@ -17,7 +17,7 @@
 		<key>HackFSUWatch.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>6</integer>
 		</dict>
 	</dict>
 </dict>

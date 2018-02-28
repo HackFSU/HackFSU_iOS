@@ -66,10 +66,7 @@ class ScannerViewController: UIViewController, UITextFieldDelegate  {
             
             let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [AVCaptureDevice.DeviceType.builtInWideAngleCamera], mediaType: AVMediaType.video, position: .back)
             
-            //let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera, .builtInDuoCamera], mediaType: AVMediaType.video, position: .back)
-            
-            
-            //print(deviceDiscoverySession.devices)
+           
             guard let captureDevice = deviceDiscoverySession.devices.first else {
                 print("Failed to get the camera device")
                 return
@@ -158,18 +155,45 @@ class ScannerViewController: UIViewController, UITextFieldDelegate  {
                 "hacker" : manualHex
                 ] as [String : Any]
             
-            API.postRequest(url: URL(string: routes.scanURL)!, params: parameters) {
-                (statuscode) in
+            
+            
+            Alamofire.request(routes.scanURL, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {
+                response in
                 
-                if statuscode == 200 {
-                    self.hackerNameLabel.text = manualHex
+                let responseData = response.result.value as! Dictionary<String,Any>
+                
+                print(response)
+                
+                
+                
+                if (responseData["status"] as! Int) == 200{
+                    self.hackerNameLabel.text = (responseData["message"] as! String)
+                    self.signedInLabel.text = (responseData["name"] as! String)
+                    self.signedInLabel.isHidden = false
+                    self.hackerNameLabel.isHidden = false
+                    self.continueScanningButton.layer.isHidden = false
+                    self.view.endEditing(true)
+                    self.captureSession.stopRunning()
+                }else if (responseData["status"] as! Int) == 401{
+                    self.hackerNameLabel.text = (responseData["message"] as! String)
+                    self.signedInLabel.text = (responseData["name"] as! String)
+                    self.signedInLabel.isHidden = false
+                    self.hackerNameLabel.isHidden = false
+                    self.continueScanningButton.layer.isHidden = false
+                    self.view.endEditing(true)
+                    self.captureSession.stopRunning()
+                    
+                }else{
+                    //something is wrong
+                    self.hackerNameLabel.text = (responseData["message"] as! String)
+                    self.signedInLabel.text = (responseData["name"] as! String)
                     self.signedInLabel.isHidden = false
                     self.hackerNameLabel.isHidden = false
                     self.continueScanningButton.layer.isHidden = false
                     self.view.endEditing(true)
                     self.captureSession.stopRunning()
                 }
-            }
+            })
             
         }
     }
@@ -206,7 +230,7 @@ extension ScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
 
                 Alamofire.request(routes.scanURL, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {
                     response in
-                    let statusCode = response.response?.statusCode
+                    //let statusCode = response.response?.statusCode
                     let responseData = response.result.value as! Dictionary<String,Any>
                     
                     //print(responseData!)
