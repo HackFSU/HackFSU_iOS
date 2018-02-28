@@ -149,10 +149,15 @@ class ScannerViewController: UIViewController, UITextFieldDelegate  {
     
     
     @IBAction func clickedSubmit(_ sender: Any) {
-        if let manualHex = manualHexField.text {
+        
+        var manualHex = (manualHexField.text)
+        print(manualHex!)
+        manualHex = manualHex?.trimmingCharacters(in: .whitespaces)
+        
+        if manualHex?.count == 6 {
             let parameters = [
                 "event": id,
-                "hacker" : manualHex
+                "hacker" : manualHex!
                 ] as [String : Any]
             
             
