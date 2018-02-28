@@ -17,6 +17,8 @@
 		B91491AC2009BCB7006FD7DF /* InitialHackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91491AA2009BCB7006FD7DF /* InitialHackViewController.swift */; };
 		B91F44B0202226D500DCA395 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91F44AF202226D500DCA395 /* ScannerViewController.swift */; };
 		B945439420123141002F326B /* LiveFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B945439320123141002F326B /* LiveFeedTableViewCell.swift */; };
+		B95F2DA720471EC4007865A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF5A18571F8A998600803F50 /* LaunchScreen.storyboard */; };
+		B95F2DA820471EC5007865A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF5A18571F8A998600803F50 /* LaunchScreen.storyboard */; };
 		B977B8EE20325D8A00271ADA /* PostAnnouncement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B977B8ED20325D8A00271ADA /* PostAnnouncement.swift */; };
 		B99698D02023F8C5002A91B7 /* EventSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99698CF2023F8C5002A91B7 /* EventSelectionViewController.swift */; };
 		B9A589702029120F000BF51A /* HackFSUWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B9A5896F2029120F000BF51A /* HackFSUWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -94,6 +96,7 @@
 		B91491AA2009BCB7006FD7DF /* InitialHackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialHackViewController.swift; sourceTree = "<group>"; };
 		B91F44AF202226D500DCA395 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		B945439320123141002F326B /* LiveFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveFeedTableViewCell.swift; sourceTree = "<group>"; };
+		B95F2DAA20471EC7007865A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		B977B8ED20325D8A00271ADA /* PostAnnouncement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostAnnouncement.swift; path = "HackFSU/Backend Views/PostAnnouncement.swift"; sourceTree = SOURCE_ROOT; };
 		B99698CF2023F8C5002A91B7 /* EventSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSelectionViewController.swift; sourceTree = "<group>"; };
 		B9A589632029120F000BF51A /* HackFSUWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackFSUWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -492,6 +495,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B95F2DA720471EC4007865A9 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,6 +503,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B95F2DA820471EC5007865A9 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,6 +660,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				DF5A18581F8A998600803F50 /* Base */,
+				B95F2DAA20471EC7007865A9 /* en */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -845,6 +851,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8869AA6F541FA6D71D6D689B /* Pods-HackFSU.debug.xcconfig */;
 			buildSettings = {
+				API_ROUTE = testapi.hackfsu.com;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HackFSU/HackFSU.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -863,6 +870,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5DFE20503AECE17FCC104065 /* Pods-HackFSU.release.xcconfig */;
 			buildSettings = {
+				API_ROUTE = api.hackfsu.com;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HackFSU/HackFSU.entitlements;
 				CODE_SIGN_STYLE = Automatic;

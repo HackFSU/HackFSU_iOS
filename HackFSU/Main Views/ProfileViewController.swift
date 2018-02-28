@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SceneKit
 import Alamofire
 import CoreData
 import SwiftyJSON
@@ -37,6 +38,20 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var leftButton: UIButton!
     @IBOutlet weak var rightButton: UIButton!
     
+    var timer = Timer()
+    
+    
+    func scheduledTimerWithTimeInterval(){
+        // Scheduling timer to Call the function "updateCounting" with the interval of 1 seconds
+        timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.updateCounting), userInfo: nil, repeats: true)
+    }
+    
+    @objc func updateCounting(){
+        reloadScanEventsData()
+    }
+    
+    
+    
     
     
     func reloadScanEventsData(){
@@ -64,14 +79,9 @@ class ProfileViewController: UIViewController {
         })
     }
     
-    //reload all the scanned events
-    override func viewWillDisappear(_ animated: Bool) {
-        reloadScanEventsData()
-        setupProfile()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        scheduledTimerWithTimeInterval()
         if leftButton.titleLabel?.text == "Admin Panel"{
             leftButton.layer.position = CGPoint(x: (2.5*self.view.bounds.width)/5, y: (4.25*self.view.bounds.height)/2)
             rightButton.layer.position = CGPoint(x: (3.75*self.view.bounds.width)/5, y: (4.25*self.view.bounds.height)/2)
@@ -79,6 +89,7 @@ class ProfileViewController: UIViewController {
             leftButton.layer.position = CGPoint(x: (2.5*self.view.bounds.width)/5, y: (4.25*self.view.bounds.height)/2)
             rightButton.layer.position = CGPoint(x: (3.75*self.view.bounds.width)/5, y: (4.25*self.view.bounds.height)/2)
         }
+        
         reloadScanEventsData()
         setupProfile()
         
@@ -142,7 +153,8 @@ class ProfileViewController: UIViewController {
     @IBAction func logOut(_ sender: Any) {
         let url = URL(string: routes.domain)
         let cstorage = HTTPCookieStorage.shared
-        //profileEventsArray.removeAll()
+        profileEventsArray.removeAll()
+        
         if let cookies = cstorage.cookies(for: url!) {
             for cookie in cookies {
                 cstorage.deleteCookie(cookie)
@@ -150,19 +162,15 @@ class ProfileViewController: UIViewController {
         }
         
         if let result = try? context.fetch(fetchRequest) {
-            print(result)
             
             for object in result {
                 
                 context.delete(object)
             }
             
-            //print(result.count)
+            
             do {
                 try context.save() // <- remember to put this :)
-                for object in result {
-                   print(object)
-                }
             } catch {
                 print("Could not save context")
                 // Do something... fatalerror
@@ -329,13 +337,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
 
     
-    override func viewDidDisappear(_ animated: Bool) {
-        //if animateButton{
-        //    self.leftButton.isHidden = false
-        //   setupProfile()
-            
-       // }
-    }
+    
     
     
 }

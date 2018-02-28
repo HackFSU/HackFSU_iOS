@@ -51,7 +51,7 @@ class InfoViewController: UIViewController, UIScrollViewDelegate {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         mapDisplayImage.isUserInteractionEnabled = true
         mapDisplayImage.addGestureRecognizer(tapGestureRecognizer)
-        
+        /*
         if !inMap {
             mapView.layer.isHidden = true
             aboutButton.layer.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
@@ -59,17 +59,17 @@ class InfoViewController: UIViewController, UIScrollViewDelegate {
             
         }else {
             mapView.layer.isHidden = false
-        }
+        }*/
         
-        mapButton.layer.borderWidth = 1
-        mapButton.layer.cornerRadius = 15
-        mapButton.layer.masksToBounds = true
-        mapButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        //mapButton.layer.borderWidth = 1
+        //mapButton.layer.cornerRadius = 15
+        //mapButton.layer.masksToBounds = true
+        //mapButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         
-        aboutButton.layer.borderWidth = 1
-        aboutButton.layer.cornerRadius = 15
-        aboutButton.layer.masksToBounds = true
-        aboutButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        //aboutButton.layer.borderWidth = 1
+        //aboutButton.layer.cornerRadius = 15
+        //aboutButton.layer.masksToBounds = true
+        //aboutButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         
         //MAP FLOOR BUTTON SETUP
         //How to set purple borderColor
@@ -89,7 +89,7 @@ class InfoViewController: UIViewController, UIScrollViewDelegate {
         thirdFloorButton.layer.borderWidth = 0
         thirdFloorButton.layer.borderColor = #colorLiteral(red: 0.5397022367, green: 0.1908569932, blue: 0.9999027848, alpha: 1)
         
-        infoTextView.layer.position = CGPoint(x: infoView.bounds.midX, y: infoView.bounds.midY/1.45)
+        //infoTextView.layer.position = CGPoint(x: infoView.bounds.midX, y: infoView.bounds.midY/1.45)
         
         
         
@@ -98,7 +98,7 @@ class InfoViewController: UIViewController, UIScrollViewDelegate {
     
     
     @IBAction func clickedMap(_ sender: Any) {
-        if !inMap {
+        /*if !inMap {
          mapView.layer.isHidden = false
          mapButton.layer.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
          aboutButton.layer.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.0)
@@ -109,11 +109,11 @@ class InfoViewController: UIViewController, UIScrollViewDelegate {
          mapButton.setTitleColor(UIColor(red:0.70, green:0.49, blue:0.98, alpha:1.0), for: UIControlState.normal)
     
          inMap = true
-        }
+        }*/
         
     }
     @IBAction func clickAbout(_ sender: Any) {
-        if inMap {
+        /*if inMap {
             mapView.layer.isHidden = true
             aboutButton.layer.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
             mapButton.layer.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.0)
@@ -124,7 +124,7 @@ class InfoViewController: UIViewController, UIScrollViewDelegate {
             aboutButton.setTitleColor(UIColor(red:0.70, green:0.49, blue:0.98, alpha:1.0), for: UIControlState.normal)
         
             inMap = false
-        }
+        }*/
     }
    
     

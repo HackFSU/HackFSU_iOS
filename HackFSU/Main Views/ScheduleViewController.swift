@@ -26,7 +26,7 @@ class ScheduleViewController: UIViewController {
         
   
     }
-  
+    
     
     
     
@@ -108,13 +108,14 @@ extension ScheduleViewController:  UITableViewDelegate, UITableViewDataSource, U
             
         } else if schedule[indexPath.row]["day"] == "Friday"{
             cell.dayIdentifierCircle.image = #imageLiteral(resourceName: "FridayCircleMint")
+            cell.eventTimeLabel.textColor = #colorLiteral(red: 0.3775125742, green: 0.9109838605, blue: 0.9258005023, alpha: 1)
             
         }else if schedule[indexPath.row]["day"] == "Saturday"{
             cell.dayIdentifierCircle.image = #imageLiteral(resourceName: "SaturdayCirclePurple")
-            
+            cell.eventTimeLabel.textColor = #colorLiteral(red: 0.5397022367, green: 0.1908569932, blue: 0.9999027848, alpha: 1)
         }else if schedule[indexPath.row]["day"] == "Sunday"{
             cell.dayIdentifierCircle.image = #imageLiteral(resourceName: "SundayCirclePink")
-            
+            cell.eventTimeLabel.textColor = #colorLiteral(red: 0.9294117647, green: 0.462745098, blue: 0.7960784314, alpha: 1)
         }
         
         //assigning strings
@@ -201,6 +202,10 @@ extension ScheduleViewController:  UITableViewDelegate, UITableViewDataSource, U
             //It's before 12 PM in Military Time so display accordingly
             cell.eventTimeLabel.text = (String(mNumber % 12) + ":" + minutes + " AM")
         }
+        
+        
+        
+        
         
         return cell
     }
