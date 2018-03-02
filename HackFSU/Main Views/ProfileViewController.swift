@@ -12,6 +12,7 @@ import Alamofire
 import CoreData
 import SwiftyJSON
 
+var reversedEvents = false
 
 var profileEventsArray = [Dictionary<String,String>]()
 
@@ -65,10 +66,10 @@ class ProfileViewController: UIViewController {
                 let eventsJSON = JSON(response.result.value!)["events"]
                 for x in eventsJSON.arrayValue{
                     let newdictionary = ["name" : x["name"].stringValue,"time":x["time"].stringValue]
-                    
-                    if !profileEventsArray.contains(where: {$0 == newdictionary}){
-                        profileEventsArray.append(newdictionary)
-                    }
+                        if !profileEventsArray.contains(where: {$0 == newdictionary}){
+                        profileEventsArray.insert(newdictionary, at: 0)
+                        }
+
                 }
                 self.profileEventsCollectionView.reloadData()
                 //print(profileEventsArray)
@@ -91,7 +92,7 @@ class ProfileViewController: UIViewController {
         }
         
         reloadScanEventsData()
-        setupProfile()
+        //setupProfile()
         
         rightButton.layer.cornerRadius = 20
         leftButton.layer.cornerRadius = 20
@@ -103,30 +104,12 @@ class ProfileViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        
         setupProfile()
         reloadScanEventsData()
         //grabbing events to insert into collectionview
         profileEventsCollectionView.delegate = self
         profileEventsCollectionView.dataSource = self
         
-        //reloading events
-        Alamofire.request(routes.getEvents, method: .get, parameters: nil, encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {
-            response in
-            switch response.result {
-            case .success(_):
-                let eventsJSON = JSON(response.result.value!)["events"]
-                for x in eventsJSON.arrayValue{
-                    let newdictionary = ["name" : x["name"].stringValue,"time":x["time"].stringValue]
-                    
-                    if !profileEventsArray.contains(where: {$0 == newdictionary}){
-                        profileEventsArray.append(newdictionary)
-                    }
-                }
-            case .failure(_):
-                print("Failed to retrive User Info")
-            }
-        })
         
     }
 
@@ -211,11 +194,9 @@ class ProfileViewController: UIViewController {
                 let eventsJSON = JSON(response.result.value!)["events"]
                 for x in eventsJSON.arrayValue{
                     let newdictionary = ["name" : x["name"].stringValue,"time":x["time"].stringValue]
-                    
-                    if !profileEventsArray.contains(where: {$0 == newdictionary}){
-                        profileEventsArray.append(newdictionary)
-                    }
+                    profileEventsArray.insert(newdictionary, at: 0)
                 }
+                
             case .failure(_):
                 print("Failed to retrive events")
             }
@@ -244,11 +225,18 @@ class ProfileViewController: UIViewController {
         backgroundURL = NSURL(string: yourArray[0].qrURL!)!
         name.text = yourArray[0].firstname! + " " + yourArray[0].lastname!
         
+        position.text =  ""
         //displaying all the groups the person is a part of
-        position.text = yourArray[0].groups![0]
+        if yourArray[0].groups![0] != "attendee"{
+            position.text = yourArray[0].groups![0]
+        }
         for x in yourArray[0].groups!{
-            if x != yourArray[0].groups![0]{
-                position.text! += " | " + x
+            if x != "attendee" && !position.text!.contains(x){
+                if position.text!.count < 2{
+                    position.text! += x
+                }else{
+                    position.text! += " | " + x
+                }
             }
         }
         
